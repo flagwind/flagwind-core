@@ -17,7 +17,7 @@
     ],
     "license": "MIT",
     "author": "jason <jasonsoop@gmail.com>",
-    "homepage": "https://www.flagwind.org",
+    "homepage": "http://www.flagwind.org",
     "repository": {
         "type": "git",
         "url": "https://github.com/flagwind/flagwind.core.git"

@@ -1,3 +1,11 @@
+/*
+ * Authors:
+ *   Jason <jasonsoop@gmail.com>
+ *
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ */
+
 import { ArgumentException } from "../exceptions";
 
 /**
