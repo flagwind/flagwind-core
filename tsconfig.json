@@ -1,21 +1,33 @@
 {
-    "include": [
+    "include": 
+    [
         "./src/**/*"
     ],
-    "exclude": [
+    "exclude": 
+    [
         "node_modules",
         "dist"
     ],
-    "compilerOptions": {
+    "compilerOptions": 
+    {
         "module": "esnext",
         "target": "es5",
+        "moduleResolution": "node",
+        "stripInternal": true,
+        "pretty": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "strictNullChecks": false,
+        "suppressImplicitAnyIndexErrors": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "allowSyntheticDefaultImports": true,
-        "pretty": true,
         "declaration":true,
         "declarationDir":"./typings",
-        "lib": [
+        "lib": 
+        [
             "dom",
             "es5",
             "es2015.promise"
