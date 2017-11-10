@@ -3,7 +3,9 @@
     "version": "1.0.0",
     "description": "flagwind core library.",
     "scripts": {
-        "build": "node build/build.js"
+        "build": "node build/build.js",
+        "unit": "karma start test/unit/karma.conf.js",
+        "test": "npm run unit"
     },
     "files": [
         "src",
@@ -26,14 +28,24 @@
         "url": "https://github.com/flagwind/flagwind.core/issues"
     },
     "devDependencies": {
+        "@types/chai": "^4.0.4",
+        "@types/mocha": "^2.2.44",
         "@types/node": "^8.0.47",
         "babel-core": "^6.26.0",
         "babel-loader": "^7.1.2",
         "babel-preset-es2015": "^6.24.1",
+        "chai": "^4.1.2",
         "chalk": "^2.3.0",
         "del": "^3.0.0",
         "es6-promise": "^4.1.1",
+        "karma": "^1.7.1",
+        "karma-mocha": "^1.3.0",
+        "karma-mocha-reporter": "^2.2.5",
+        "karma-phantomjs-launcher": "^1.0.4",
+        "karma-webpack": "^2.0.5",
+        "mocha": "^4.0.1",
         "ora": "^1.3.0",
+        "phantomjs-prebuilt": "^2.1.16",
         "ts-loader": "^3.1.1",
         "tslint": "^5.8.0",
         "tslint-loader": "^3.5.3",

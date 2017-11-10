@@ -4,8 +4,8 @@ const webpack = require("webpack");
 const rimraf = require("rimraf");
 const chalk = require("chalk");
 const distPath = path.resolve(__dirname, "../dist");
-const webpackDevConfig = require("./webpack.lib.dev.config");
-const webpackProdConfig = require("./webpack.lib.prod.config");
+const webpackDevConfig = require("./webpack.dev.conf");
+const webpackProdConfig = require("./webpack.prod.conf");
 
 const build = function(config)
 {
@@ -61,13 +61,14 @@ rimraf(distPath, (error) =>
         // 输出构建成功
         console.log(chalk.yellow("Build complete.\n"));
     })
-    .catch(() => 
+    .catch((error) => 
     {
         // 停止旋转器
         spinner.stop();
-
+        
         // 输出构建错误
         console.log(chalk.red("Build failed with errors.\n"));
+        console.log(chalk.red(error));
 
         // 退出进程
         process.exit(1);
