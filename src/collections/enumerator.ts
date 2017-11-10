@@ -12,7 +12,6 @@ import { ArgumentException } from "../exceptions";
  * 支持对泛型集合的简单迭代。
  * 
  * @interface
- * @version 1.0.0
  * @author jason
  */
 export interface IEnumerator<T>
@@ -28,14 +27,13 @@ export interface IEnumerator<T>
      * 将枚举数推进到集合的下一个元素。
      * @returns boolean 如果枚举数已成功地推进到下一个元素，则为 true；如果枚举数传递到集合的末尾，则为 false。
      */
-    next(): boolean
+    next(): boolean;
 }
 
 /**
  * 表示一个默认的枚举器。
  * 
  * @class
- * @version 1.0.0
  * @author jason
  */
 export class Enumerator<T> implements IEnumerator<T>
@@ -47,8 +45,10 @@ export class Enumerator<T> implements IEnumerator<T>
     public constructor(items: Array<T>)
     {
         if(!items)
+        {
             throw new ArgumentException("items");
-        
+        }
+                
         this._index = 0;
         this._current = undefined;
         this._items = items;

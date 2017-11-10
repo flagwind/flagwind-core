@@ -15,7 +15,6 @@ import { KeyValuePair } from "./keyvaluepair";
  * IMap 类似于对象，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
  * 
  * @interface
- * @version 1.0.0
  * @author jason
  */
 export interface IMap<K, V> extends IEnumerable<KeyValuePair<K, V>>
@@ -87,7 +86,7 @@ export interface IMap<K, V> extends IEnumerable<KeyValuePair<K, V>>
      */
     getEnumerator(): IEnumerator<KeyValuePair<K, V>>;
     
-        /**
+    /**
      * 对 IEnumerable<T> 进行迭代处理。
      * @param  {(item:T,source:IEnumerable<T>)=>void} callback 每次迭代中执行的回掉函数，当前迭代项将传入该函数。
      * @param  {any} scope? 回掉函数中 this 所引用的对象。
@@ -101,14 +100,13 @@ export interface IMap<K, V> extends IEnumerable<KeyValuePair<K, V>>
  * Map 类似于对象，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
  * 
  * @class
- * @version 1.0.0
  * @author jason
  */
 export class Map<K, V> implements IMap<K, V>
 {
     private _keys: Array<K> = [];               // 键列表
     private _values: Array<V> = [];             // 值列表
-    
+
     /**
      * 获取 Map<K, V> 中实际包含的成员总数。
      * @property
@@ -118,7 +116,7 @@ export class Map<K, V> implements IMap<K, V>
     {
         return this._keys.length;
     }
-    
+
     /**
      * 设置键名 key 对应的键值为 value，然后返回整个 Map<K, V> 结构。
      * 如果 key 已经有值，则键值会被更新，否则就新生成该键。
@@ -131,7 +129,7 @@ export class Map<K, V> implements IMap<K, V>
         let keys = this._keys,
             index = keys.indexOf(key);
         
-        if(index == -1)
+        if(index === -1)
         {
             index = keys.length;
 
@@ -152,7 +150,7 @@ export class Map<K, V> implements IMap<K, V>
     {
         let index = this._keys.indexOf(key);
 
-        return index != -1 ? this._values[index] : undefined;
+        return index !== -1 ? this._values[index] : undefined;
     }
     
     /**
@@ -162,7 +160,7 @@ export class Map<K, V> implements IMap<K, V>
      */
     public has(key: K): boolean
     {
-        return this._keys.indexOf(key) != -1;
+        return this._keys.indexOf(key) !== -1;
     }
     
     /**
@@ -174,7 +172,7 @@ export class Map<K, V> implements IMap<K, V>
     {
         let index = this._keys.indexOf(key);
 
-        if(index != -1)
+        if(index !== -1)
         {
             // 删除键和值
             this._keys.splice(index, 1);
@@ -196,7 +194,7 @@ export class Map<K, V> implements IMap<K, V>
         this._values.length = 0;
     }
 
-        /**
+    /**
      * 返回一个循环访问集合的枚举器。
      * @returns IEnumerator
      */
@@ -250,7 +248,7 @@ export class Map<K, V> implements IMap<K, V>
     {
         let entries = new Array<KeyValuePair<K, V>>();
         
-        this.forEach((item, source) => 
+        this.forEach((item, source) =>
         {
             entries.push(new KeyValuePair<K, V>(item.key, item.value));
         });
@@ -267,7 +265,7 @@ export class Map<K, V> implements IMap<K, V>
     {
         let obj = Object.create(null);
         
-        this.forEach((item, source) => 
+        this.forEach((item, source) =>
         {
             obj[item.key] = item.value;
         });

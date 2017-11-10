@@ -3,7 +3,7 @@
  *   Jason <jasonsoop@gmail.com>
  *
  * Licensed under the MIT License.
- * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved.
  */
 
 import { IEnumerable } from "./enumerable";
@@ -11,10 +11,9 @@ import { IEnumerator, Enumerator } from "./enumerator";
 
 /**
  * 表示一个强类型列表。提供用于对列表进行搜索、排序和操作的方法。
- * ISet<T> 接受 null 作为引用类型的有效值，但是不允许有重复的元素。 
+ * ISet<T> 接受 null 作为引用类型的有效值，但是不允许有重复的元素。
  * 
  * @interface
- * @version 1.0.0
  * @author jason
  */
 export interface ISet<T> extends IEnumerable<T>
@@ -25,71 +24,71 @@ export interface ISet<T> extends IEnumerable<T>
      * @returns number
      */
     size: number;
-    
+
     /**
-     * 将元素添加到 ISet<T> 的结尾处。 
-     * @param  {T[]} ...values 要添加到 ISet<T> 末尾处的元素。
+     * 将元素添加到 ISet<T> 的结尾处。
+     * @param  {Array<T>} ...values 要添加到 ISet<T> 末尾处的元素。
      * @returns Set
      */
-    add(...values: T[]): ISet<T>;
-    
+    add(...values: Array<T>): ISet<T>;
+
     /**
      * 获取指定索引处的元素。
-     * @param  {number} index 要获得或设置的元素从零开始的索引。 
+     * @param  {number} index 要获得或设置的元素从零开始的索引。
      * @returns T 指定索引处的元素。
      */
     get(index: number): T;
-    
-        /**
-     * 设置指定索引处的元素。 
+
+    /**
+     * 设置指定索引处的元素。
      * @param  {number} index 设置的元素从零开始的索引。
      * @param  {T} value 元素值。
      * @returns void
      */
     set(index: number, value: T): void;
-    
+
     /**
-     * 从 ISet<T> 中移除特定元素的匹配项。 
+     * 从 ISet<T> 中移除特定元素的匹配项。
      * @param  {T} value 要从 ISet<T> 中移除的元素。
      * @returns boolean 如果成功移除 value，则为 true；否则为 false。如果在 ISet<T> 中没有找到 value，该方法也会返回 false。
      */
     delete(value: T): boolean;
-    
+
     /**
      * 移除 ISet<T> 的指定索引处的元素。
      * @param  {number} index 要移除的元素的从零开始的索引。
      * @returns void
      */
     deleteAt(index: number): void;
-    
+
     /**
-     * 从 ISet<T> 中移除所有元素。 
+     * 从 ISet<T> 中移除所有元素。
      * @returns void
      */
     clear(): void;
-    
+
     /**
-     * 搜索指定的元素，并返回整个 ISet<T> 中第一个匹配项的从零开始的索引。 
-     * @param  {T} value 要在 ISet<T> 中定位的元素。对于引用类型，该值可以为 null。 
+     * 搜索指定的元素，并返回整个 ISet<T> 中第一个匹配项的从零开始的索引。
+     * @param  {T} value 要在 ISet<T> 中定位的元素。对于引用类型，该值可以为 null。
      * @param  {number} index? 从零开始的搜索的起始索引。
-     * @returns number 如果在整个 ISet<T> 中找到 value 的第一个匹配项，则为该项的从零开始的索引；否则为 -1。 
+     * @returns number 如果在整个 ISet<T> 中找到 value 的第一个匹配项，则为该项的从零开始的索引；否则为 -1。
      */
     indexOf(value: T, index?: number): number;
-    
+
     /**
-     * 确定某元素是否在 ISet<T> 中。 
-     * @param  {T} value 要在 ISet<T> 中定位的元素。对于引用类型，该值可以为 null。 
-     * @returns boolean 如果在 ISet<T> 中找到 value，则为 true，否则为 false。 
+     * 确定某元素是否在 ISet<T> 中。
+     * @param  {T} value 要在 ISet<T> 中定位的元素。对于引用类型，该值可以为 null。
+     * @returns boolean 如果在 ISet<T> 中找到 value，则为 true，否则为 false。
      */
     has(value: T): boolean;
-    
+
     /**
      * 返回一个循环访问集合的枚举器。
      * @returns IEnumerator
      */
     getEnumerator(): IEnumerator<T>;
-    
-        /**
+
+    /**
      * 对 IEnumerable<T> 进行迭代处理。
      * @param  {(item:T,source:IEnumerable<T>)=>void} callback 每次迭代中执行的回掉函数，当前迭代项将传入该函数。
      * @param  {any} scope? 回掉函数中 this 所引用的对象。
@@ -104,7 +103,7 @@ export interface ISet<T> extends IEnumerable<T>
      * @returns void
      */
     forEach(callback: (value: T, index: number, set: ISet<T>) => void, scope?: any): void;
-    
+
     /**
      * 搜索与指定谓词所定义的条件相匹配的元素，并返回 ISet<T> 中第一个匹配元素。
      * @param  {(value:T,index:number,set:ISet<T>)=>boolean} callback 定义要搜索的元素的条件。
@@ -114,7 +113,7 @@ export interface ISet<T> extends IEnumerable<T>
     find(callback: (value: T, index: number, set: ISet<T>) => boolean, scope?: any): T;
 
     /**
-     * 使用指定的比较器对整个 ISet<T> 中的元素进行排序。 
+     * 使用指定的比较器对整个 ISet<T> 中的元素进行排序。
      * @param  {(a:T,b:T)=>number} comparer? 比较元素时要使用的比较器函数。
      * @returns void
      */
@@ -127,7 +126,7 @@ export interface ISet<T> extends IEnumerable<T>
      */
     union(source: ISet<T>): ISet<T>;
 
-        /**
+    /**
      * 获取包含 ISet<T> 中的值列表。
      * @returns Array
      */
@@ -136,10 +135,9 @@ export interface ISet<T> extends IEnumerable<T>
 
 /**
  * 表示一个强类型列表。提供用于对列表进行搜索、排序和操作的方法。
- * Set<T> 接受 null 作为引用类型的有效值，但是不允许有重复的元素。 
+ * Set<T> 接受 null 作为引用类型的有效值，但是不允许有重复的元素。
  * 
  * @class
- * @version 1.0.0
  * @author jason
  */
 export class Set<T> implements ISet<T>
@@ -166,11 +164,11 @@ export class Set<T> implements ISet<T>
     }
     
     /**
-     * 将元素添加到 Set<T> 的结尾处。 
+     * 将元素添加到 Set<T> 的结尾处。
      * @param  {T[]} ...values 要添加到 Set<T> 末尾处的元素。
      * @returns Set
      */
-    public add(...values: T[]): Set<T>
+    public add(...values: Array<T>): Set<T>
     {
         for(let value of values)
         {
@@ -185,7 +183,7 @@ export class Set<T> implements ISet<T>
     
     /**
      * 获取指定索引处的元素。
-     * @param  {number} index 要获得或设置的元素从零开始的索引。 
+     * @param  {number} index 要获得或设置的元素从零开始的索引。
      * @returns T 指定索引处的元素。
      */
     public get(index: number): T
@@ -194,7 +192,7 @@ export class Set<T> implements ISet<T>
     }
     
     /**
-     * 设置指定索引处的元素。 
+     * 设置指定索引处的元素。
      * @param  {number} index 设置的元素从零开始的索引。
      * @param  {T} value 元素值。
      * @returns void
@@ -202,7 +200,7 @@ export class Set<T> implements ISet<T>
     public set(index: number, value: T): void
     {
         let values = this._values;
-
+        
         if(index >= 0 && index < values.length)
         {
             if(!this.has(value))
@@ -213,7 +211,7 @@ export class Set<T> implements ISet<T>
     }
     
     /**
-     * 从 Set<T> 中移除特定元素的匹配项。 
+     * 从 Set<T> 中移除特定元素的匹配项。
      * @param  {T} value 要从 Set<T> 中移除的元素。
      * @returns boolean 如果成功移除 value，则为 true；否则为 false。如果在 Set<T> 中没有找到 value，该方法也会返回 false。
      */
@@ -221,8 +219,8 @@ export class Set<T> implements ISet<T>
     {
         let values = this._values,
             index = values.indexOf(value);
-        
-        if(index != -1)
+
+        if(index !== -1)
         {
             values.splice(index, 1);
 
@@ -248,7 +246,7 @@ export class Set<T> implements ISet<T>
     }
 
     /**
-     * 从 Set<T> 中移除所有元素。 
+     * 从 Set<T> 中移除所有元素。
      * @returns void
      */
     public clear(): void
@@ -257,10 +255,10 @@ export class Set<T> implements ISet<T>
     }
     
     /**
-     * 搜索指定的元素，并返回整个 Set<T> 中第一个匹配项的从零开始的索引。 
-     * @param  {T} value 要在 Set<T> 中定位的元素。对于引用类型，该值可以为 null。 
+     * 搜索指定的元素，并返回整个 Set<T> 中第一个匹配项的从零开始的索引。
+     * @param  {T} value 要在 Set<T> 中定位的元素。对于引用类型，该值可以为 null。
      * @param  {number} index? 从零开始的搜索的起始索引。
-     * @returns number 如果在整个 Set<T> 中找到 value 的第一个匹配项，则为该项的从零开始的索引；否则为 -1。 
+     * @returns number 如果在整个 Set<T> 中找到 value 的第一个匹配项，则为该项的从零开始的索引；否则为 -1。
      */
     public indexOf(value: T, index?: number): number
     {
@@ -268,13 +266,13 @@ export class Set<T> implements ISet<T>
     }
     
     /**
-     * 确定某元素是否在 Set<T> 中。 
-     * @param  {T} value 要在 Set<T> 中定位的元素。对于引用类型，该值可以为 null。 
-     * @returns boolean 如果在 Set<T> 中找到 value，则为 true，否则为 false。 
+     * 确定某元素是否在 Set<T> 中。
+     * @param  {T} value 要在 Set<T> 中定位的元素。对于引用类型，该值可以为 null。
+     * @returns boolean 如果在 Set<T> 中找到 value，则为 true，否则为 false。
      */
     public has(value: T): boolean
     {
-        return this._values.indexOf(value) != -1;
+        return this._values.indexOf(value) !== -1;
     }
     
     /**
@@ -299,14 +297,15 @@ export class Set<T> implements ISet<T>
      * @param  {any} scope? 回掉函数中 this 所引用的对象。
      * @returns void
      */
-    public forEach(callback: (value: T, source: IEnumerable<T>) => void, scope?: any): void
+    public forEach(callback: (value: T, source: IEnumerable<T>) => void, scope?: any): void;
     public forEach(): void
     {
         let values = this._values,
             callback = arguments[0],
             scope = arguments[1],
+            // tslint:disable-next-line:no-magic-numbers
             fromEnumerable = callback.length === 2;         // 标识是否从 IEnumerable 接口调用
-        
+
         for(let i = 0, len = values.length; i < len; i++)
         {
             fromEnumerable ? callback.call(scope, values[i], this) : callback.call(scope, values[i], i, this);
@@ -335,14 +334,14 @@ export class Set<T> implements ISet<T>
     }
     
     /**
-     * 使用指定的比较器对整个 Set<T> 中的元素进行排序。 
+     * 使用指定的比较器对整个 Set<T> 中的元素进行排序。
      * @param  {(a:T,b:T)=>number} comparer? 比较元素时要使用的比较器函数。
      * @returns void
      */
     public sort(comparer?: (a: T, b: T) => number): void
     {
         let values = this._values;
-        
+
         this._values = values.sort(comparer);
     }
     

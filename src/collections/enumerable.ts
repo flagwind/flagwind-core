@@ -12,7 +12,6 @@ import { IEnumerator } from "./enumerator";
  * 表示实现该接口的是一个可枚举的类型。
  * 
  * @interface
- * @version 1.0.0
  * @author jason
  */
 export interface IEnumerable<T>

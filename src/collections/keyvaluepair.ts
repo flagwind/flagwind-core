@@ -10,11 +10,9 @@
  * 定义可设置或检索的键/值对。
  * 
  * @class
- * @version 1.0.0
  * @author jason
  */
-export class KeyValuePair<K, V>
-{
+export class KeyValuePair<K, V> {
     private _key: K;
     private _value: V;
     
@@ -34,7 +32,7 @@ export class KeyValuePair<K, V>
      * @returns V
      */
     public get value(): V
-    {            
+    {
         return this._value;
     }
     
