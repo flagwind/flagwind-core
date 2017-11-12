@@ -63,10 +63,7 @@
 
         // 限定 switch 语句中的 case 必须带 break 或 return 结束
         "switch-final-break": [true, "always"],
-
-        // 禁止在类成员之外使用 this 关键字
-        "prefer-function-over-method": true,
-
+        
         // 禁止在 finally 语句中使用 return continue break throws
         "no-unsafe-finally": true,
 
@@ -78,10 +75,7 @@
 
         // 禁止使用 "arguments.callee"
         "no-arg": true,
-
-        // 禁止在条件语句里做赋值操作
-        "no-conditional-assignment": true,
-
+        
         // 禁止使用 import 语句多次引用同一个模块
         "no-duplicate-imports": true,
 

@@ -9,7 +9,7 @@
 
 import { IEnumerable } from "./enumerable";
 import { IEnumerator, Enumerator } from "./enumerator";
-import { KeyValuePair } from "./key_value_pair";
+import { KeyValuePair } from "./key-value-pair";
 
 /**
  * 表示一个用于存储键值对的数据结构。

@@ -7,7 +7,7 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { IEventProvider } from "./event_provider";
+import { IEventProvider } from "./event-provider";
 
 /**
  * 提供关于事件提供程序的功能。

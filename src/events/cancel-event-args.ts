@@ -7,7 +7,7 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { EventArgs } from "./event_args";
+import { EventArgs } from "./event-args";
 
 /**
  * 为可取消的事件提供数据。

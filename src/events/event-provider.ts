@@ -7,7 +7,7 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { EventArgs } from "./event_args";
+import { EventArgs } from "./event-args";
 
 /**
  * 定义用于添加或删除事件侦听器的方法，检查是否已注册特定类型的事件侦听器，并调度事件。
