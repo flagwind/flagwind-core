@@ -1,9 +1,10 @@
-/*
+/**
  * Authors:
- *   Jason <jasonsoop@gmail.com>
- *
- * Licensed under the MIT License.
- * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved.
+ *   @author jason <jasonsoop@gmail.com>
+ * 
+ * @module collections
+ * @license Licensed under the MIT License.
+ * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
 import { IEnumerable } from "./enumerable";
@@ -11,10 +12,9 @@ import { IEnumerator, Enumerator } from "./enumerator";
 
 /**
  * 表示一个强类型列表。提供用于对列表进行搜索、排序和操作的方法。
- * ISet<T> 接受 null 作为引用类型的有效值，但是不允许有重复的元素。
- * 
+ * @summary ISet<T> 接受 null 作为引用类型的有效值，但是不允许有重复的元素。
  * @interface
- * @author jason
+ * @version 1.0.0
  */
 export interface ISet<T> extends IEnumerable<T>
 {
@@ -135,10 +135,9 @@ export interface ISet<T> extends IEnumerable<T>
 
 /**
  * 表示一个强类型列表。提供用于对列表进行搜索、排序和操作的方法。
- * Set<T> 接受 null 作为引用类型的有效值，但是不允许有重复的元素。
- * 
+ * @summary Set<T> 接受 null 作为引用类型的有效值，但是不允许有重复的元素。
  * @class
- * @author jason
+ * @version 1.0.0
  */
 export class Set<T> implements ISet<T>
 {

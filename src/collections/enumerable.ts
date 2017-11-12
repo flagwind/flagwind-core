@@ -1,18 +1,18 @@
-/*
+/**
  * Authors:
- *   Jason <jasonsoop@gmail.com>
- *
- * Licensed under the MIT License.
- * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ *   @author jason <jasonsoop@gmail.com>
+ * 
+ * @module collections
+ * @license Licensed under the MIT License.
+ * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
 import { IEnumerator } from "./enumerator";
 
 /**
  * 表示实现该接口的是一个可枚举的类型。
- * 
  * @interface
- * @author jason
+ * @version 1.0.0
  */
 export interface IEnumerable<T>
 {

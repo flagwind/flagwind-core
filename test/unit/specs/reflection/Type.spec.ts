@@ -1,13 +1,14 @@
-/*
+/**
  * Authors:
- *   Jason <jasonsoop@gmail.com>
- *
- * Licensed under the MIT License.
- * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ *   @author jason <jasonsoop@gmail.com>
+ * 
+ * @module reflection
+ * @license Licensed under the MIT License.
+ * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
 import { assert } from "chai";
-import { Type } from "../../../../src/reflection/Type";
+import { Type } from "../../../../src/reflection/type";
 
 describe("TypeTest", () =>
 {
@@ -33,5 +34,5 @@ describe("TypeTest", () =>
         assert.isFalse(Type.isArray(numberValue));
         assert.isFalse(Type.isArray(booleanValue));
         assert.isFalse(Type.isArray(regexValue));
-    })
+    });
 });

@@ -1,16 +1,17 @@
-/*
+/**
  * Authors:
- *   Jason <jasonsoop@gmail.com>
- *
- * Licensed under the MIT License.
- * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ *   @author jason <jasonsoop@gmail.com>
+ * 
+ * @module reflection
+ * @license Licensed under the MIT License.
+ * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
 /**
  * 提供一些常用类型检测与反射相关的方法。
- * 
+ * @static
  * @class
- * @author jason
+ * @version 1.0.0
  */
 export class Type
 {
@@ -24,6 +25,7 @@ export class Type
     
     /**
      * 检测一个值是否为数组。
+     * @static
      * @param  {any} value
      * @returns boolean
      */
@@ -34,6 +36,7 @@ export class Type
 
     /**
      * 检测一个值是否为对象。
+     * @static
      * @param  {any} value
      * @returns boolean
      */
@@ -44,6 +47,7 @@ export class Type
 
     /**
      * 检测一个值是否为字符串。
+     * @static
      * @param  {any} value
      * @returns boolean
      */
@@ -54,6 +58,7 @@ export class Type
 
     /**
      * 检测一个值是否为日期。
+     * @static
      * @param  {any} value
      * @returns boolean
      */
@@ -64,6 +69,7 @@ export class Type
 
     /**
      * 检测一个值是否为正则表达式。
+     * @static
      * @param  {any} value
      * @returns boolean
      */
@@ -74,6 +80,7 @@ export class Type
 
     /**
      * 检测一个值是否为函数。
+     * @static
      * @param  {any} value
      * @returns boolean
      */
@@ -84,6 +91,7 @@ export class Type
 
     /**
      * 检测一个值是否为布尔值。
+     * @static
      * @param  {any} value
      * @returns boolean
      */
@@ -94,6 +102,7 @@ export class Type
 
     /**
      * 检测一个值是否为数值。
+     * @static
      * @param  {any} value
      * @returns boolean
      */
@@ -103,7 +112,8 @@ export class Type
     }
 
     /**
-     * 检测一个值是否为 null
+     * 检测一个值是否为 null。
+     * @static
      * @param  {any} value
      * @returns boolean
      */
@@ -114,6 +124,7 @@ export class Type
 
     /**
      * 检测一个值是否为 undefined。
+     * @static
      * @param  {any} value
      * @returns boolean
      */
@@ -124,6 +135,7 @@ export class Type
 
     /**
      * 检测一个值是否为 null 或 undefined。
+     * @static
      * @param  {any} value
      * @returns boolean
      */
@@ -134,6 +146,7 @@ export class Type
 
     /**
      * 表示一个字符串值是否为 null 或 undefined 或 空值。
+     * @static
      * @param  {string} value 要检测的字符串实例。
      * @returns boolean
      */
@@ -145,6 +158,7 @@ export class Type
     /**
      * 获取指定值的类型字符串(小写)。
      * @private
+     * @static
      * @param  {any} value
      * @returns string
      */

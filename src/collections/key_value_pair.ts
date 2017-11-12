@@ -1,18 +1,19 @@
-/*
+/**
  * Authors:
- *   Jason <jasonsoop@gmail.com>
- *
- * Licensed under the MIT License.
- * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ *   @author jason <jasonsoop@gmail.com>
+ * 
+ * @module collections
+ * @license Licensed under the MIT License.
+ * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
 /**
  * 定义可设置或检索的键/值对。
- * 
  * @class
- * @author jason
+ * @version 1.0.0
  */
-export class KeyValuePair<K, V> {
+export class KeyValuePair<K, V>
+{
     private _key: K;
     private _value: V;
     

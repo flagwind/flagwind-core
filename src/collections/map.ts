@@ -1,21 +1,21 @@
-/*
+/**
  * Authors:
- *   Jason <jasonsoop@gmail.com>
- *
- * Licensed under the MIT License.
- * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ *   @author jason <jasonsoop@gmail.com>
+ * 
+ * @module collections
+ * @license Licensed under the MIT License.
+ * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
 import { IEnumerable } from "./enumerable";
 import { IEnumerator, Enumerator } from "./enumerator";
-import { KeyValuePair } from "./key-value-pair";
+import { KeyValuePair } from "./key_value_pair";
 
 /**
  * 表示一个用于存储键值对的数据结构。
- * IMap 类似于对象，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
- * 
+ * @summary IMap 类似于对象，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
  * @interface
- * @author jason
+ * @version 1.0.0
  */
 export interface IMap<K, V> extends IEnumerable<KeyValuePair<K, V>>
 {
@@ -97,10 +97,9 @@ export interface IMap<K, V> extends IEnumerable<KeyValuePair<K, V>>
 
 /**
  * 表示一个用于存储键值对的数据结构。
- * Map 类似于对象，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
- * 
+ * @summary Map 类似于对象，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
  * @class
- * @author jason
+ * @version 1.0.0
  */
 export class Map<K, V> implements IMap<K, V>
 {

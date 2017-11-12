@@ -1,18 +1,18 @@
-/*
+/**
  * Authors:
- *   Jason <jasonsoop@gmail.com>
- *
- * Licensed under the MIT License.
- * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ *   @author jason <jasonsoop@gmail.com>
+ * 
+ * @module collections
+ * @license Licensed under the MIT License.
+ * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
 import { ArgumentException } from "../exceptions";
 
 /**
  * 支持对泛型集合的简单迭代。
- * 
  * @interface
- * @author jason
+ * @version 1.0.0
  */
 export interface IEnumerator<T>
 {
@@ -32,9 +32,8 @@ export interface IEnumerator<T>
 
 /**
  * 表示一个默认的枚举器。
- * 
  * @class
- * @author jason
+ * @version 1.0.0
  */
 export class Enumerator<T> implements IEnumerator<T>
 {
@@ -48,7 +47,7 @@ export class Enumerator<T> implements IEnumerator<T>
         {
             throw new ArgumentException("items");
         }
-                
+        
         this._index = 0;
         this._current = undefined;
         this._items = items;
@@ -71,7 +70,7 @@ export class Enumerator<T> implements IEnumerator<T>
     public next(): boolean
     {
         let items = this._items;
-
+        
         if(this._index < items.length)
         {
             this._current = items[this._index++];
