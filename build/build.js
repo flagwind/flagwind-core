@@ -14,25 +14,29 @@ const build = function(config)
         // 使用 webpack 开始构建
         webpack(config, (error, stats) => 
         {
-            // 如果构建过程中包含错误，则输出错误信息
-            if(error || stats.hasErrors())
+            if(error)
             {
-                reject(error);
+                return reject(error);
             }
-            else
+
+            // 输出构建过程中的统计信息
+            process.stdout.write(stats.toString(
             {
-                // 输出构建过程中的统计信息
-                process.stdout.write(stats.toString(
-                {
-                    colors: true, 
-                    modules: false, 
-                    children: false, 
-                    chunks: false, 
-                    chunkModules: false
-                }) + "\n\n");
+                colors: true, 
+                modules: false, 
+                children: false, 
+                chunks: false, 
+                chunkModules: false
+            }) + "\n\n");
+
+            if(stats.hasErrors())
+            {
+                reject(stats);
                 
-                resolve(stats);
+                return;
             }
+
+            resolve();
         });
     });
 };
@@ -65,11 +69,10 @@ rimraf(distPath, (error) =>
     {
         // 停止旋转器
         spinner.stop();
-        
+
         // 输出构建错误
         console.log(chalk.red("Build failed with errors.\n"));
-        console.log(chalk.red(error));
-
+        
         // 退出进程
         process.exit(1);
     });
