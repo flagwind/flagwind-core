@@ -13,4 +13,5 @@ export { ICommand, CommandBase } from "./command";
 export { CommandContext } from "./command-context";
 export { CommandExpression } from "./command-expression";
 export { CommandOptionCollection } from "./command-option-collection";
+export { ICommandExpressionParser, CommandExpressionParser } from "./command-expression-parser";
 export { ICommandExecutor, CommandExecutor } from "./command-executor";
