@@ -1,8 +1,9 @@
 /**
- * Authors:
- *   @author jason <jasonsoop@gmail.com>
+ * @file This file is part of `collections` module. 
  * 
- * @module collections
+ * Authors:
+ *      @author jason <jasonsoop@gmail.com>
+ * 
  * @license Licensed under the MIT License.
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
@@ -17,8 +18,8 @@ import { ArgumentException } from "../exceptions";
 export interface IEnumerator<T>
 {
     /**
-     * 当前遍历的值，如果已经遍历结束，则返回 undefined。
-     * 表示遍历是否结束。
+     * 获取当前遍历的值，如果已经遍历结束，则返回 undefined。
+     * @property
      * @returns T
      */
     current: T;
@@ -41,6 +42,16 @@ export class Enumerator<T> implements IEnumerator<T>
     private _current: T;
     private _index: number;
     
+    /**
+     * 获取当前遍历的值，如果已经遍历结束，则返回 undefined。
+     * @property
+     * @returns T
+     */
+    public get current(): T
+    {
+        return this._current;
+    }
+    
     public constructor(items: Array<T>)
     {
         if(!items)
@@ -51,16 +62,6 @@ export class Enumerator<T> implements IEnumerator<T>
         this._index = 0;
         this._current = undefined;
         this._items = items;
-    }
-    
-    /**
-     * 当前遍历的值，如果已经遍历结束，则返回 undefined。
-     * 表示遍历是否结束。
-     * @returns T
-     */
-    public get current(): T
-    {
-        return this._current;
     }
     
     /**

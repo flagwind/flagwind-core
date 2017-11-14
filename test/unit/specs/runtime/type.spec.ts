@@ -2,13 +2,14 @@
  * Authors:
  *   @author jason <jasonsoop@gmail.com>
  * 
- * @module reflection
+ * @module runtime
  * @license Licensed under the MIT License.
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
 import { assert } from "chai";
-import { Type } from "../../../../src/reflection/type";
+import { Type } from "../../../../src/runtime/type";
+import { Employee, Person, Gender } from "../../models/person";
 
 describe("TypeTest", () =>
 {
@@ -21,7 +22,11 @@ describe("TypeTest", () =>
     const numberValue = 1;
     const booleanValue = true;
     const regexValue = /^hello$/;
-    
+    const employee = new Employee("jason", 18);
+
+    /**
+     * 测试 isArray 方法。
+     */
     it("isArrayTest", () =>
     {
         assert.isTrue(Type.isArray(dynamicArray));
@@ -34,5 +39,27 @@ describe("TypeTest", () =>
         assert.isFalse(Type.isArray(numberValue));
         assert.isFalse(Type.isArray(booleanValue));
         assert.isFalse(Type.isArray(regexValue));
+    });
+
+    /**
+     * 测试 getClassName 方法。
+     */
+    it("getClassNameTest", () => 
+    {
+        // 获取类型名称
+        const className = Type.getClassName(employee);
+        
+        assert.equal(className, "Employee");
+    });
+    
+    /**
+     * 测试 getSuperclassName 方法。
+     */
+    it("getSuperclassNameTest", () => 
+    {
+        // 获取基类名称
+        const superClassName = Type.getSuperclassName(employee);
+
+        assert.equal(superClassName, "Person");
     });
 });

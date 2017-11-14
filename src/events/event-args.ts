@@ -1,8 +1,9 @@
 /**
- * Authors:
- *   @author jason <jasonsoop@gmail.com>
+ * @file This file is part of `events` module. 
  * 
- * @module events
+ * Authors:
+ *      @author jason <jasonsoop@gmail.com>
+ * 
  * @license Licensed under the MIT License.
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
@@ -38,12 +39,7 @@ export class EventArgs
     {
         return this._data;
     }
-    
-    /**
-     * 获取或设置与事件关联的可选数据。
-     * @property
-     * @param  {any} value
-     */
+   
     public set data(value: any)
     {
         this._data = value;

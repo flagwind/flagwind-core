@@ -1,13 +1,14 @@
 /**
- * Authors:
- *   @author jason <jasonsoop@gmail.com>
+ * @file This file is part of `events` module. 
  * 
- * @module events
+ * Authors:
+ *      @author jason <jasonsoop@gmail.com>
+ * 
  * @license Licensed under the MIT License.
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-export * from "./event-args";
-export * from "./cancel-event-args";
-export * from "./event-provider";
-export * from "./event-provider-factory";
+export { EventArgs } from "./event-args";
+export { CancelEventArgs } from "./cancel-event-args";
+export { IEventProvider } from "./event-provider";
+export { IEventProviderFactory } from "./event-provider-factory";

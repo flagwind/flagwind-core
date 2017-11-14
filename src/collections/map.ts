@@ -1,8 +1,9 @@
 /**
- * Authors:
- *   @author jason <jasonsoop@gmail.com>
+ * @file This file is part of `collections` module. 
  * 
- * @module collections
+ * Authors:
+ *      @author jason <jasonsoop@gmail.com>
+ * 
  * @license Licensed under the MIT License.
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
@@ -13,8 +14,8 @@ import { KeyValuePair } from "./key-value-pair";
 
 /**
  * 表示一个用于存储键值对的数据结构。
- * @summary IMap 类似于对象，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
  * @interface
+ * @description IMap 类似于对象，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
  * @version 1.0.0
  */
 export interface IMap<K, V> extends IEnumerable<KeyValuePair<K, V>>
@@ -88,7 +89,7 @@ export interface IMap<K, V> extends IEnumerable<KeyValuePair<K, V>>
     
     /**
      * 对 IEnumerable<T> 进行迭代处理。
-     * @param  {(item:T,source:IEnumerable<T>)=>void} callback 每次迭代中执行的回掉函数，当前迭代项将传入该函数。
+     * @param  {Function} callback 每次迭代中执行的回掉函数，当前迭代项将传入该函数。
      * @param  {any} scope? 回掉函数中 this 所引用的对象。
      * @returns void
      */
@@ -97,15 +98,15 @@ export interface IMap<K, V> extends IEnumerable<KeyValuePair<K, V>>
 
 /**
  * 表示一个用于存储键值对的数据结构。
- * @summary Map 类似于对象，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
  * @class
+ * @description Map 类似于对象，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
  * @version 1.0.0
  */
 export class Map<K, V> implements IMap<K, V>
 {
     private _keys: Array<K> = [];               // 键列表
     private _values: Array<V> = [];             // 值列表
-
+    
     /**
      * 获取 Map<K, V> 中实际包含的成员总数。
      * @property
@@ -206,7 +207,7 @@ export class Map<K, V> implements IMap<K, V>
     
     /**
      * 对 IEnumerable<T> 进行迭代处理。
-     * @param  {(item:T,source:IEnumerable<T>)=>void} callback 每次迭代中执行的回掉函数，当前迭代项将传入该函数。
+     * @param  {Function} callback 每次迭代中执行的回掉函数，当前迭代项将传入该函数。
      * @param  {any} scope? 回掉函数中 this 所引用的对象。
      * @returns void
      */

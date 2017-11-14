@@ -1,8 +1,9 @@
 /**
- * Authors:
- *   @author jason <jasonsoop@gmail.com>
+ * @file This file is part of `collections` module. 
  * 
- * @module collections
+ * Authors:
+ *      @author jason <jasonsoop@gmail.com>
+ * 
  * @license Licensed under the MIT License.
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
@@ -12,8 +13,8 @@ import { IEnumerator, Enumerator } from "./enumerator";
 
 /**
  * 表示一个强类型列表。提供用于对列表进行搜索、排序和操作的方法。
- * @summary ISet<T> 接受 null 作为引用类型的有效值，但是不允许有重复的元素。
  * @interface
+ * @description ISet<T> 接受 null 作为引用类型的有效值，但是不允许有重复的元素。
  * @version 1.0.0
  */
 export interface ISet<T> extends IEnumerable<T>
@@ -135,8 +136,8 @@ export interface ISet<T> extends IEnumerable<T>
 
 /**
  * 表示一个强类型列表。提供用于对列表进行搜索、排序和操作的方法。
- * @summary Set<T> 接受 null 作为引用类型的有效值，但是不允许有重复的元素。
  * @class
+ * @description Set<T> 接受 null 作为引用类型的有效值，但是不允许有重复的元素。
  * @version 1.0.0
  */
 export class Set<T> implements ISet<T>
@@ -313,7 +314,7 @@ export class Set<T> implements ISet<T>
     
     /**
      * 搜索与指定谓词所定义的条件相匹配的元素，并返回 Set<T> 中第一个匹配元素。
-     * @param  {(value:T,index:number,set:Set<T>)=>boolean} callback 定义要搜索的元素的条件。
+     * @param  {Function} callback 定义要搜索的元素的条件。
      * @param  {any} scope? 回掉函数中 this 所引用的对象。
      * @returns T
      */
@@ -334,7 +335,7 @@ export class Set<T> implements ISet<T>
     
     /**
      * 使用指定的比较器对整个 Set<T> 中的元素进行排序。
-     * @param  {(a:T,b:T)=>number} comparer? 比较元素时要使用的比较器函数。
+     * @param  {Function} comparer? 比较元素时要使用的比较器函数。
      * @returns void
      */
     public sort(comparer?: (a: T, b: T) => number): void

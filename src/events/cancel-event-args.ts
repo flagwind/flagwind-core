@@ -1,8 +1,9 @@
 /**
- * Authors:
- *   @author jason <jasonsoop@gmail.com>
+ * @file This file is part of `events` module. 
  * 
- * @module events
+ * Authors:
+ *      @author jason <jasonsoop@gmail.com>
+ * 
  * @license Licensed under the MIT License.
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
@@ -28,11 +29,6 @@ export class CancelEventArgs extends EventArgs
         return this._cancel;
     }
     
-    /**
-     * 获取或设置指示是否应取消事件。
-     * @property
-     * @param  {boolean} value
-     */
     public set cancel(value: boolean)
     {
         this._cancel = value;

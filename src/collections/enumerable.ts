@@ -1,8 +1,9 @@
 /**
- * Authors:
- *   @author jason <jasonsoop@gmail.com>
+ * @file This file is part of `collections` module. 
  * 
- * @module collections
+ * Authors:
+ *      @author jason <jasonsoop@gmail.com>
+ * 
  * @license Licensed under the MIT License.
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
@@ -24,7 +25,7 @@ export interface IEnumerable<T>
     
     /**
      * 对 IEnumerable<T> 进行迭代处理。
-     * @param  {(item:T,source:IEnumerable<T>)=>void} callback 每次迭代中执行的回掉函数，当前迭代项将传入该函数。
+     * @param  {Function} callback 每次迭代中执行的回掉函数，当前迭代项将传入该函数。
      * @param  {any} scope? 回掉函数中 this 所引用的对象。
      * @returns void
      */
