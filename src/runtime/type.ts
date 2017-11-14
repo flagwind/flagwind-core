@@ -155,6 +155,48 @@ export class Type
     {
         return Type.isEmptyObject(value) || value.trim() === "";
     }
+
+    /**
+     * 返回对象的类型(即构造函数)。
+     * @param  {string|any} value 实例或类型路径。
+     * @returns Function 如果成功解析则返回类型的构造函数，否则为 undefined。
+     */
+    public static getClassType(value: string | any): Function
+    {
+        if(Type.isEmptyObject(value))
+        {
+            return undefined;
+        }
+        else if(Type.isBoolean(value))
+        {
+            return Boolean;
+        }
+        else if(Type.isNumber(value))
+        {
+            return Number;
+        }
+        else if(Type.isString(value))
+        {
+            try
+            {
+                 // 通过 eval 解析字符串所指向的实际类型
+                // tslint:disable-next-line:no-eval
+                let ctor = eval(value);
+                
+                return Type.isFunction(ctor) ? ctor : undefined;
+            }
+            catch(e)
+            {
+                return undefined;
+            }
+        }
+        else
+        {
+            let prototype = value.prototype ? value.prototype : Object.getPrototypeOf(value);
+
+            return prototype.constructor;
+        }
+    }
     
     /**
      * 返回 value 参数指定的对象的类名。
@@ -249,6 +291,77 @@ export class Type
         }
 
         return superClass;
+    }
+    
+    /**
+     * 确定指定类型的实例是否可以分配给当前类型的实例。
+     * @param  {Function} parentType 指定基类的类型。
+     * @param  {Function} subType 指定的实例类型。
+     * @returns boolean
+     */
+    public static isAssignableFrom(parentType: Function | String, subType: Function): boolean
+    {
+        // 两个参数任意却少一个都不会进行比较
+        if(!parentType || !subType)
+        {
+            return false;
+        }
+     
+        // 如果基类等于子类，则直接返回 true
+        if(parentType === subType)
+        {
+            return true;
+        }
+
+        // 如果基类是 Object 则直接返回 true
+        if(parentType === Object || parentType === "Object")
+        {
+            return true;
+        }
+        
+        // 获取子类的原型实例
+        let subPrototype = subType.prototype;
+        
+        // 1.首先，如果原型中有定义"__types__"则直接根据类型名称查找
+        // 注意: "__types__" 这个属性是由 TypeScript 引擎在生成代码时加入的
+        if(subPrototype.hasOwnProperty("__types__"))
+        {
+            // 如果参数 parentType 不是字符串则获取基类的完全限定名称(包含命名空间)
+            let parentName = Type.isString(parentType) ? parentType : Type.getQualifiedClassName(parentType);
+            
+            // 通过"__types__"去匹配基类名称
+            return subPrototype["__types__"].indexOf(parentName) !== -1;
+        }
+
+        // 2.其次，如果类型没有定义"__types__"，则根据原型链进行查找
+        // 获取子类的直属父类型(即上一级父类)
+        let superType = Object.getPrototypeOf(subPrototype).constructor;
+
+        // 如果已经查到顶层还没匹配到，则直接返回 false
+        if(superType === Object)
+        {
+            return false;
+        }
+        
+        if(Type.isString(parentType))
+        {
+            // 如果传进来的基类是字符串，则根据上级父类的名称进行匹配
+            if(Type.getQualifiedClassName(superType) === parentType)
+            {
+                return true;
+            }
+        }
+        else
+        {
+            // 否则根据传递进来的基类与直属父类进行匹配
+            if(superType === parentType)
+            {
+                return true;
+            }
+        }
+        
+        // 3.最后，如果当前层没匹配到，则通过递归原型向上一级一级查找
+        return Type.isAssignableFrom(parentType, superType);
     }
     
     /**

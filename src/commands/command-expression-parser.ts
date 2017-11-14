@@ -316,7 +316,7 @@ export class CommandExpressionParser implements ICommandExpressionParser
             }
             else if(chr === ":" || chr === "=")
             {
-                if(state === CommandPairState.part && key)
+                if(key && state === CommandPairState.part && (quote === "\0" && !isEscaping))
                 {
                     state = CommandPairState.assign;
 

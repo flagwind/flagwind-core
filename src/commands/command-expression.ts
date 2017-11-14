@@ -186,7 +186,7 @@ export class CommandExpression
                 break;
             }
         }
-
+        
         this._fullPath = this._path + this._name;
         this._options = new CommandOptionCollection(options);
         this._arguments = args || new Array<string>();

@@ -57,7 +57,7 @@ export class CommandOptionCollection implements IEnumerable<KeyValuePair<string,
     {
         this._items = new Map<string, string>();
         
-        if(!items)
+        if(items)
         {
             items.forEach((item: KeyValuePair<string, string>) =>
             {

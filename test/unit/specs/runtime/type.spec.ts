@@ -1,8 +1,9 @@
 /**
- * Authors:
- *   @author jason <jasonsoop@gmail.com>
+ * @file This file is part of `runtime` module. 
  * 
- * @module runtime
+ * Authors:
+ *      @author jason <jasonsoop@gmail.com>
+ * 
  * @license Licensed under the MIT License.
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
@@ -61,5 +62,25 @@ describe("TypeTest", () =>
         const superClassName = Type.getSuperclassName(employee);
 
         assert.equal(superClassName, "Person");
+    });
+
+    /**
+     * 测试 getClassType 方法。
+     */
+    it("getClassTypeTest", () => 
+    {
+        let employeType = Type.getClassType(employee);
+        
+        assert.isTrue(employeType === Employee);
+    });
+
+    /**
+     * 测试 isAssignableFrom 方法。
+     */
+    it("isAssignableFromTest", () => 
+    {
+        assert.isTrue(Type.isAssignableFrom(Person, Employee));
+        
+        assert.isTrue(Type.isAssignableFrom("Person", Employee));
     });
 });
