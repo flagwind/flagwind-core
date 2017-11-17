@@ -1,4 +1,4 @@
-/**
+/*!
  * @file This file is part of `utils` module. 
  * 
  * Authors:
@@ -8,6 +8,6 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-export { CharUtils } from "./char-utils";
-export { StringUtils } from "./string-utils";
-export { RegexUtils } from "./regex-utils";
+export { CharUtils } from "./char_utils";
+export { StringUtils } from "./string_utils";
+export { RegexUtils } from "./regex_utils";

@@ -1,4 +1,4 @@
-/**
+/*!
  * @file This file is part of `commands` module. 
  * 
  * Authors:
@@ -12,7 +12,7 @@ import { InvalidOperationException } from "../exceptions";
 import { Type } from "../runtime";
 import { Activator } from "../reflection";
 import { ICommand, CommandBase } from "./command";
-import { CommandExecutor } from "./command-executor";
+import { CommandExecutor } from "./command_executor";
 
 // tslint:disable-next-line:only-arrow-functions
 export function command(path: string)

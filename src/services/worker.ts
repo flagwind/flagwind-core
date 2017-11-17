@@ -1,4 +1,4 @@
-/**
+/*!
  * @file This file is part of `services` module. 
  * 
  * Authors:

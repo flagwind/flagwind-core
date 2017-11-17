@@ -1,4 +1,4 @@
-/**
+/*!
  * @file This file is part of `broadcast` module. 
  * 
  * Authors:
@@ -9,10 +9,10 @@
  */
 
 export { Broadcast } from "./broadcast";
-export { BroadcastPriority } from "./broadcast-priority";
-export { BroadcastContract } from "./broadcast-contract";
-export { BroadcastContext } from "./broadcast-context";
-export { IBroadcastReceiver } from "./broadcast-receiver";
-export { IBroadcastReceiverProvider, BroadcastReceiverProvider } from "./broadcast-receiver-provider";
-export { BroadcastReceiverEntry } from "./broadcast-receiver-entry";
-export { BroadcastManager } from "./broadcast-manager";
+export { BroadcastPriority } from "./broadcast_priority";
+export { BroadcastContract } from "./broadcast_contract";
+export { BroadcastContext } from "./broadcast_context";
+export { IBroadcastReceiver } from "./broadcast_receiver";
+export { IBroadcastReceiverProvider, BroadcastReceiverProvider } from "./broadcast_receiver-provider";
+export { BroadcastReceiverEntry } from "./broadcast_receiver-entry";
+export { BroadcastManager } from "./broadcast_manager";

@@ -1,4 +1,4 @@
-/**
+/*!
  * @file This file is part of `application` module. 
  * 
  * Authors:
@@ -10,7 +10,7 @@
 
 import { ArgumentException } from "../exceptions";
 import { EventArgs, CancelEventArgs } from "../events";
-import { ApplicationContextBase } from "./application-context";
+import { ApplicationContextBase } from "./application_context";
 
 /**
  * 应用程序事件参数类。

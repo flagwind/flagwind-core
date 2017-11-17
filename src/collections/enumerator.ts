@@ -1,4 +1,4 @@
-/**
+/*!
  * @file This file is part of `collections` module. 
  * 
  * Authors:

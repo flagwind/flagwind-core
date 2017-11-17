@@ -1,4 +1,4 @@
-/**
+/*!
  * @file This file is part of `services` module. 
  * 
  * Authors:
@@ -8,7 +8,7 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ServiceProviderFactory } from "./service-provider-factory";
+import { ServiceProviderFactory } from "./service_provider_factory";
 
 /**
  * 将当前类型注入至服务容器中。

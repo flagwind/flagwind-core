@@ -1,4 +1,4 @@
-/**
+/*!
  * @file This file is part of `commands` module. 
  * 
  * Authors:
@@ -11,7 +11,7 @@
 import { StringUtils } from "../utils";
 import { Type } from "../runtime";
 import { ArgumentException } from "../exceptions";
-import { CommandContext } from "./command-context";
+import { CommandContext } from "./command_context";
 
 /**
  * 扩展命令接口。

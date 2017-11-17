@@ -1,4 +1,4 @@
-/**
+/*!
  * @file This file is part of `application` module. 
  * 
  * Authors:
@@ -10,6 +10,6 @@
 
 export { IWorkspace } from "./workspace";
 export { IWorkbench } from "./workbench";
-export { ApplicationContextBase } from "./application-context";
-export { IApplicationModule } from "./application-module";
+export { ApplicationContextBase } from "./application_context";
+export { IApplicationModule } from "./application_module";
 export { Application, ApplicationEventArgs } from "./application";

@@ -1,4 +1,4 @@
-/**
+/*!
  * @file This file is part of `collections` module. 
  * 
  * Authors:
@@ -11,5 +11,5 @@
 export { IEnumerable } from "./enumerable";
 export { IEnumerator, Enumerator } from "./enumerator";
 export { ISet, Set } from "./set";
-export { KeyValuePair } from "./key-value-pair";
+export { KeyValuePair } from "./key_value_pair";
 export { IMap, Map } from "./map";

@@ -1,4 +1,4 @@
-/**
+/*!
  * @file This file is part of `commands` module. 
  * 
  * Authors:
@@ -10,8 +10,8 @@
 
 export { command } from "./decorators";
 export { ICommand, CommandBase } from "./command";
-export { CommandContext } from "./command-context";
-export { CommandExpression } from "./command-expression";
-export { CommandOptionCollection } from "./command-option-collection";
-export { ICommandExpressionParser, CommandExpressionParser } from "./command-expression-parser";
-export { ICommandExecutor, CommandExecutor } from "./command-executor";
+export { CommandContext } from "./command_context";
+export { CommandExpression } from "./command_expression";
+export { CommandOptionCollection } from "./command_option-collection";
+export { ICommandExpressionParser, CommandExpressionParser } from "./command_expression-parser";
+export { ICommandExecutor, CommandExecutor } from "./command_executor";

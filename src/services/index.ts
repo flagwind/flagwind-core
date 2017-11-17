@@ -1,4 +1,4 @@
-/*
+/*!
  * @file This file is part of `services` module. 
  * 
  * Authors:
@@ -9,9 +9,9 @@
  */
 
 export { service } from "./decorators";
-export { ServiceEntry } from "./service-entry";
-export { IServiceBuilder } from "./service-builder";
-export { IServiceStorage, ServiceStorageBase, ServiceStorage } from "./service-storage";
-export { IServiceProvider, ServiceProviderBase, ServiceProvider } from "./service-provider";
-export { IServiceProviderFactory, ServiceProviderFactory } from "./service-provider-factory";
+export { ServiceEntry } from "./service_entry";
+export { IServiceBuilder } from "./service_builder";
+export { IServiceStorage, ServiceStorageBase, ServiceStorage } from "./service_storage";
+export { IServiceProvider, ServiceProvider } from "./service_provider";
+export { IServiceProviderFactory, ServiceProviderFactory } from "./service_provider_factory";
 export { IWorker, WorkerBase, WorkerState, WorkerStateChangedEventArgs } from "./worker";
