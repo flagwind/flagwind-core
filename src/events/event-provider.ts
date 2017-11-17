@@ -39,6 +39,13 @@ export interface IEventProvider
     removeListener(type: string, listener: Function, scope?: any): void;
     
     /**
+     * 检查是否为特定事件类型注册了侦听器。
+     * @param  {string} type 事件类型。
+     * @returns boolean 如果指定类型的侦听器已注册，则值为 true；否则，值为 false。
+     */
+    hasListener(type: string): boolean;
+    
+    /**
      * 派发一个指定名称的事件。
      * @param  {string} type 事件类型。
      * @param  {any} data? 事件数据。

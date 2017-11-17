@@ -42,7 +42,7 @@ export class Activator
         
         if(Type.isString(type))
         {
-            type = type as string;
+            type = <string>type;
 
             // 先从缓存中获取类型，如果不存在则动态解析并加入缓存
             if(!types.has(type))

@@ -1,5 +1,5 @@
 /**
- * @file This file is part of `io` module. 
+ * @file This file is part of `components` module. 
  * 
  * Authors:
  *      @author jason <jasonsoop@gmail.com>
@@ -8,6 +8,5 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-export { PathAnchor } from "./path-anchor";
-export { StringReader } from "./string-reader";
-export { LocalStorage } from "./local-storage";
+export { IComponent } from "./component";
+export { IView, ViewStatus } from "./view";

@@ -110,7 +110,7 @@
         "use-isnan": true,
 
         // 限定必须使用  as Type 语句做类型转换
-        "no-angle-bracket-type-assertion": true,
+        // "no-angle-bracket-type-assertion": true,
 
         // 尽在在接口中定义构造函数
         "no-misused-new": true,
@@ -148,7 +148,7 @@
             "check-module",                 // 模块导入导出必须带空格
             "check-rest-spread",            // ...后不允许带空格
             "check-type",                   // 类型前后必须带空格
-            "check-typecast",               // 类型转换必须带空格
+            //"check-typecast",               // 类型转换必须带空格
             "check-type-operator",          // 类型操作必须带空格
             "check-preblock"                
         ],

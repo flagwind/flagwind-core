@@ -52,10 +52,10 @@ rimraf(distPath, (error) =>
     {
         throw error;
     }
-
+    
     const buildDev = build(webpackDevConfig);
-    //const buildProd = build(webpackProdConfig);
-
+    // const buildProd = build(webpackProdConfig);
+    
     Promise.all([buildDev])
     .then(() => 
     {

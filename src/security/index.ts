@@ -1,5 +1,5 @@
 /**
- * @file This file is part of `io` module. 
+ * @file This file is part of `security` module. 
  * 
  * Authors:
  *      @author jason <jasonsoop@gmail.com>
@@ -8,6 +8,5 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-export { PathAnchor } from "./path-anchor";
-export { StringReader } from "./string-reader";
-export { LocalStorage } from "./local-storage";
+export { ICredential } from "./credential";
+export { IPrincipal, Principal } from "./principal";

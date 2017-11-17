@@ -26,7 +26,7 @@ export function command(path: string)
         }
         
         // 生成命令实例
-        let command = Activator.createInstance(commandType) as ICommand;
+        let command = <ICommand>Activator.createInstance(commandType);
         
         // 注册至默认的执行器中
         CommandExecutor.default.register(path, command);

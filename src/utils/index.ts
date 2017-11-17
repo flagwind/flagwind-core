@@ -10,3 +10,4 @@
 
 export { CharUtils } from "./char-utils";
 export { StringUtils } from "./string-utils";
+export { RegexUtils } from "./regex-utils";

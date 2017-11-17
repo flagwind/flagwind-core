@@ -18,6 +18,7 @@ import { ArgumentException } from "../exceptions";
 export class EventArgs
 {
     private _type: string;                      // 事件类型
+    private _source: any;                       // 事件源
     private _data: any;                         // 事件关联的数据
     
     /**
@@ -28,6 +29,16 @@ export class EventArgs
     public get type(): string
     {
         return this._type;
+    }
+
+    /**
+     * 获取事件源。
+     * @property
+     * @returns any
+     */
+    public get source(): any
+    {
+        return this._source;
     }
     
     /**
@@ -49,14 +60,16 @@ export class EventArgs
      * 初始化 EventArgs 类的新实例。
      * @constructor
      * @param  {string} type 事件类型。
+     * @param  {any} source 事件源。
      */
-    public constructor(type: string)
+    public constructor(type: string, source: any)
     {
-        if(!type)
+        if(!type || !source)
         {
             throw new ArgumentException();
         }
         
         this._type = type;
+        this._source = source;
     }
 }

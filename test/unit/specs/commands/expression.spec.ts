@@ -91,7 +91,6 @@ describe("CommandExpressionTest", () =>
         expression = CommandExpression.parse("push.send -name:wechat -type:message -mode:alias -destination:user.100 -title:'task:create'");
         assert.equal("send", expression.name);
         assert.equal(5, expression.options.size);
-        console.log(expression.options.values.length);
         assert.equal("wechat", expression.options.get("name"));
         assert.equal("message", expression.options.get("type"));
         assert.equal("alias", expression.options.get("mode"));
