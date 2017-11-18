@@ -39,7 +39,7 @@ export class KeyValuePair<K, V>
     }
     
     /**
-     * 用指定的键和值初始化 KeyValuePair<K, V> 的新实例。
+     * 初始化 KeyValuePair<K, V> 类的新实例。
      * @param  {K} key 每个键/值对中定义的对象。
      * @param  {V} value 与 key 相关联的定义。
      */

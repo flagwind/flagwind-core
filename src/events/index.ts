@@ -11,4 +11,4 @@
 export { EventArgs } from "./event_args";
 export { CancelEventArgs } from "./cancel_event_args";
 export { IEventProvider } from "./event_provider";
-export { IEventProviderFactory } from "./event_provider_factory";
+export { IEventProviderFactory, EventProviderFactoryBase } from "./event_provider_factory";

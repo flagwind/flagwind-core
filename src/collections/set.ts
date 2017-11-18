@@ -291,6 +291,7 @@ export class Set<T> implements ISet<T>
      * @returns void
      */
     public forEach(callback: (item: T, index: number, set: Set<T>) => void, scope?: any): void;
+    
     /**
      * 对 IEnumerable<T> 进行迭代处理。
      * @param  {(value:T,source:IEnumerable<T>)=>void} callback 每次迭代中执行的回掉函数，当前迭代项将传入该函数。
@@ -298,6 +299,7 @@ export class Set<T> implements ISet<T>
      * @returns void
      */
     public forEach(callback: (value: T, source: IEnumerable<T>) => void, scope?: any): void;
+
     public forEach(): void
     {
         let values = this._values,

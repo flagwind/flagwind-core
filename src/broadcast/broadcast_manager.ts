@@ -9,7 +9,8 @@
  */
 
 import { ArgumentException } from "../exceptions";
-import { IEventProvider } from "../events";
+import { IEventProvider, IEventProviderFactory, EventProviderFactoryBase } from "../events";
+import { ServiceProviderFactory } from "../services";
 import { Broadcast } from "./broadcast";
 import { BroadcastContract } from "./broadcast_contract";
 import { BroadcastContext } from "./broadcast_context";
@@ -34,6 +35,13 @@ export class BroadcastManager
      */
     protected get eventProvider(): IEventProvider
     {
+        if(!this._eventProvider)
+        {
+            let factory = ServiceProviderFactory.instance.default.resolve<IEventProviderFactory>(EventProviderFactoryBase);
+            
+            this._eventProvider = factory.getProvider(this);
+        }
+
         return this._eventProvider;
     }
     
@@ -47,20 +55,13 @@ export class BroadcastManager
     {
         return this._receiverProvider;
     }
-        
+    
     /**
      * 初始化广播管理器的新实例。
-     * @param  {IEventProvider} eventProvider 事件提供程序。
      * @param  {IBroadcastReceiverProvider} receiverProvider? 广播接收器提供程序。
      */
-    protected constructor(eventProvider: IEventProvider, receiverProvider?: IBroadcastReceiverProvider)
+    protected constructor(receiverProvider?: IBroadcastReceiverProvider)
     {
-        if(!eventProvider)
-        {
-            throw new ArgumentException();
-        }
-
-        this._eventProvider = eventProvider;
         this._receiverProvider = receiverProvider || new BroadcastReceiverProvider();
     }
     

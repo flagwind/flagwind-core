@@ -9,7 +9,8 @@
  */
 
 import { ArgumentException } from "../exceptions";
-import { EventArgs, CancelEventArgs } from "../events";
+import { EventArgs, CancelEventArgs, IEventProvider, IEventProviderFactory, EventProviderFactoryBase } from "../events";
+import { ServiceProviderFactory } from "../services";
 import { ApplicationContextBase } from "./application_context";
 
 /**
@@ -45,7 +46,27 @@ export class Application
 {
     private static _isStarted: boolean = false;                         // 标识应用程序是否启动完成
     private static _context: ApplicationContextBase = null;             // 应用程序上下文实例
+    private static _eventProvider: IEventProvider;                         // 事件提供程序
     
+    /**
+     * 获取一个事件提供程序。
+     * @private
+     * @static
+     * @property
+     * @returns IEventProvider
+     */
+    private static get eventProvider(): IEventProvider
+    {
+        if(!this._eventProvider)
+        {
+            let factory = ServiceProviderFactory.instance.default.resolve<IEventProviderFactory>(EventProviderFactoryBase);
+            
+            this._eventProvider = factory.getProvider(this);
+        }
+
+        return this._eventProvider;
+    }
+
     /**
      * 获取一个布尔值，表示当前应用是否启动完成。
      * @static
@@ -104,7 +125,7 @@ export class Application
         {
             return;
         }
-            
+
         // 激发 "starting" 事件
         this.dispatchEvent(new ApplicationEventArgs(this.STARTING, this, context));
         
@@ -210,7 +231,7 @@ export class Application
      */
     public static addListener(type: string, listener: Function, scope?: any, once?: boolean): void
     {
-        console.log("aaa");
+        this.eventProvider.addListener(type, listener, scope, once);
     }
     
     /**
@@ -222,7 +243,7 @@ export class Application
      */
     public static removeListener(type: string, listener: Function, scope?: any): void
     {
-        console.log("aaa");
+        this.eventProvider.removeListener(type, listener, scope);
     }
     
     /**
@@ -232,9 +253,9 @@ export class Application
      */
     public static dispatchEvent(args: EventArgs): void
     {
-        console.log("aaa");
+        this.eventProvider.dispatchEvent(args);
     }
-
+    
     /**
      * 初始化全局模块。
      * @private

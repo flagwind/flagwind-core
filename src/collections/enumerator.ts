@@ -18,7 +18,8 @@ import { ArgumentException } from "../exceptions";
 export interface IEnumerator<T>
 {
     /**
-     * 获取当前遍历的值，如果已经遍历结束，则返回 undefined。
+     * 获取当前遍历的值。
+     * @summary 如果已经遍历结束，则返回 undefined。
      * @property
      * @returns T
      */
@@ -43,7 +44,8 @@ export class Enumerator<T> implements IEnumerator<T>
     private _index: number;
     
     /**
-     * 获取当前遍历的值，如果已经遍历结束，则返回 undefined。
+     * 获取当前遍历的值。
+     * @summary 如果已经遍历结束，则返回 undefined。
      * @property
      * @returns T
      */
@@ -52,6 +54,11 @@ export class Enumerator<T> implements IEnumerator<T>
         return this._current;
     }
     
+    /**
+     * 初始化 Enumerator<T> 类的新实例。
+     * @constructor
+     * @param  {Array<T>} items 要枚举的元素。
+     */
     public constructor(items: Array<T>)
     {
         if(!items)

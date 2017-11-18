@@ -42,7 +42,7 @@ describe("ServiceProviderTest", () =>
     it("resolveTest", () =>
     {
         let worker: IWorker;
-
+        
         // 测试以类型的方式获取服务
         worker = provider1.resolve<IWorker>(WorkerBase);
         assert.isNotNull(worker);
