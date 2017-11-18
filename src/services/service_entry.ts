@@ -111,11 +111,6 @@ export class ServiceEntry
         return this._serviceBuilder;
     }
     
-    /**
-     * 获取或设置服务生成器。
-     * @property
-     * @param  {IServiceBuilder} value
-     */
     public set serviceBuilder(value: IServiceBuilder)
     {
         this._serviceBuilder = value;

@@ -78,11 +78,6 @@ export class ServiceProviderFactory implements IServiceProviderFactory, IEnumera
         return provicer;
     }
     
-    /**
-     * 获取或设置默认的服务提供程序。
-     * @property
-     * @param  {IServiceProvider} value
-     */
     public set default(value: IServiceProvider)
     {
         if(!value)

@@ -223,11 +223,6 @@ export abstract class WorkerBase implements IWorker
         return this._disabled;
     }
 
-    /**
-     * 获取或设置是否禁用工作器。
-     * @property
-     * @param  {boolean} value
-     */
     public set disabled(value: boolean)
     {
         if(this._disabled === value)
@@ -253,11 +248,6 @@ export abstract class WorkerBase implements IWorker
         return this._canPauseAndContinue;
     }
     
-    /**
-     * 获取工作器是否允许暂停和继续。
-     * @property
-     * @param  {boolean} value
-     */
     public set canPauseAndContinue(value: boolean)
     {
         if(this._state !== WorkerState.stopped)

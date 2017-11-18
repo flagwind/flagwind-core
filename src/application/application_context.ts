@@ -11,8 +11,8 @@
 import { ISet, Set, IMap, Map } from "../collections";
 import { ArgumentException, InvalidOperationException } from "../exceptions";
 import { IServiceProviderFactory, ServiceProviderFactory } from "../services";
-import { IEventProviderFactory } from "../events";
 import { IPrincipal } from "../security";
+import { IEventProviderFactory, EventProviderFactoryBase } from "../events";
 import { IApplicationModule } from "./application_module";
 import { IWorkbench } from "./workbench";
 
@@ -29,7 +29,8 @@ export abstract class ApplicationContextBase
     private _states: IMap<string, any>;                         // 当前应用的状态字典
     private _workbench: IWorkbench;                             // 工作台实例
     private _principal: IPrincipal;                             // 当前应用的安全主体
-    
+    private _eventProviderFactory: IEventProviderFactory;      // 事件提供程序工厂
+
     /**
      * 获取或设置当前应用程序唯一代号。
      * @summary 注意：本属性一旦被设置则不能被更改。
@@ -65,12 +66,7 @@ export abstract class ApplicationContextBase
     {
         return this._title;
     }
-    
-    /**
-     * 获取或设置当前应用程序的标题。
-     * @property
-     * @param  {string} value
-     */
+
     public set title(value: string)
     {
         this._title = value || "";
@@ -81,7 +77,15 @@ export abstract class ApplicationContextBase
      * @property
      * @returns IEventProviderFactory
      */
-    public abstract get eventFactory(): IEventProviderFactory;
+    public get eventFactory(): IEventProviderFactory
+    {
+        if(!this._eventProviderFactory)
+        {
+            this._eventProviderFactory = this.serviceFactory.default.resolve<IEventProviderFactory>(EventProviderFactoryBase);
+        }
+        
+        return this._eventProviderFactory;
+    }
     
     /**
      * 获取当前应用程序的服务管理对象。
@@ -118,11 +122,6 @@ export abstract class ApplicationContextBase
         return this._principal;
     }
     
-    /**
-     * 获取或设置当前应用程序的安全主体。
-     * property
-     * @param  {IPrincipal} value
-     */
     public set principal(value: IPrincipal)
     {
         this._principal = value;
