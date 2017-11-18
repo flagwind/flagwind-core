@@ -41,6 +41,48 @@ describe("TypeTest", () =>
         assert.isFalse(Type.isArray(booleanValue));
         assert.isFalse(Type.isArray(regexValue));
     });
+    
+    /**
+     * 测试 getClassType 方法。
+     */
+    it("getClassTypeTest", () => 
+    {
+        let type = Type.getClassType(nullValue);
+        assert.isNull(type);
+        
+        type = Type.getClassType(undefined);
+        assert.isUndefined(type);
+
+        type = Type.getClassType(numberValue);
+        assert.equal(type, Number);
+
+        type = Type.getClassType(booleanValue);
+        assert.equal(type, Boolean);
+
+        type = Type.getClassType(dynamicArray);
+        assert.equal(type, Array);
+
+        type = Type.getClassType(typedArray);
+        assert.equal(type, Array);
+
+        type = Type.getClassType(objectValue);
+        assert.equal(type, Object);
+
+        type = Type.getClassType(regexValue);
+        assert.equal(type, RegExp);
+
+        type = Type.getClassType(employee);
+        assert.equal(type, Employee);
+
+        type = Type.getClassType(stringValue);
+        assert.equal(type, String);
+
+        type = Type.getClassType("Array");
+        assert.equal(type, Array);
+
+        type = Type.getClassType("Number");
+        assert.equal(type, Number);
+    });
 
     /**
      * 测试 getClassName 方法。
@@ -65,22 +107,11 @@ describe("TypeTest", () =>
     });
 
     /**
-     * 测试 getClassType 方法。
-     */
-    it("getClassTypeTest", () => 
-    {
-        let employeType = Type.getClassType(employee);
-        
-        assert.isTrue(employeType === Employee);
-    });
-
-    /**
      * 测试 isAssignableFrom 方法。
      */
     it("isAssignableFromTest", () => 
     {
         assert.isTrue(Type.isAssignableFrom(Person, Employee));
-        
         assert.isTrue(Type.isAssignableFrom("Person", Employee));
     });
 });

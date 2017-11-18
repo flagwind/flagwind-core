@@ -9,7 +9,7 @@
  */
 
 export { Gender } from "./gender";
-import { Address } from "./address";
+export { Address } from "./address";
 export { Person } from "./person";
 export { Employee } from "./employee";
 export { Department } from "./department";

@@ -163,7 +163,11 @@ export class Type
      */
     public static getClassType(value: string | any): Function
     {
-        if(Type.isEmptyObject(value))
+        if(Type.isNull(value))
+        {
+            return null;
+        }
+        else if(Type.isUndefined(value))
         {
             return undefined;
         }
@@ -182,12 +186,12 @@ export class Type
                  // 通过 eval 解析字符串所指向的实际类型
                 // tslint:disable-next-line:no-eval
                 let ctor = eval(value);
-                
-                return Type.isFunction(ctor) ? ctor : undefined;
+                                
+                return Type.isFunction(ctor) ? ctor : String;
             }
             catch(e)
             {
-                return undefined;
+                return String;
             }
         }
         else
