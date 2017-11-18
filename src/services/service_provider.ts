@@ -236,7 +236,7 @@ export class ServiceProvider implements IServiceProvider
                 break;
             }
         }
-
+            
         if(!entry)
         {
             throw new ArgumentException("Can not register service, please check the arguments.");

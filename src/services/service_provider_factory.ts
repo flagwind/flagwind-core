@@ -97,7 +97,7 @@ export class ServiceProviderFactory implements IServiceProviderFactory, IEnumera
      * 初始化服务提供程序工厂的新实例。
      * @param  {string} defaultName? 默认提供程序名称。
      */
-    protected constructor(defaultName: string = "")
+    protected constructor(defaultName: string = "__default__")
     {
         this._defaultName = defaultName;
         this._providers = new Map<string, IServiceProvider>();

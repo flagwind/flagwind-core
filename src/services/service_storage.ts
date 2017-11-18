@@ -12,7 +12,7 @@ import { Type } from "../runtime";
 import { ArgumentException } from "../exceptions";
 import { IEnumerable, IEnumerator, ISet, Set, Map } from "../collections";
 import { ServiceEntry } from "./service_entry";
-import { IServiceProvider } from "./service_provider";
+import { IServiceProvider, ServiceProvider } from "./service_provider";
 import { ServiceProviderFactory } from "./service_provider_factory";
 
 /**
@@ -350,7 +350,7 @@ export abstract class ServiceStorageBase implements IServiceStorage
         {
             return null;
         }
-
+        
         for(let i = 0; i < storages.size; i++)
         {
             let storage = storages.get(i);
@@ -372,9 +372,9 @@ export abstract class ServiceStorageBase implements IServiceStorage
                 {
                     return entry;
                 }
-
+                
                 // 如果当前服务项是一个服务容器
-                if(entry.serviceType && Type.isAssignableFrom("newlife.IServiceProvider", entry.serviceType))
+                if(entry.serviceType && Type.isAssignableFrom(ServiceProvider, entry.serviceType))
                 {
                     let provider = <IServiceProvider>entry.service;
 
@@ -514,7 +514,7 @@ export abstract class ServiceStorageBase implements IServiceStorage
                     }
 
                     // 如果当前服务项是一个服务容器
-                    if(entry.serviceType && Type.isAssignableFrom("newlife.IServiceProvider", entry.serviceType))
+                    if(entry.serviceType && Type.isAssignableFrom(ServiceProvider, entry.serviceType))
                     {
                         let provider = <IServiceProvider>entry.service;
 
@@ -649,7 +649,7 @@ export class ServiceStorage extends ServiceStorageBase
     /**
      * 对当前仓储进行迭代处理。
      * @override
-     * @param  {(value:ServiceEntry,source:IEnumerable<ServiceEntry>)=>void} callback 每次迭代中执行的回掉函数，当前迭代项及它的索引号将被作为参数传入该方法。
+     * @param  {Function} callback 每次迭代中执行的回掉函数，当前迭代项及它的索引号将被作为参数传入该方法。
      * @param  {any} scope? 回掉函数中 this 所引用的对象。
      * @returns void
      */
@@ -666,12 +666,12 @@ export class ServiceStorage extends ServiceStorageBase
      */
     protected insert(entry: ServiceEntry): void
     {
-        if(entry)
+        if(!entry)
         {
             throw new ArgumentException();
         }
         
-        if(!Type.isEmptyString(entry.name))
+        if(entry.name)
         {
             this._namedEntries.set(entry.name, entry);
         }

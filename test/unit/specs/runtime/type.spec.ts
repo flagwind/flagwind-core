@@ -1,4 +1,4 @@
-/**
+/*!
  * @file This file is part of `runtime` module. 
  * 
  * Authors:
@@ -10,7 +10,7 @@
 
 import { assert } from "chai";
 import { Type } from "../../../../src/runtime/type";
-import { Employee, Person, Gender } from "../../models/person";
+import { Employee, Person, Gender } from "../../models";
 
 describe("TypeTest", () =>
 {
