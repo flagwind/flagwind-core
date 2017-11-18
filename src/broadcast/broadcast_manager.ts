@@ -26,7 +26,8 @@ export class BroadcastManager
 {
     private _eventProvider: IEventProvider;                         // 事件提供程序
     private _receiverProvider: IBroadcastReceiverProvider;          // 广播接收器提供程序
-    
+    private static _instance: BroadcastManager;                     // 静态单实例
+
     /**
      * 获取一个事件提供程序。
      * @protected
@@ -54,6 +55,21 @@ export class BroadcastManager
     protected get receiverProvider(): IBroadcastReceiverProvider
     {
         return this._receiverProvider;
+    }
+
+    /**
+     * 获取广播管理器的单实例。
+     * @static
+     * @returns BroadcastManager
+     */
+    public static get instance(): BroadcastManager
+    {
+        if(!this._instance)
+        {
+            this._instance = new BroadcastManager();
+        }
+        
+        return this._instance;
     }
     
     /**

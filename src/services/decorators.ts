@@ -11,14 +11,12 @@
 import { ServiceProviderFactory } from "./service_provider_factory";
 
 /**
- * 将当前类型注入至服务容器中。
- * 注意：如果未指定 providerName 参数则默认注入至默认服务容器中。
+ * 标注当前类型是一个可注入的服务。
+ * @summary 如果未指定 providerName 参数则默认注入至默认服务容器中。
  * @param  {string} providerName?
  */
-// tslint:disable-next-line:only-arrow-functions
-export function service(providerName?: string)
+export function injectable(providerName?: string)
 {
-    // tslint:disable-next-line:only-arrow-functions
     return function(serviceType: Function)
     {
         let factory = ServiceProviderFactory.instance,

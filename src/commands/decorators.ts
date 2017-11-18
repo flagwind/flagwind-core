@@ -14,10 +14,17 @@ import { Activator } from "../reflection";
 import { ICommand, CommandBase } from "./command";
 import { CommandExecutor } from "./command_executor";
 
-// tslint:disable-next-line:only-arrow-functions
+/**
+ * 标注当前类型是一个可通过命令执行器执行的命令。
+ * @param  {string} path
+ */
 export function command(path: string)
 {
-    // tslint:disable-next-line:only-arrow-functions
+    if(!path)
+    {
+        throw new InvalidOperationException("The command path is empty.");
+    }
+    
     return function(commandType: Function)
     {
         if(!Type.isAssignableFrom(CommandBase, commandType))

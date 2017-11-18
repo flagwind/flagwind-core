@@ -346,7 +346,7 @@ export abstract class ServiceStorageBase implements IServiceStorage
      */
     protected findByName(name: string, storages: ISet<IServiceStorage>): ServiceEntry
     {
-        if(Type.isEmptyString(name) || Type.isEmptyObject(storages))
+        if(!name || !storages)
         {
             return null;
         }
@@ -362,7 +362,7 @@ export abstract class ServiceStorageBase implements IServiceStorage
             {
                 let entry: ServiceEntry = enumerator.current;
 
-                if(Type.isEmptyObject(entry))
+                if(!entry)
                 {
                     continue;
                 }
@@ -403,7 +403,7 @@ export abstract class ServiceStorageBase implements IServiceStorage
         // 从当前容器及其外链容器中查找指定类型的服务
         let result = this.searchService(type, isMultiplex, new Set<IServiceStorage>(this));
         let succeed = !Type.isEmptyObject(result);
-
+        
         if(succeed)
         {
             // 如果查找结果是一个空 Set，则标识查找失败，继续往下查找

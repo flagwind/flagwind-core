@@ -8,6 +8,7 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
+import { Type } from "../runtime";
 import { ArgumentException } from "../exceptions";
 import { IEnumerable, IEnumerator, KeyValuePair, Map } from "../collections";
 import { IServiceProvider, ServiceProvider } from "./service_provider";
@@ -92,7 +93,7 @@ export class ServiceProviderFactory implements IServiceProviderFactory, IEnumera
      * 初始化服务提供程序工厂的新实例。
      * @param  {string} defaultName? 默认提供程序名称。
      */
-    protected constructor(defaultName: string = "__default__")
+    protected constructor(defaultName: string = "")
     {
         this._defaultName = defaultName;
         this._providers = new Map<string, IServiceProvider>();
@@ -106,7 +107,7 @@ export class ServiceProviderFactory implements IServiceProviderFactory, IEnumera
      */
     public register(name: string, provider: IServiceProvider): void
     {
-        if(!name)
+        if(Type.isEmptyObject(name))
         {
             throw new ArgumentException("name");
         }
@@ -120,7 +121,7 @@ export class ServiceProviderFactory implements IServiceProviderFactory, IEnumera
      */
     public unregister(name: string)
     {
-        if(!name)
+        if(Type.isEmptyObject(name))
         {
             throw new ArgumentException();
         }
@@ -135,7 +136,7 @@ export class ServiceProviderFactory implements IServiceProviderFactory, IEnumera
      */
     public getProvider(name: string): IServiceProvider
     {
-        if(!name)
+        if(Type.isEmptyObject(name))
         {
             throw new ArgumentException("name");
         }

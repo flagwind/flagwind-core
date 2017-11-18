@@ -8,6 +8,7 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
+export { receivable } from "./decorators";
 export { Broadcast } from "./broadcast";
 export { BroadcastPriority } from "./broadcast_priority";
 export { BroadcastContract } from "./broadcast_contract";

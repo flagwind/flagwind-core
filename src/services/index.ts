@@ -8,7 +8,7 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-export { service } from "./decorators";
+export { injectable } from "./decorators";
 export { ServiceEntry } from "./service_entry";
 export { IServiceBuilder } from "./service_builder";
 export { IServiceStorage, ServiceStorageBase, ServiceStorage } from "./service_storage";
