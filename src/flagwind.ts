@@ -6,10 +6,10 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-export * from "./utils";
 export * from "./runtime";
 export * from "./reflection";
 export * from "./exceptions";
+export * from "./common";
 export * from "./io";
 export * from "./collections";
 export * from "./events";

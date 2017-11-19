@@ -24,7 +24,7 @@ describe("TypeTest", () =>
     const booleanValue = true;
     const regexValue = /^hello$/;
     const employee = new Employee("jason", 18);
-
+    
     /**
      * 测试 isArray 方法。
      */

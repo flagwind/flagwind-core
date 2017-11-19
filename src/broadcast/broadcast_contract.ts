@@ -8,7 +8,7 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { RegexUtils } from "../utils";
+import { RegexUtils } from "../common";
 import { ArgumentException } from "../exceptions";
 import { Set } from "../collections";
 import { BroadcastPriority } from "./broadcast_priority";

@@ -8,7 +8,7 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { CharUtils } from "../utils";
+import { CharUtils } from "../common";
 import { InvalidOperationException } from "../exceptions";
 import { Set, Map, KeyValuePair } from "../collections";
 import { PathAnchor, StringReader } from "../io";

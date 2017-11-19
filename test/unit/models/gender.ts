@@ -8,11 +8,13 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
+import { Type } from "../../../src/runtime/type";
+
 /**
  * 表示一个性别枚举。
  * @enum
  */
-export const enum Gender
+export enum Gender
 {
     /**
      * 先生。
@@ -26,3 +28,21 @@ export const enum Gender
      */
     female
 }
+
+/**
+ * 定义枚举元数据。
+ * @define
+ */
+Type.setMetadata(Gender,
+{
+    male:
+    {
+        alias: "M",
+        description: "男士"
+    },
+    female:
+    {
+        alias: "F",
+        description: "女士"
+    }
+});

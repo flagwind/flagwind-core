@@ -1,5 +1,5 @@
 /*!
- * @file This file is part of `utils` module. 
+ * @file This file is part of `common` module. 
  * 
  * Authors:
  *      @author jason <jasonsoop@gmail.com>

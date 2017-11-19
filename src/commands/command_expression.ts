@@ -11,7 +11,7 @@
 import { ArgumentException } from "../exceptions";
 import { Map } from "../collections";
 import { PathAnchor } from "../io";
-import { StringUtils } from "../utils";
+import { StringUtils } from "../common";
 import { CommandOptionCollection } from "./command_option-collection";
 import { CommandExpressionParser } from "./command_expression-parser";
 

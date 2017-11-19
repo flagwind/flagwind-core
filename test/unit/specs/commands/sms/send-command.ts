@@ -9,7 +9,7 @@
  */
 
 import { assert } from "chai";
-import { StringUtils } from "../../../../../src/utils";
+import { StringUtils } from "../../../../../src/common";
 import { command, CommandBase, CommandContext } from "../../../../../src/commands";
 
 export class SendCommand extends CommandBase<CommandContext>

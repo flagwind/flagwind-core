@@ -8,6 +8,8 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
+import { Map } from "../collections/map";
+
 /**
  * 提供一些常用类型检测与反射相关的方法。
  * @static
@@ -16,6 +18,8 @@
  */
 export class Type
 {
+    private static readonly _metadatas = new Map<any, any>();
+
     /**
      * 私有构造方法，使类型成为静态类。
      * @private
@@ -154,6 +158,32 @@ export class Type
     public static isEmptyString(value: string): boolean
     {
         return Type.isEmptyObject(value) || value.trim() === "";
+    }
+
+    /**
+     * 设置指定类型的元数据。
+     * @param  {any} type 目标类型。
+     * @param  {any} metadata 元数据。
+     * @returns void
+     */
+    public static setMetadata(type: any, metadata: any): void
+    {
+        if(!type || !metadata)
+        {
+            throw new Error();
+        }
+
+        this._metadatas.set(type, metadata);
+    }
+    
+    /**
+     * 获取指定类型的元数据。
+     * @param  {any} type 目标类型。
+     * @returns any 元数据。
+     */
+    public static getMetadata(type: any): any
+    {
+        return this._metadatas.get(type) || null;
     }
 
     /**

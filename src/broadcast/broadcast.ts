@@ -10,7 +10,7 @@
 
 import { ArgumentException } from "../exceptions";
 import { Map } from "../collections";
-import { RegexUtils } from "../utils";
+import { RegexUtils } from "../common";
 
 /**
  * 表示一条广播信息。
