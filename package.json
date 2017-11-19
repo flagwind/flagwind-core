@@ -1,5 +1,5 @@
 {
-    "name": "flagwind",
+    "name": "flagwind-core",
     "version": "1.0.0",
     "description": "flagwind core library.",
     "scripts": {
