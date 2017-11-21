@@ -120,7 +120,7 @@ export class BroadcastManager
         {
             throw new ArgumentException();
         }
-
+        
         this.eventProvider.dispatchEvent(broadcast.scheme, broadcast);
     }
     

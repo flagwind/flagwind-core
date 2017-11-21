@@ -19,11 +19,11 @@ import { IEventProvider } from "./event_provider";
 export interface IEventProviderFactory
 {
     /**
-     * 获取指定目标的事件提供程序。
-     * @param  {any} target IEventProvider 所抛出事件对象的 target 指向。
+     * 获取指定事件源的事件提供程序。
+     * @param  {any} source IEventProvider 所抛出事件对象的源对象。
      * @returns IEventProdiver 返回指定名称的事件提供程序。
      */
-    getProvider(target: any): IEventProvider;
+    getProvider(source: any): IEventProvider;
 }
 
 /**
@@ -56,29 +56,29 @@ export abstract class EventProviderFactoryBase implements IEventProviderFactory
     }
     
     /**
-     * 获取指定目标的事件提供程序。
-     * @param  {any} target EventProvider 所抛出事件对象的目标指向。
+     * 获取指定事件源的事件提供程序。
+     * @param  {any} source IEventProvider 所抛出事件对象的源对象。
      * @returns IEventProdiver 返回指定名称的事件提供程序。
      */
-    public getProvider(target: any): IEventProvider
+    public getProvider(source: any): IEventProvider
     {
-        let provider = this._providers.get(target);
+        let provider = this._providers.get(source);
 
         if(!provider)
         {
-            provider = this.createProvider(target);
+            provider = this.createProvider(source);
 
-            this._providers.set(target, provider);
+            this._providers.set(source, provider);
         }
 
         return provider;
     }
     
     /**
-     * 根据指定的目标创建一个事件提供程序。
+     * 根据指定事件源创建一个事件提供程序。
      * @abstract
-     * @param  {any} target EventProvider 所抛出事件对象的目标指向。
+     * @param  {any} source IEventProvider 所抛出事件对象的源对象。
      * @returns IEventProvider 事件提供程序实例。
      */
-    protected abstract createProvider(target: any): IEventProvider;
+    protected abstract createProvider(source: any): IEventProvider;
 }
