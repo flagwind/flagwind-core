@@ -11,9 +11,7 @@
 import { ArgumentException } from "../exceptions/argument_exception";
 import { EventArgs } from "../events/event_args";
 import { CancelEventArgs } from "../events/cancel_event_args";
-import { IEventProvider } from "../events/event_provider";
-import { IEventProviderFactory, EventProviderFactoryBase } from "../events/event_provider_factory";
-import { ServiceProviderFactory } from "../services/service_provider_factory";
+// import { IEventProvider, EventProvider } from "../events/event_provider";
 import { ApplicationEventArgs } from "./application_event_args";
 import { ApplicationContextBase } from "./application_context";
 
@@ -27,27 +25,7 @@ export class Application
 {
     private static _isStarted: boolean = false;                         // 标识应用程序是否启动完成
     private static _context: ApplicationContextBase = null;             // 应用程序上下文实例
-    private static _eventProvider: IEventProvider;                         // 事件提供程序
     
-    /**
-     * 获取一个事件提供程序。
-     * @private
-     * @static
-     * @property
-     * @returns IEventProvider
-     */
-    private static get eventProvider(): IEventProvider
-    {
-        if(!this._eventProvider)
-        {
-            let factory = ServiceProviderFactory.instance.default.resolve<IEventProviderFactory>(EventProviderFactoryBase);
-            
-            this._eventProvider = factory.getProvider(this);
-        }
-
-        return this._eventProvider;
-    }
-
     /**
      * 获取一个布尔值，表示当前应用是否启动完成。
      * @static
@@ -212,7 +190,7 @@ export class Application
      */
     public static addListener(type: string, listener: Function, scope?: any, once?: boolean): void
     {
-        this.eventProvider.addListener(type, listener, scope, once);
+        // this.eventProvider.addListener(type, listener, scope, once);
     }
     
     /**
@@ -224,7 +202,7 @@ export class Application
      */
     public static removeListener(type: string, listener: Function, scope?: any): void
     {
-        this.eventProvider.removeListener(type, listener, scope);
+        // this.eventProvider.removeListener(type, listener, scope);
     }
     
     /**
@@ -234,7 +212,7 @@ export class Application
      */
     public static dispatchEvent(args: EventArgs): void
     {
-        this.eventProvider.dispatchEvent(args);
+        // this.eventProvider.dispatchEvent(args);
     }
     
     /**

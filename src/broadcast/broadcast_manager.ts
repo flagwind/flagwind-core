@@ -9,9 +9,7 @@
  */
 
 import { ArgumentException } from "../exceptions/argument_exception";
-import { IEventProvider } from "../events/event_provider";
-import { IEventProviderFactory, EventProviderFactoryBase } from "../events/event_provider_factory";
-import { ServiceProviderFactory } from "../services/service_provider_factory";
+import { IEventProvider, EventProvider } from "../events/event_provider";
 import { Broadcast } from "./broadcast";
 import { BroadcastContract } from "./broadcast_contract";
 import { BroadcastContext } from "./broadcast_context";
@@ -27,7 +25,6 @@ export class BroadcastManager
 {
     private _eventProvider: IEventProvider;                         // 事件提供程序
     private _receiverProvider: IBroadcastReceiverProvider;          // 广播接收器提供程序
-
     private static _instance: BroadcastManager;                     // 静态单实例
     
     /**
@@ -38,13 +35,6 @@ export class BroadcastManager
      */
     protected get eventProvider(): IEventProvider
     {
-        if(!this._eventProvider)
-        {
-            let factory = ServiceProviderFactory.instance.default.resolve<IEventProviderFactory>(EventProviderFactoryBase);
-            
-            this._eventProvider = factory.getProvider(this);
-        }
-
         return this._eventProvider;
     }
     
@@ -80,6 +70,7 @@ export class BroadcastManager
      */
     protected constructor(receiverProvider?: IBroadcastReceiverProvider)
     {
+        this._eventProvider = new EventProvider(this);
         this._receiverProvider = receiverProvider || new BroadcastReceiverProvider();
     }
     
@@ -100,7 +91,7 @@ export class BroadcastManager
         // 将接收程序注册至服务提供程序中
         this.receiverProvider.register(contract, receiver);
     }
-
+    
     /**
      * 移除指定契约的广播接收器。
      * @param  {BroadcastContract} contract 广播契约。

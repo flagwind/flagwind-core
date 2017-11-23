@@ -14,7 +14,6 @@ import { ArgumentException } from "../exceptions/argument_exception";
 import { InvalidOperationException } from "../exceptions/invalid_operation_exception";
 import { IServiceProviderFactory, ServiceProviderFactory } from "../services/service_provider_factory";
 import { IPrincipal } from "../security/principal";
-import { IEventProviderFactory, EventProviderFactoryBase } from "../events/event_provider_factory";
 import { IApplicationModule } from "./application_module";
 import { IWorkbench } from "./workbench";
 
@@ -31,7 +30,6 @@ export abstract class ApplicationContextBase
     private _states: IMap<string, any>;                         // 当前应用的状态字典
     private _workbench: IWorkbench;                             // 工作台实例
     private _principal: IPrincipal;                             // 当前应用的安全主体
-    private _eventProviderFactory: IEventProviderFactory;      // 事件提供程序工厂
     
     /**
      * 获取或设置当前应用程序唯一代号。
@@ -73,22 +71,7 @@ export abstract class ApplicationContextBase
     {
         this._title = value || "";
     }
-    
-    /**
-     * 获取当前应用程序的事件管理对象。
-     * @property
-     * @returns IEventProviderFactory
-     */
-    public get eventFactory(): IEventProviderFactory
-    {
-        if(!this._eventProviderFactory)
-        {
-            this._eventProviderFactory = this.serviceFactory.default.resolve<IEventProviderFactory>(EventProviderFactoryBase);
-        }
         
-        return this._eventProviderFactory;
-    }
-    
     /**
      * 获取当前应用程序的服务管理对象。
      * @property
