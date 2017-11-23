@@ -10,7 +10,7 @@
 
 export { IWorkspace } from "./workspace";
 export { WorkbenchStatus } from "./workbench_status";
-export { IWorkbench } from "./workbench";
+export { IWorkbench, WorkbenchBase } from "./workbench";
 export { ApplicationContextBase } from "./application_context";
 export { IApplicationModule } from "./application_module";
 export { ApplicationEventArgs } from "./application_event_args";
