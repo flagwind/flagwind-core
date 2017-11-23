@@ -14,4 +14,6 @@ export { IServiceBuilder } from "./service_builder";
 export { IServiceStorage, ServiceStorageBase, ServiceStorage } from "./service_storage";
 export { IServiceProvider, ServiceProvider } from "./service_provider";
 export { IServiceProviderFactory, ServiceProviderFactory } from "./service_provider_factory";
-export { IWorker, WorkerBase, WorkerState, WorkerStateChangedEventArgs } from "./worker";
+export { WorkerState } from "./worker_state";
+export { WorkerStateChangedEventArgs } from "./worker_state_changed_event_args";
+export { IWorker, WorkerBase } from "./worker";

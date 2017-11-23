@@ -8,9 +8,12 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { Type } from "../runtime";
-import { ArgumentException } from "../exceptions";
-import { IEnumerable, IEnumerator, ISet, Set, Map } from "../collections";
+import { ArgumentException } from "../exceptions/argument_exception";
+import { Type } from "../runtime/type";
+import { IEnumerable } from "../collections/enumerable";
+import { IEnumerator } from "../collections/enumerator";
+import { ISet, Set } from "../collections/set";
+import { Map } from "../collections/map";
 import { ServiceEntry } from "./service_entry";
 import { IServiceProvider, ServiceProvider } from "./service_provider";
 import { ServiceProviderFactory } from "./service_provider_factory";

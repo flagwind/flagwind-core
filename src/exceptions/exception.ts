@@ -8,6 +8,15 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-export { Exception } from "./exception";
-export { ArgumentException } from "./argument_exception";
-export { InvalidOperationException } from "./invalid_operation_exception";
+/**
+ * 表示在应用程序执行期间发生的错误。
+ * @class
+ * @version 1.0.0
+ */
+export class Exception extends Error
+{
+    public constructor(message?: string)
+    {
+        super(message);
+    }
+}

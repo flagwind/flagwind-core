@@ -8,9 +8,9 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { Type } from "../runtime";
+import { ArgumentException } from "../exceptions/argument_exception";
+import { Type } from "../runtime/type";
 import { Map } from "../collections/map";
-import { ArgumentException } from "../exceptions";
 import { EnumEntry } from "./enum_entry";
 
 /**

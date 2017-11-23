@@ -8,10 +8,13 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { CharUtils } from "../common";
-import { InvalidOperationException } from "../exceptions";
-import { Set, Map, KeyValuePair } from "../collections";
-import { PathAnchor, StringReader } from "../io";
+import { InvalidOperationException } from "../exceptions/invalid_operation_exception";
+import { Set } from "../collections/set";
+import { KeyValuePair } from "../collections/key_value_pair";
+import { Map } from "../collections/map";
+import { PathAnchor } from "../io/path_anchor";
+import { StringReader } from "../io/string_reader";
+import { CharUtils } from "../common/char_utils";
 import { CommandExpression } from "./command_expression";
 
 const enum CommandPathState

@@ -8,10 +8,11 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { Type } from "../runtime";
-import { Activator } from "../reflection";
-import { ArgumentException } from "../exceptions";
-import { IEnumerable, Set } from "../collections";
+import { ArgumentException } from "../exceptions/argument_exception";
+import { Type } from "../runtime/type";
+import { Activator } from "../reflection/activator";
+import { IEnumerable } from "../collections/enumerable";
+import { Set } from "../collections/set";
 import { ServiceEntry } from "./service_entry";
 import { IServiceStorage, ServiceStorage } from "./service_storage";
 import { IServiceBuilder } from "./service_builder";

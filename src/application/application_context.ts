@@ -8,11 +8,13 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ISet, Set, IMap, Map } from "../collections";
-import { ArgumentException, InvalidOperationException } from "../exceptions";
-import { IServiceProviderFactory, ServiceProviderFactory } from "../services";
-import { IPrincipal } from "../security";
-import { IEventProviderFactory, EventProviderFactoryBase } from "../events";
+import { ISet, Set } from "../collections/set";
+import { IMap, Map } from "../collections/map";
+import { ArgumentException } from "../exceptions/argument_exception";
+import { InvalidOperationException } from "../exceptions/invalid_operation_exception";
+import { IServiceProviderFactory, ServiceProviderFactory } from "../services/service_provider_factory";
+import { IPrincipal } from "../security/principal";
+import { IEventProviderFactory, EventProviderFactoryBase } from "../events/event_provider_factory";
 import { IApplicationModule } from "./application_module";
 import { IWorkbench } from "./workbench";
 
@@ -30,7 +32,7 @@ export abstract class ApplicationContextBase
     private _workbench: IWorkbench;                             // 工作台实例
     private _principal: IPrincipal;                             // 当前应用的安全主体
     private _eventProviderFactory: IEventProviderFactory;      // 事件提供程序工厂
-
+    
     /**
      * 获取或设置当前应用程序唯一代号。
      * @summary 注意：本属性一旦被设置则不能被更改。

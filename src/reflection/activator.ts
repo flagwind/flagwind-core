@@ -8,8 +8,8 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { Type } from "../runtime";
-import { Map } from "../collections";
+import { Type } from "../runtime/type";
+import { Map } from "../collections/map";
 
 /**
  * 提供对象实例创建的方法。

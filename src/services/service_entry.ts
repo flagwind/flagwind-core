@@ -8,8 +8,8 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { Type } from "../runtime";
-import { Activator } from "../reflection";
+import { Type } from "../runtime/type";
+import { Activator } from "../reflection/activator";
 import { IServiceBuilder } from "./service_builder";
 
 /**

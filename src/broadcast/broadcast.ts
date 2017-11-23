@@ -8,9 +8,9 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions";
-import { Map } from "../collections";
-import { RegexUtils } from "../common";
+import { ArgumentException } from "../exceptions/argument_exception";
+import { Map } from "../collections/map";
+import { RegexUtils } from "../common/regex_utils";
 
 /**
  * 表示一条广播信息。

@@ -8,8 +8,8 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions";
-import { Type } from "../runtime";
+import { ArgumentException } from "../exceptions/argument_exception";
+import { Type } from "../runtime/type";
 
 /**
  * 表示全局本地缓存容器。

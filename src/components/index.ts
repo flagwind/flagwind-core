@@ -9,4 +9,5 @@
  */
 
 export { IComponent } from "./component";
-export { IView, ViewStatus } from "./view";
+export { ViewStatus } from "./view_status";
+export { IView } from "./view";

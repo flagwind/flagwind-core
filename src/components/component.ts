@@ -8,7 +8,7 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { IDisposable } from "../runtime";
+import { IDisposable } from "../runtime/disposable";
 
 /**
  * 定义组件的基础功能。

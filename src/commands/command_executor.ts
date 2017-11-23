@@ -8,7 +8,8 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException, InvalidOperationException } from "../exceptions";
+import { ArgumentException } from "../exceptions/argument_exception";
+import { InvalidOperationException } from "../exceptions/invalid_operation_exception";
 import { ICommand } from "./command";
 import { CommandContext } from "./command_context";
 import { CommandCollection } from "./command_collection";

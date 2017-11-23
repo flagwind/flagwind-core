@@ -8,7 +8,7 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { IDisposable } from "../runtime";
+import { IDisposable } from "../runtime/disposable";
 import { ApplicationContextBase } from "./application_context";
 
 /**

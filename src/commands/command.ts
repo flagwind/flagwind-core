@@ -8,9 +8,9 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { StringUtils } from "../common";
-import { Type } from "../runtime";
-import { ArgumentException } from "../exceptions";
+import { ArgumentException } from "../exceptions/argument_exception";
+import { Type } from "../runtime/type";
+import { StringUtils } from "../common/string_utils";
 import { CommandContext } from "./command_context";
 
 /**

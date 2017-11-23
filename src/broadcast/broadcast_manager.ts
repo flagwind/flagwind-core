@@ -8,9 +8,10 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions";
-import { IEventProvider, IEventProviderFactory, EventProviderFactoryBase } from "../events";
-import { ServiceProviderFactory } from "../services";
+import { ArgumentException } from "../exceptions/argument_exception";
+import { IEventProvider } from "../events/event_provider";
+import { IEventProviderFactory, EventProviderFactoryBase } from "../events/event_provider_factory";
+import { ServiceProviderFactory } from "../services/service_provider_factory";
 import { Broadcast } from "./broadcast";
 import { BroadcastContract } from "./broadcast_contract";
 import { BroadcastContext } from "./broadcast_context";
@@ -26,8 +27,9 @@ export class BroadcastManager
 {
     private _eventProvider: IEventProvider;                         // 事件提供程序
     private _receiverProvider: IBroadcastReceiverProvider;          // 广播接收器提供程序
-    private static _instance: BroadcastManager;                     // 静态单实例
 
+    private static _instance: BroadcastManager;                     // 静态单实例
+    
     /**
      * 获取一个事件提供程序。
      * @protected

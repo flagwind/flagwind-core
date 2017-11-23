@@ -8,7 +8,7 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { IView } from "../components";
+import { IView } from "../components/view";
 
 /**
  * 表示工作空间的定义。

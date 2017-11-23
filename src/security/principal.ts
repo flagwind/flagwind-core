@@ -8,8 +8,8 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions";
-import { LocalStorage } from "../io";
+import { ArgumentException } from "../exceptions/argument_exception";
+import { LocalStorage } from "../io/local_storage";
 import { ICredential } from "./credential";
 
 const CREDENTIAL_SYMBOL: string = "__principal__";

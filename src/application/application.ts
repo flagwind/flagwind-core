@@ -8,33 +8,14 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions";
-import { EventArgs, CancelEventArgs, IEventProvider, IEventProviderFactory, EventProviderFactoryBase } from "../events";
-import { ServiceProviderFactory } from "../services";
+import { ArgumentException } from "../exceptions/argument_exception";
+import { EventArgs } from "../events/event_args";
+import { CancelEventArgs } from "../events/cancel_event_args";
+import { IEventProvider } from "../events/event_provider";
+import { IEventProviderFactory, EventProviderFactoryBase } from "../events/event_provider_factory";
+import { ServiceProviderFactory } from "../services/service_provider_factory";
+import { ApplicationEventArgs } from "./application_event_args";
 import { ApplicationContextBase } from "./application_context";
-
-/**
- * 应用程序事件参数类。
- * @class
- * @version 1.0.0
- */
-export class ApplicationEventArgs extends EventArgs
-{
-    public readonly context: ApplicationContextBase;
-    
-    /**
-     * 初始化应用程序事件参数类的新实例。
-     * @param  {string} type 事件类型。
-     * @param  {any} source 事件源。
-     * @param  {ApplicationContextBase} context 应用程序上下文实例。
-     */
-    public constructor(type: string, source: any, context: ApplicationContextBase)
-    {
-        super(type, source);
-
-        this.context = context;
-    }
-}
 
 /**
  * 应用程序类，负责整个应用的启动和退出。
@@ -127,7 +108,7 @@ export class Application
         }
 
         // 激发 "starting" 事件
-        this.dispatchEvent(new ApplicationEventArgs(this.STARTING, this, context));
+        this.dispatchEvent(new ApplicationEventArgs(this.STARTING, context));
         
         try
         {
@@ -153,7 +134,7 @@ export class Application
                     this._isStarted = true;
                     
                     // 激发 "started" 事件
-                    this.dispatchEvent(new ApplicationEventArgs(this.STARTED, this, context));
+                    this.dispatchEvent(new ApplicationEventArgs(this.STARTED, context));
                 });
 
                 // 挂载工作台关闭事件

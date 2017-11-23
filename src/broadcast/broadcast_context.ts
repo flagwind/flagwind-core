@@ -8,8 +8,8 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions";
-import { Map } from "../collections";
+import { ArgumentException } from "../exceptions/argument_exception";
+import { Map } from "../collections/map";
 import { Broadcast } from "./broadcast";
 import { BroadcastManager } from "./broadcast_manager";
 

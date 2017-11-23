@@ -8,8 +8,10 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions";
-import { IEnumerable, Map, Set } from "../collections";
+import { ArgumentException } from "../exceptions/argument_exception";
+import { IEnumerable } from "../collections/enumerable";
+import { Map } from "../collections/map";
+import { Set } from "../collections/set";
 import { Broadcast } from "./broadcast";
 import { BroadcastContract } from "./broadcast_contract";
 import { IBroadcastReceiver } from "./broadcast_receiver";

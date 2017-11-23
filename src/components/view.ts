@@ -9,38 +9,7 @@
  */
 
 import { IComponent } from "./component";
- 
-/**
- * 表示视图的状态。
- * @enum
- * @version 1.0.0
- */
-export const enum ViewStatus
-{
-    /**
-     * 未进入或已暂停。
-     * @member
-     */
-    none = 0,
-    
-    /**
-     * 进入中。
-     * @member
-     */
-    entering = 1,
-
-    /**
-     * 运行中。
-     * @member
-     */
-    running = 2,
-
-    /**
-     * 离开中。
-     * @member
-     */
-    leaving = 3
-}
+import { ViewStatus } from "./view_status";
 
 /**
  * 定义视图的基础功能。

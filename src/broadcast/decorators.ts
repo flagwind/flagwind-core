@@ -8,9 +8,9 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { InvalidOperationException } from "../exceptions";
-import { Map } from "../collections";
-import { Activator } from "../reflection";
+import { InvalidOperationException } from "../exceptions/invalid_operation_exception";
+import { Map } from "../collections/map";
+import { Activator } from "../reflection/activator";
 import { BroadcastContract } from "./broadcast_contract";
 import { IBroadcastReceiver } from "./broadcast_receiver";
 import { BroadcastManager } from "./broadcast_manager";

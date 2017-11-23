@@ -8,9 +8,9 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { InvalidOperationException } from "../exceptions";
-import { Type } from "../runtime";
-import { Activator } from "../reflection";
+import { InvalidOperationException } from "../exceptions/invalid_operation_exception";
+import { Type } from "../runtime/type";
+import { Activator } from "../reflection/activator";
 import { ICommand, CommandBase } from "./command";
 import { CommandExecutor } from "./command_executor";
 

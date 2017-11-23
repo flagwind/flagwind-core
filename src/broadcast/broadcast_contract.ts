@@ -8,9 +8,9 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { RegexUtils } from "../common";
-import { ArgumentException } from "../exceptions";
-import { Set } from "../collections";
+import { RegexUtils } from "../common/regex_utils";
+import { ArgumentException } from "../exceptions/argument_exception";
+import { Set } from "../collections/set";
 import { BroadcastPriority } from "./broadcast_priority";
 
 /**

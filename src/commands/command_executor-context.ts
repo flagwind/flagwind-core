@@ -8,7 +8,7 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions";
+import { ArgumentException } from "../exceptions/argument_exception";
 import { ICommandExecutor } from "./command_executor";
 import { CommandExpression } from "./command_expression";
 

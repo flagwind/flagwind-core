@@ -8,7 +8,7 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions";
+import { ArgumentException } from "../exceptions/argument_exception";
 
 /**
  * 支持对泛型集合的简单迭代。

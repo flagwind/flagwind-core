@@ -8,8 +8,8 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions";
-import { IDisposable } from "../runtime";
+import { ArgumentException } from "../exceptions/argument_exception";
+import { IDisposable } from "../runtime/disposable";
 
 /**
  * 实现从字符串进行读取的读取器。

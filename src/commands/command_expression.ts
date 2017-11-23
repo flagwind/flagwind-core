@@ -8,10 +8,10 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions";
-import { Map } from "../collections";
-import { PathAnchor } from "../io";
-import { StringUtils } from "../common";
+import { ArgumentException } from "../exceptions/argument_exception";
+import { Map } from "../collections/map";
+import { PathAnchor } from "../io/path_anchor";
+import { StringUtils } from "../common/string_utils";
 import { CommandOptionCollection } from "./command_option-collection";
 import { CommandExpressionParser } from "./command_expression-parser";
 

@@ -8,7 +8,10 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { IEnumerable, IEnumerator, KeyValuePair, Map } from "../collections";
+import { IEnumerable } from "../collections/enumerable";
+import { IEnumerator } from "../collections/enumerator";
+import { KeyValuePair } from "../collections/key_value_pair";
+import { Map } from "../collections/map";
 
 /**
  * 命令选项集合。

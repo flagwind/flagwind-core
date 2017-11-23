@@ -8,7 +8,7 @@
  * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { IMap, Map } from "../collections";
+import { IMap, Map } from "../collections/map";
 import { IEventProvider } from "./event_provider";
 
 /**
