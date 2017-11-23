@@ -9,6 +9,7 @@
  */
 
 import { InvalidOperationException } from "../exceptions/invalid_operation_exception";
+import { IEventProvider, EventProvider } from "../events/event_provider";
 import { WorkerState } from "./worker_state";
 import { WorkerStateChangedEventArgs } from "./worker_state_changed_event_args";
 
@@ -17,7 +18,7 @@ import { WorkerStateChangedEventArgs } from "./worker_state_changed_event_args";
  * @interface
  * @version 1.0.0
  */
-export interface IWorker
+export interface IWorker extends IEventProvider
 {
     /**
      * 表示当工作器状态改变后产生的事件。
@@ -85,7 +86,7 @@ export interface IWorker
  * @version 1.0.0
  * @author jason
  */
-export abstract class WorkerBase implements IWorker
+export abstract class WorkerBase extends EventProvider implements IWorker
 {
     private _name: string;                                          // 工作器名称
     private _state: WorkerState;                                    // 工作器状态
@@ -170,6 +171,8 @@ export abstract class WorkerBase implements IWorker
      */
     protected constructor(name: string)
     {
+        super();
+        
         this._name = name;
         this._disabled = false;
         this._canPauseAndContinue = false;
@@ -383,9 +386,12 @@ export abstract class WorkerBase implements IWorker
     /**
      * 当工作器状态发生改变时调用。
      * @protected
-     * @abstract
+     * @virtual
      * @param  {WorkerStateChangedEventArgs} args 事件参数。
      * @returns void
      */
-    protected abstract onStateChanged(args: WorkerStateChangedEventArgs): void;
+    protected onStateChanged(args: WorkerStateChangedEventArgs): void
+    {
+        this.dispatchEvent(this.STATE_CHANGED, args);
+    }
 }

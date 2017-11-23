@@ -160,7 +160,7 @@ export class EventProvider implements IEventProvider
         {
             throw new ArgumentException();
         }
-
+        
         let entries = this._events.get(type);
 
         if(!entries)

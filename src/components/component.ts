@@ -9,13 +9,14 @@
  */
 
 import { IDisposable } from "../runtime/disposable";
+import { IEventProvider } from "../events/event_provider";
 
 /**
  * 定义组件的基础功能。
  * @interface
  * @version 1.0.0
  */
-export interface IComponent extends IDisposable
+export interface IComponent extends IEventProvider, IDisposable
 {
     /**
      * 获取获设置组件的名称。

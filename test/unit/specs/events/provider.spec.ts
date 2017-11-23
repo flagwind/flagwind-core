@@ -10,6 +10,7 @@
 
 import { assert } from "chai";
 import { EventProvider, EventArgs } from "../../../../src/events";
+import { Promise } from "es6-promise";
 
 class Button extends EventProvider
 {
@@ -55,6 +56,26 @@ describe("EventProviderTest", () =>
     });
 
     /**
+     * 测试作用域。
+     */
+    it("scopeTest", () => 
+    {
+        return new Promise((resolve, reject) => 
+        {
+            const listener = function(e: EventArgs)
+            {
+                assert.equal(this, button);
+
+                resolve();
+            };
+            
+            provider1.addListener("something2", listener, button);
+
+            provider1.dispatchEvent("something2");
+        });
+    });
+
+    /**
      * 测试单次监听事件。
      */
     it("onceTest", () => 
@@ -71,5 +92,5 @@ describe("EventProviderTest", () =>
         provider1.dispatchEvent(new EventArgs("something", "data"));
 
         assert.isFalse(provider1.hasListener("something"));
-    })
+    });
 });
