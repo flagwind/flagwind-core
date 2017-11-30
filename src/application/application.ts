@@ -1,11 +1,11 @@
 /*!
- * @file This file is part of `application` module. 
+ * This file is part of `application` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
 import { ArgumentException } from "../exceptions/argument_exception";
@@ -69,19 +69,19 @@ export class Application
      * 当应用程序启动时产生的事件。
      * @event ApplicationEventArgs
      */
-    public static STARTING: "starting";
+    public static STARTING: string = "starting";
     
     /**
      * 当应用程序启动后产生的事件。
      * @event ApplicationEventArgs
      */
-    public static STARTED: "started";
+    public static STARTED: string = "started";
     
     /**
      * 当应用程序即将退出时产生的事件。
      * @event CancelEventArgs
      */
-    public static EXITING: "exiting";
+    public static EXITING: string = "exiting";
     
     /**
      * 启动应用程序。

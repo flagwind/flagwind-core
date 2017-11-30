@@ -1,11 +1,11 @@
 /*!
- * @file This file is part of `services` module. 
+ * This file is part of `services` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
 import { InvalidOperationException } from "../exceptions/invalid_operation_exception";
@@ -84,7 +84,7 @@ export interface IWorker extends IEventProvider
  * @abstract
  * @class
  * @version 1.0.0
- * @author jason
+ * jason
  */
 export abstract class WorkerBase extends EventProvider implements IWorker
 {

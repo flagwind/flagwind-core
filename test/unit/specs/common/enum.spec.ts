@@ -1,11 +1,11 @@
 /*!
- * @file This file is part of `common` module. 
+ * This file is part of `common` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
 import { assert } from "chai";
@@ -30,7 +30,7 @@ describe("EnumTest", () =>
         assert.equal(0, entry.value);
         assert.equal("M", entry.alias);
         assert.equal("男士", entry.description);
-    })
+    });
     
     /**
      * 测试 getEntries 方法。

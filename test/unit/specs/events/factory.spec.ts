@@ -1,11 +1,11 @@
 /*!
- * @file This file is part of `events` module. 
+ * This file is part of `events` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
 import { assert } from "chai";
@@ -41,7 +41,7 @@ describe("EventProviderFactoryTest", () =>
         assert.isNotNull(provider1);
         assert.isNotNull(provider2);
 
-        provider1.addListener("something", (e: EventArgs) => {});
+        provider1.addListener("something", (e: EventArgs) => { console.log(e); });
 
         assert.isTrue(provider1.hasListener("something"));
     });

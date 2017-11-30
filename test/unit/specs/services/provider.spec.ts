@@ -1,11 +1,11 @@
 /*!
- * @file This file is part of `services` module. 
+ * This file is part of `services` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
 import { assert } from "chai";
@@ -77,7 +77,7 @@ describe("ServiceProviderTest", () =>
         // 将三号服务容器加入到二号服务容器中
         provider2.register(provider3);
             
-        //将一号服务容器加入到三号服务容器中（形成循环链）
+        // 将一号服务容器加入到三号服务容器中（形成循环链）
         provider3.register(provider1);
 
         worker = provider1.resolve<IWorker>("WK3");

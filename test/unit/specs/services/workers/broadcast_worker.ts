@@ -1,11 +1,11 @@
 /*!
- * @file This file is part of `services` module. 
+ * This file is part of `services` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
 import { assert } from "chai";
@@ -28,7 +28,7 @@ export class BroadcastWorker extends WorkerBase
      */
     protected onStart(...args: Array<string>): void
     {
-        
+        // todo
     }
     
     /**
@@ -40,7 +40,7 @@ export class BroadcastWorker extends WorkerBase
      */
     protected onStop(...args: Array<string>): void
     {
-
+        // todo
     }
 
     /**
@@ -52,6 +52,6 @@ export class BroadcastWorker extends WorkerBase
      */
     protected onStateChanged(args: WorkerStateChangedEventArgs): void
     {
-        
+        // todo
     }
 }
