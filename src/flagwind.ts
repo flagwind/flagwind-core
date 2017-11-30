@@ -16,6 +16,5 @@ export * from "./events";
 export * from "./commands";
 export * from "./services";
 export * from "./broadcast";
-export * from "./components";
 export * from "./security";
 export * from "./application";

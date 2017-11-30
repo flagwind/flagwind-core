@@ -12,7 +12,6 @@ import { ArgumentException } from "../exceptions/argument_exception";
 import { InvalidOperationException } from "../exceptions/invalid_operation_exception";
 import { CancelEventArgs } from "../events/cancel_event_args";
 import { IEventProvider, EventProvider } from "../events/event_provider";
-import { IWorkspace } from "./workspace";
 import { WorkbenchStatus } from "./workbench_status";
 import { ApplicationContextBase } from "./application_context";
 
@@ -82,12 +81,6 @@ export interface IWorkbench extends IEventProvider
      * @property
      */
     title: string;
-
-    /**
-     * 获取工作空间实例。
-     * @property
-     */
-    workspace: IWorkspace;
     
     /**
      * 打开工作台。
@@ -127,7 +120,6 @@ export abstract class WorkbenchBase extends EventProvider implements IWorkbench
 {
     private _status: any;                                           // 工作台状态
     private _title: string;                                         // 工作台标题
-    private _workspace: IWorkspace;                                 // 工作空间实例
     private _applicationContext: ApplicationContextBase;            // 应用程序上下文实例
     
     /**
@@ -213,16 +205,6 @@ export abstract class WorkbenchBase extends EventProvider implements IWorkbench
     }
     
     /**
-     * 获取工作台的主工作空间实例。
-     * @property
-     * @returns IWorkspace
-     */
-    public get workspace(): IWorkspace
-    {
-        return this._workspace;
-    }
-    
-    /**
      * 获取工作台所属的应用程序上下文实例。
      * @property
      * @returns ApplicationContextBase
@@ -281,9 +263,6 @@ export abstract class WorkbenchBase extends EventProvider implements IWorkbench
 
         try
         {
-            // 创建工作空间
-            this._workspace = this.createWorkspace();
-            
             // 调用虚拟方法以执行实际启动的操作
             await this.onOpen(args);
         }
@@ -667,11 +646,4 @@ export abstract class WorkbenchBase extends EventProvider implements IWorkbench
         // 激发工作台"titleChanged"事件
         this.dispatchEvent(this.TITLE_CHANGED);
     }
-
-    /**
-     * 创建一个工作空间对象。
-     * @abstract
-     * @returns IWorkspace
-     */
-    protected abstract createWorkspace(): IWorkspace;
 }
