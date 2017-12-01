@@ -54,9 +54,9 @@ rimraf(distPath, (error) =>
     }
     
     const buildDev = build(webpackDevConfig);
-    const buildProd = build(webpackProdConfig);
+    // const buildProd = build(webpackProdConfig);
     
-    Promise.all([buildDev, buildProd])
+    Promise.all([buildDev])
     .then(() => 
     {
         // 停止旋转器
