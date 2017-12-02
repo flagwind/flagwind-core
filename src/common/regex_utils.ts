@@ -14,7 +14,7 @@
  * @class
  * @version 1.0.0
  */
-export class RegexUtils
+export default class RegexUtils
 {
     /**
      * 表示一个 URI 正则表达式。

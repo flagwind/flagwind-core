@@ -8,5 +8,7 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-export { Type } from "./type";
-export { IDisposable } from "./disposable";
+import Type from "./type";
+import IDisposable from "./disposable`1";
+
+export { Type, IDisposable };

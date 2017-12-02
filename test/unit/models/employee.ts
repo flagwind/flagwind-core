@@ -8,14 +8,14 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { Person } from "./person";
-import { Department } from "./department";
+import Person from "./person";
+import Department from "./department";
 
 /**
  * 表示一个员工实体类型。
  * @class
  */
-export class Employee extends Person
+export default class Employee extends Person
 {
     private _employeeId: string;
     private _salary: number;

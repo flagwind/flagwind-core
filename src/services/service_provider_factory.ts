@@ -8,41 +8,22 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions/argument_exception";
-import { Type } from "../runtime/type";
-import { IEnumerable } from "../collections/enumerable";
-import { IEnumerator } from "../collections/enumerator";
-import { KeyValuePair } from "../collections/key_value_pair";
-import { Map } from "../collections/map";
-import { IServiceProvider, ServiceProvider } from "./service_provider";
-
-/**
- * 提供关于服务供应程序容器的功能。
- * @interface
- * @version 1.0.0
- */
-export interface IServiceProviderFactory
-{
-    /**
-     * 获取设置默认的服务供应程序。
-     * @property
-     */
-    default: IServiceProvider;
-    
-    /**
-     * 获取指定名称的服务供应程序。
-     * @param  {string} name 指定的服务供应程序名称。
-     * @returns IServiceProvider 返回指定名称的服务供应程序。
-     */
-    getProvider(name: string): IServiceProvider;
-}
+import IEnumerable from "../collections/enumerable`1";
+import IEnumerator from "../collections/enumerator`1";
+import IServiceProviderFactory from "./service_provider_factory`1";
+import IServiceProvider from "./service_provider`1";
+import ArgumentException from "../exceptions/argument_exception";
+import Type from "../runtime/type";
+import KeyValuePair from "../collections/key_value_pair";
+import Map from "../collections/map";
+import ServiceProvider from "./service_provider";
 
 /**
  * 提供关于服务供应程序容器的功能。
  * @class
  * @version 1.0.0
  */
-export class ServiceProviderFactory implements IServiceProviderFactory, IEnumerable<KeyValuePair<string, IServiceProvider>>
+export default class ServiceProviderFactory implements IServiceProviderFactory, IEnumerable<KeyValuePair<string, IServiceProvider>>
 {
     private _defaultName: string;                                   // 默认提供程序容器名称
     private _providers: Map<string, IServiceProvider>;              // 私有提供程序字典

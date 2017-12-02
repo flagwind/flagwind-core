@@ -9,7 +9,7 @@
  */
 
 import { assert } from "chai";
-import { Type } from "../../../../src/runtime/type";
+import Type from "src/runtime/type";
 import { Employee, Person, Gender } from "../../models";
 
 describe("TypeTest", () =>

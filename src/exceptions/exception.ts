@@ -13,7 +13,7 @@
  * @class
  * @version 1.0.0
  */
-export class Exception extends Error
+export default class Exception extends Error
 {
     public constructor(message?: string)
     {

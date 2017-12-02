@@ -8,17 +8,17 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { IEnumerable } from "../collections/enumerable";
-import { IEnumerator } from "../collections/enumerator";
-import { KeyValuePair } from "../collections/key_value_pair";
-import { Map } from "../collections/map";
+import IEnumerable from "../collections/enumerable`1";
+import IEnumerator from "../collections/enumerator`1";
+import KeyValuePair from "../collections/key_value_pair";
+import Map from "../collections/map";
 
 /**
  * 命令选项集合。
  * @class
  * @version 1.0.0
  */
-export class CommandOptionCollection implements IEnumerable<KeyValuePair<string, string>>
+export default class CommandOptionCollection implements IEnumerable<KeyValuePair<string, string>>
 {
     private _items: Map<string, string>;
     

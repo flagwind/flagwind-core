@@ -8,40 +8,19 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions/argument_exception";
-import { LocalStorage } from "../io/local_storage";
-import { ICredential } from "./credential";
+import ICredential from "./credential`1";
+import IPrincipal from "./principal`1";
+import ArgumentException from "../exceptions/argument_exception";
+import LocalStorage from "../io/local_storage";
 
 const CREDENTIAL_SYMBOL: string = "__principal__";
-
-/**
- * 定义用户对象的基本功能。
- * @interface
- * @version 1.0.0
- */
-export interface IPrincipal
-{
-    /**
-     * 获取当前用户的凭证。
-     * @property
-     * @return string
-     */
-    credential: ICredential;
-
-    /**
-     * 获取当前用户是否为有效。
-     * @property
-     * @return boolean
-     */
-    isAuthenticated: boolean;
-}
 
 /**
  * 定义用户对象的基本功能。
  * @class
  * @version 1.0.0
  */
-export class Principal implements IPrincipal
+export default class Principal implements IPrincipal
 {
     private _credential: ICredential;                           // 安全凭证
     

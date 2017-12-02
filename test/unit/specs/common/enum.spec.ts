@@ -9,8 +9,9 @@
  */
 
 import { assert } from "chai";
-import { EnumEntry, EnumUtils } from "../../../../src/common";
-import { Gender } from "../../models";
+import EnumEntry from "src/common/enum_entry";
+import EnumUtils from "src/common/enum_utils";
+import Gender from "../../models/gender";
 
 describe("EnumTest", () =>
 {

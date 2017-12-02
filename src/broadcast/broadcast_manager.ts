@@ -8,20 +8,22 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions/argument_exception";
-import { IEventProvider, EventProvider } from "../events/event_provider";
-import { Broadcast } from "./broadcast";
-import { BroadcastContract } from "./broadcast_contract";
-import { BroadcastContext } from "./broadcast_context";
-import { IBroadcastReceiver } from "./broadcast_receiver";
-import { IBroadcastReceiverProvider, BroadcastReceiverProvider } from "./broadcast_receiver-provider";
+import IEventProvider from "../events/event_provider`1";
+import IBroadcastReceiver from "./broadcast_receiver`1";
+import IBroadcastReceiverProvider from "./broadcast_receiver_provider`1";
+import ArgumentException from "../exceptions/argument_exception";
+import EventProvider from "../events/event_provider";
+import Broadcast from "./broadcast";
+import BroadcastContract from "./broadcast_contract";
+import BroadcastContext from "./broadcast_context";
+import BroadcastReceiverProvider from "./broadcast_receiver_provider";
 
 /**
  * 提供用于广播注册发布等功能。
  * @class
  * @version 1.0.0
  */
-export class BroadcastManager
+export default class BroadcastManager
 {
     private _eventProvider: IEventProvider;                         // 事件提供程序
     private _receiverProvider: IBroadcastReceiverProvider;          // 广播接收器提供程序

@@ -8,14 +8,14 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions/argument_exception";
+import ArgumentException from "../exceptions/argument_exception";
 
 /**
  * EventArgs 类作为创建事件参数的基类，当发生事件时，EventArgs 实例将作为参数传递给事件侦听器。
  * @class
  * @version 1.0.0
  */
-export class EventArgs
+export default class EventArgs
 {
     private _type: string;                      // 事件类型
     private _source: any;                       // 事件源

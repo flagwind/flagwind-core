@@ -8,14 +8,14 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { EventArgs } from "./event_args";
+import EventArgs from "./event_args";
 
 /**
  * 为可取消的事件提供数据。
  * @class
  * @version 1.0.0
  */
-export class CancelEventArgs extends EventArgs
+export default class CancelEventArgs extends EventArgs
 {
     private _cancel: boolean = false;
     

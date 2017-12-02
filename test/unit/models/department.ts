@@ -12,7 +12,7 @@
  * 表示一个部门实体类型。
  * @class
  */
-export class Department
+export default class Department
 {
     private _name: string;
     private _departmentId: string;

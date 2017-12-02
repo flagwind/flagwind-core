@@ -8,7 +8,7 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ServiceProviderFactory } from "./service_provider_factory";
+import ServiceProviderFactory from "./service_provider_factory";
 
 /**
  * 标注当前类型是一个可注入的服务。

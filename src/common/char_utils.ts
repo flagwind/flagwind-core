@@ -8,9 +8,9 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { Type } from "../runtime/type";
+import Type from "../runtime/type";
 
-export class CharUtils
+export default class CharUtils
 {
     public static isChar(char: string): boolean
     {

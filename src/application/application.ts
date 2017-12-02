@@ -8,12 +8,13 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions/argument_exception";
-import { EventArgs } from "../events/event_args";
-import { CancelEventArgs } from "../events/cancel_event_args";
-import { IEventProvider, EventProvider } from "../events/event_provider";
-import { ApplicationEventArgs } from "./application_event_args";
-import { ApplicationContextBase } from "./application_context";
+import IEventProvider from "../events/event_provider`1";
+import ArgumentException from "../exceptions/argument_exception";
+import EventArgs from "../events/event_args";
+import CancelEventArgs from "../events/cancel_event_args";
+import EventProvider from "../events/event_provider";
+import ApplicationEventArgs from "./application_event_args";
+import ApplicationContextBase from "./application_context_base";
 
 /**
  * 应用程序类，负责整个应用的启动和退出。
@@ -21,7 +22,7 @@ import { ApplicationContextBase } from "./application_context";
  * @class
  * @version 1.0.0
  */
-export class Application
+export default class Application
 {
     private static _isStarted: boolean = false;                         // 标识应用程序是否启动完成
     private static _context: ApplicationContextBase = null;             // 应用程序上下文实例

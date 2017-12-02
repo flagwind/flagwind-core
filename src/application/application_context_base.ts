@@ -8,21 +8,24 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ISet, Set } from "../collections/set";
-import { IMap, Map } from "../collections/map";
-import { ArgumentException } from "../exceptions/argument_exception";
-import { InvalidOperationException } from "../exceptions/invalid_operation_exception";
-import { IServiceProviderFactory, ServiceProviderFactory } from "../services/service_provider_factory";
-import { IPrincipal } from "../security/principal";
-import { IApplicationModule } from "./application_module";
-import { IWorkbench } from "./workbench";
+import ISet from "../collections/set`1";
+import IMap from "../collections/map`1";
+import IServiceProviderFactory from "../services/service_provider_factory`1";
+import IPrincipal from "../security/principal";
+import IApplicationModule from "./application_module";
+import IWorkbench from "./workbench`1";
+import ArgumentException from "../exceptions/argument_exception";
+import InvalidOperationException from "../exceptions/invalid_operation_exception";
+import Set from "../collections/set";
+import Map from "../collections/map";
+import ServiceProviderFactory from "../services/service_provider_factory";
 
 /**
  * 表示实现该抽象类的是一个应用程序上下文。
  * @class
  * @version 1.0.0
  */
-export abstract class ApplicationContextBase
+export default abstract class ApplicationContextBase
 {
     private _applicationId: string;                             // 应用程序唯一代号
     private _title: string;                                     // 应用程序标题

@@ -13,7 +13,7 @@
  * @interface
  * @version 1.0.0
  */
-export interface ICredential
+export default interface ICredential
 {
     /**
      * 获取安全凭证编号。

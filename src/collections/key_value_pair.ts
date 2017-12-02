@@ -13,7 +13,7 @@
  * @class
  * @version 1.0.0
  */
-export class KeyValuePair<K, V>
+export default class KeyValuePair<K, V>
 {
     private _key: K;
     private _value: V;

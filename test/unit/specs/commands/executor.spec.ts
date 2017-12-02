@@ -10,9 +10,9 @@
 
 import { assert } from "chai";
 import { Promise, polyfill } from "es6-promise";
-import { Type } from "../../../../src/runtime/type";
-import { SendCommand } from "./sms/send-command";
-import { CommandExecutor } from "../../../../src/commands";
+import Type from "src/runtime/type";
+import SendCommand from "./sms/send-command";
+import CommandExecutor from "src/commands/command_executor";
 
 polyfill();
 

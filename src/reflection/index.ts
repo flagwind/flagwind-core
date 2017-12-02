@@ -8,4 +8,6 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-export { Activator } from "./activator";
+import Activator from "./activator";
+
+export { Activator };

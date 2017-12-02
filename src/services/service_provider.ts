@@ -8,108 +8,23 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions/argument_exception";
-import { Type } from "../runtime/type";
-import { Activator } from "../reflection/activator";
-import { IEnumerable } from "../collections/enumerable";
-import { Set } from "../collections/set";
-import { ServiceEntry } from "./service_entry";
-import { IServiceStorage, ServiceStorage } from "./service_storage";
-import { IServiceBuilder } from "./service_builder";
-
-/**
- * 定义用于检索服务对象的机制。
- * @interface
- * @version 1.0.0
- */
-export interface IServiceProvider
-{
-    /**
-     * 获取服务仓储实例。
-     * @property
-     */
-    storage: IServiceStorage;
-    
-    /**
-     * 注册一个服务至服务容器中。
-     * @param  {string} name 服务名称。
-     * @param  {Function} serviceType 服务类型。
-     * @returns void
-     */
-    register(name: string, serviceType: Function): void;
-    /**
-     * 注册一个服务至服务容器中。
-     * @param  {string} name 服务名称。
-     * @param  {Function} serviceType 服务类型。
-     * @param  {Array<Function>} contractTypes? 契约类型。
-     * @returns void
-     */
-    register(name: string, serviceType: Function, contractTypes?: Array<Function>): void;
-    /**
-     * 注册一个服务至服务容器中。
-     * @param  {string} name 服务名称。
-     * @param  {any} service 服务实例。
-     * @returns void
-     */
-    register(name: string, service: any): void;
-    /**
-     * 注册一个服务至服务容器中。
-     * @param  {string} name 服务名称。
-     * @param  {any} service 服务实例。
-     * @param  {Array<Function>} contractTypes? 契约类型。
-     * @returns void
-     */
-    register(name: string, service: any, contractTypes?: Array<Function>): void;
-    /**
-     * 注册一个服务至服务容器中。
-     * @param  {Function} serviceType 服务类型。
-     * @param  {Array<Function>} contractTypes? 契约类型。
-     * @returns void
-     */
-    register(serviceType: Function, contractTypes?: Array<Function>): void;
-    /**
-     * 注册一个服务至服务容器中。
-     * @param  {any} service 服务实例。
-     * @param  {Array<Function>} contractTypes? 契约类型。
-     * @returns void
-     */
-    register(service: any, contractTypes?: Array<Function>): void;
-    
-    /**
-     * 移除指定名称的服务。
-     * @param  {string} name 服务名称。
-     * @returns void
-     */
-    unregister(name: string): void;
-    
-    /**
-     * 根据指定服务名称获取服务实例。
-     * @param  {string} name 服务名称。
-     * @returns any
-     */
-    resolve<T>(name: string): T;
-    
-    /**
-     * 根据指定服务类型获取服务实例。
-     * @param  {Function|string} serviceType 服务类型。
-     * @returns T
-     */
-    resolve<T>(serviceType: Function | string): T;
-    
-    /**
-     * 根据指定服务类型获取所有服务实例。
-     * @param  {Function} serviceType
-     * @returns IEnumerable
-     */
-    resolveAll<T>(serviceType: Function): IEnumerable<T>;
-}
+import IEnumerable from "../collections/enumerable`1";
+import IServiceStorage from "./service_storage`1";
+import IServiceBuilder from "./service_builder`1";
+import IServiceProvider from "./service_provider`1";
+import ArgumentException from "../exceptions/argument_exception";
+import Type from "../runtime/type";
+import Activator from "../reflection/activator";
+import Set from "../collections/set";
+import ServiceEntry from "./service_entry";
+import ServiceStorage from "./service_storage";
 
 /**
  * 用于检索服务对象的提供程序。
  * @class
  * @version 1.0.0
  */
-export class ServiceProvider implements IServiceProvider
+export default class ServiceProvider implements IServiceProvider
 {
     protected _storage: IServiceStorage;                      // 服务仓储
     protected _builder: IServiceBuilder;                      // 服务生成器

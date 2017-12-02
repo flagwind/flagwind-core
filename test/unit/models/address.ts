@@ -12,7 +12,7 @@
  * 表示一个地址实体类型。
  * @class
  */
-export class Address
+export default class Address
 {
     private _province: string;
     private _city: string;

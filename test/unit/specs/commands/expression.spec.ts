@@ -9,8 +9,8 @@
  */
 
 import { assert } from "chai";
-import { PathAnchor } from "../../../../src/io";
-import { CommandExpression } from "../../../../src/commands";
+import PathAnchor from "src/io/path_anchor";
+import CommandExpression from "src/commands/command_expression";
 
 describe("CommandExpressionTest", () =>
 {

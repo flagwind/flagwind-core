@@ -9,10 +9,12 @@
  */
 
 import { assert } from "chai";
-import { Type } from "../../../../../src/runtime/type";
-import { IWorker, WorkerBase, WorkerStateChangedEventArgs } from "../../../../../src/services";
+import Type from "src/runtime/type";
+import IWorker from "src/services/worker`1";
+import WorkerBase from "src/services/worker_base";
+import WorkerStateChangedEventArgs from "src/services/worker_state_changed_event_args";
 
-export class MessageWorker extends WorkerBase
+export default class MessageWorker extends WorkerBase
 {
     public constructor()
     {

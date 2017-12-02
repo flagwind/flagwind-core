@@ -8,5 +8,8 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-export { ICredential } from "./credential";
-export { IPrincipal, Principal } from "./principal";
+import ICredential from "./credential`1";
+import IPrincipal from "./principal`1";
+import Principal from "./principal";
+
+export { ICredential, IPrincipal, Principal };

@@ -8,15 +8,15 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { EventArgs } from "../events/event_args";
-import { WorkerState } from "./worker_state";
+import EventArgs from "../events/event_args";
+import WorkerState from "./worker_state";
 
 /**
  * 表示工作器状态改变后的事件参数。
  * @class
  * @version 1.0.0
  */
-export class WorkerStateChangedEventArgs extends EventArgs
+export default class WorkerStateChangedEventArgs extends EventArgs
 {
     /**
      * 操作名称。

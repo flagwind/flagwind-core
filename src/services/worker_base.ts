@@ -8,74 +8,11 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { InvalidOperationException } from "../exceptions/invalid_operation_exception";
-import { IEventProvider, EventProvider } from "../events/event_provider";
-import { WorkerState } from "./worker_state";
-import { WorkerStateChangedEventArgs } from "./worker_state_changed_event_args";
-
-/**
- * 关于工作器的接口。
- * @interface
- * @version 1.0.0
- */
-export interface IWorker extends IEventProvider
-{
-    /**
-     * 表示当工作器状态改变后产生的事件。
-     * @event WorkerStateChangedEventArgs
-     */
-    readonly STATE_CHANGED: string;
-
-    /**
-     * 获取当前工作器的名称。
-     * @property
-     */
-    name: string;
-    
-    /**
-     * 获取当前工作器的状态。
-     * @property
-     */
-    state: WorkerState;
-    
-    /**
-     * 获取或设置是否禁用工作器。
-     * @property
-     */
-    disabled: boolean;
-
-    /**
-     * 获取工作器是否允许暂停和继续。
-     * @property
-     */
-    canPauseAndContinue: boolean;
-
-    /**
-     * 启动工作器。
-     * @param  {Array<string>} ...args 启动的参数。
-     * @returns void
-     */
-    start(...args: Array<string>): void;
-    
-    /**
-     * 停止工作器。
-     * @param  {Array<string>} ...args 停止的参数。
-     * @returns void
-     */
-    stop(...args: Array<string>): void;
-    
-    /**
-     * 暂停工作器。
-     * @returns void
-     */
-    pause(): void;
-    
-    /**
-     * 恢复工作器，继续运行。
-     * @returns void
-     */
-    resume(): void;
-}
+import IWorker from "./worker`1";
+import InvalidOperationException from "../exceptions/invalid_operation_exception";
+import EventProvider from "../events/event_provider";
+import WorkerState from "./worker_state";
+import WorkerStateChangedEventArgs from "./worker_state_changed_event_args";
 
 /**
  * 关于工作器的抽象类。
@@ -86,7 +23,7 @@ export interface IWorker extends IEventProvider
  * @version 1.0.0
  * jason
  */
-export abstract class WorkerBase extends EventProvider implements IWorker
+export default abstract class WorkerBase extends EventProvider implements IWorker
 {
     private _name: string;                                          // 工作器名称
     private _state: WorkerState;                                    // 工作器状态

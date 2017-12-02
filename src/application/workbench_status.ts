@@ -13,7 +13,7 @@
  * @enum
  * @version 1.0.0
  */
-export const enum WorkbenchStatus
+const enum WorkbenchStatus
 {
     /**
      * 未开始或已关闭。
@@ -57,3 +57,5 @@ export const enum WorkbenchStatus
      */
     closing = 6
 }
+
+export default WorkbenchStatus;

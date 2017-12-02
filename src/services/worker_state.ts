@@ -13,7 +13,7 @@
  * @enum
  * @version 1.0.0
  */
-export const enum WorkerState
+const enum WorkerState
 {
     /**
      * 未运行/已停止。
@@ -57,3 +57,5 @@ export const enum WorkerState
      */
     stopping = 6
 }
+
+export default WorkerState;

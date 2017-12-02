@@ -8,31 +8,19 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions/argument_exception";
-import { IMap, Map } from "../collections/map";
-import { IEventProvider, EventProvider } from "./event_provider";
-
-/**
- * 提供关于事件提供程序的功能。
- * @interface
- * @version 1.0.0
- */
-export interface IEventProviderFactory
-{
-    /**
-     * 获取指定事件源的事件提供程序。
-     * @param  {any} source IEventProvider 所抛出事件对象的源对象。
-     * @returns IEventProdiver 返回指定名称的事件提供程序。
-     */
-    getProvider(source: any): IEventProvider;
-}
+import IMap from "../collections/map`1";
+import IEventProvider from "./event_provider`1";
+import IEventProviderFactory from "./event_provider_factory`1";
+import ArgumentException from "../exceptions/argument_exception";
+import Map from "../collections/map";
+import EventProvider from "./event_provider";
 
 /**
  * 提供关于事件提供程序的功能。
  * @class
  * @version 1.0.0
  */
-export class EventProviderFactory implements IEventProviderFactory
+export default class EventProviderFactory implements IEventProviderFactory
 {
     private _providers: Map<any, IEventProvider>;
     private static _instance: EventProviderFactory;

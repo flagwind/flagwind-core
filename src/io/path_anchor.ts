@@ -13,7 +13,7 @@
  * @enum
  * @version 1.0.0
  */
-export const enum PathAnchor
+const enum PathAnchor
 {
     /**
      * 未锚定。
@@ -39,3 +39,5 @@ export const enum PathAnchor
      */
     root
 }
+
+export default PathAnchor;

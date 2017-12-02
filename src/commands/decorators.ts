@@ -8,11 +8,12 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { InvalidOperationException } from "../exceptions/invalid_operation_exception";
-import { Type } from "../runtime/type";
-import { Activator } from "../reflection/activator";
-import { ICommand, CommandBase } from "./command";
-import { CommandExecutor } from "./command_executor";
+import ICommand from "./command`1";
+import InvalidOperationException from "../exceptions/invalid_operation_exception";
+import Type from "../runtime/type";
+import Activator from "../reflection/activator";
+import CommandBase from "./command_base";
+import CommandExecutor from "./command_executor";
 
 /**
  * 标注当前类型是一个可通过命令执行器执行的命令。

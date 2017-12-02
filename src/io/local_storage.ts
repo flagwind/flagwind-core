@@ -8,8 +8,8 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions/argument_exception";
-import { Type } from "../runtime/type";
+import ArgumentException from "../exceptions/argument_exception";
+import Type from "../runtime/type";
 
 /**
  * 表示全局本地缓存容器。
@@ -17,7 +17,7 @@ import { Type } from "../runtime/type";
  * @class
  * @version 1.0.0
  */
-export class LocalStorage
+export default class LocalStorage
 {
     private static _proxy = window.localStorage;
     

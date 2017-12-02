@@ -8,14 +8,14 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { Gender } from "./gender";
-import { Address } from "./address";
+import Gender from "./gender";
+import Address from "./address";
 
 /**
  * 表示一个人员实体类型。
  * @class
  */
-export class Person
+export default class Person
 {
     private _name: string;
     private _age: number;

@@ -13,7 +13,7 @@
  * @enum
  * @version 1.0.0
  */
-export const enum BroadcastPriority
+const enum BroadcastPriority
 {
     /**
      * 默认优先级。
@@ -33,3 +33,5 @@ export const enum BroadcastPriority
      */
     lowest = -9999
 }
+
+export default BroadcastPriority;

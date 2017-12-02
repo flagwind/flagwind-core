@@ -8,14 +8,14 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ServiceEntry } from "./service_entry";
+import ServiceEntry from "./service_entry";
 
 /**
  * 定义用于生成服务实例的机制。
  * @interface
  * @version 1.0.0
  */
-export interface IServiceBuilder
+export default interface IServiceBuilder
 {
     /**
      * 根据服务项生成服务实例。

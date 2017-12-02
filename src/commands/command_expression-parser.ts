@@ -8,14 +8,15 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { InvalidOperationException } from "../exceptions/invalid_operation_exception";
-import { Set } from "../collections/set";
-import { KeyValuePair } from "../collections/key_value_pair";
-import { Map } from "../collections/map";
-import { PathAnchor } from "../io/path_anchor";
-import { StringReader } from "../io/string_reader";
-import { CharUtils } from "../common/char_utils";
-import { CommandExpression } from "./command_expression";
+import ICommandExpressionParser from "./command_expression-parser`1";
+import InvalidOperationException from "../exceptions/invalid_operation_exception";
+import Set from "../collections/set";
+import KeyValuePair from "../collections/key_value_pair";
+import Map from "../collections/map";
+import PathAnchor from "../io/path_anchor";
+import StringReader from "../io/string_reader";
+import CharUtils from "../common/char_utils";
+import CommandExpression from "./command_expression";
 
 const enum CommandPathState
 {
@@ -36,26 +37,11 @@ const enum CommandPairState
 
 /**
  * 提供命令行文本解析功能。
- * @interface
- * @version 1.0.0
- */
-export interface ICommandExpressionParser
-{
-    /**
-     * 将指定的命令行文本解析成命令表达式对象。
-     * @param  {string} text 指定的要解析的命令行文本。
-     * @returns CommandExpression 返回解析的命令表达式对象，如果解析失败则返回空(null)。
-     */
-    parse(text: string): CommandExpression;
-}
-
-/**
- * 提供命令行文本解析功能。
  * @static
  * @class
  * @version 1.0.0
  */
-export class CommandExpressionParser implements ICommandExpressionParser
+export default class CommandExpressionParser implements ICommandExpressionParser
 {
     /**
      * 获取命令解析器的单实例。

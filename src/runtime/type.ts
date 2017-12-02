@@ -8,7 +8,7 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { Map } from "../collections/map";
+import Map from "../collections/map";
 
 /**
  * 提供一些常用类型检测与反射相关的方法。
@@ -16,7 +16,7 @@ import { Map } from "../collections/map";
  * @class
  * @version 1.0.0
  */
-export class Type
+export default class Type
 {
     private static readonly _metadatas = new Map<any, any>();
 

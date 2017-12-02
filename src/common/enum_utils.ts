@@ -8,10 +8,10 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions/argument_exception";
-import { Type } from "../runtime/type";
-import { Map } from "../collections/map";
-import { EnumEntry } from "./enum_entry";
+import ArgumentException from "../exceptions/argument_exception";
+import Type from "../runtime/type";
+import Map from "../collections/map";
+import EnumEntry from "./enum_entry";
 
 /**
  * 关于的枚举辅助工具类。
@@ -19,7 +19,7 @@ import { EnumEntry } from "./enum_entry";
  * @class
  * @version 1.0.0
  */
-export class EnumUtils
+export default class EnumUtils
 {
     private static readonly _entryCache = new Map<any, Array<EnumEntry>>();
     

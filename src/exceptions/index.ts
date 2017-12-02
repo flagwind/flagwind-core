@@ -8,6 +8,13 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-export { Exception } from "./exception";
-export { ArgumentException } from "./argument_exception";
-export { InvalidOperationException } from "./invalid_operation_exception";
+import Exception from "./exception";
+import ArgumentException from "./argument_exception";
+import InvalidOperationException from "./invalid_operation_exception";
+
+export
+{
+    Exception,
+    ArgumentException,
+    InvalidOperationException
+};

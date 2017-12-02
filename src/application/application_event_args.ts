@@ -8,15 +8,15 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { EventArgs } from "../events/event_args";
-import { ApplicationContextBase } from "./application_context";
+import EventArgs from "../events/event_args";
+import ApplicationContextBase from "./application_context_base";
 
 /**
  * 应用程序事件参数类。
  * @class
  * @version 1.0.0
  */
-export class ApplicationEventArgs extends EventArgs
+export default class ApplicationEventArgs extends EventArgs
 {
     /**
      * 获取应用程序上下文实例。

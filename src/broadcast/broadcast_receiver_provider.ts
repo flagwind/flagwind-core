@@ -8,51 +8,22 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions/argument_exception";
-import { IEnumerable } from "../collections/enumerable";
-import { Map } from "../collections/map";
-import { Set } from "../collections/set";
-import { Broadcast } from "./broadcast";
-import { BroadcastContract } from "./broadcast_contract";
-import { IBroadcastReceiver } from "./broadcast_receiver";
-import { BroadcastReceiverEntry } from "./broadcast_receiver-entry";
-
-/**
- * 定义用于检索广播接收器对象的机制。
- * @interface
- * @version 1.0.0
- */
-export interface IBroadcastReceiverProvider
-{
-    /**
-     * 注册一个广播接收器至容器中。
-     * @param  {BroadcastContract} contract 广播契约。
-     * @param  {IBroadcastReceiver} receiver 广播接收器。
-     * @returns void
-     */
-    register(contract: BroadcastContract, receiver: IBroadcastReceiver): void;
-    
-    /**
-     * 移除指定契约的广播接收器。
-     * @param  {BroadcastContract} contract 广播契约。
-     * @returns void
-     */
-    unregister(contract: BroadcastContract): void;
-
-    /**
-     * 根据指定广播实例获取所有广播接收器实例。
-     * @param  {Broadcast} broadcast 广播实例。
-     * @returns IEnumerable<IBroadcastReceiver>
-     */
-    resolve(broadcast: Broadcast): IEnumerable<IBroadcastReceiver>;
-}
+import IEnumerable from "../collections/enumerable`1";
+import IBroadcastReceiver from "./broadcast_receiver`1";
+import IBroadcastReceiverProvider from "./broadcast_receiver_provider`1";
+import ArgumentException from "../exceptions/argument_exception";
+import Map from "../collections/map";
+import Set from "../collections/set";
+import Broadcast from "./broadcast";
+import BroadcastContract from "./broadcast_contract";
+import BroadcastReceiverEntry from "./broadcast_receiver_entry";
 
 /**
  * 提供用于检索广播接收器对象的机制。
  * @class
  * @version 1.0.0
  */
-export class BroadcastReceiverProvider implements IBroadcastReceiverProvider
+export default class BroadcastReceiverProvider implements IBroadcastReceiverProvider
 {
     private _entries: Map<string, Set<BroadcastReceiverEntry>>;
     

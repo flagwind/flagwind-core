@@ -9,9 +9,9 @@
  */
 
 import { assert } from "chai";
-import { EventArgs } from "../../../../src/events/event_args";
-import { EventProvider } from "../../../../src/events/event_provider";
-import { EventProviderFactory } from "../../../../src/events/event_provider_factory";
+import EventArgs from "src/events/event_args";
+import EventProvider from "src/events/event_provider";
+import EventProviderFactory from "src/events/event_provider_factory";
 
 class Button
 {

@@ -8,8 +8,8 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { Type } from "../runtime/type";
-import { Map } from "../collections/map";
+import Type from "../runtime/type";
+import Map from "../collections/map";
 
 /**
  * 提供对象实例创建的方法。
@@ -17,10 +17,10 @@ import { Map } from "../collections/map";
  * @class
  * @version 1.0.0
  */
-export class Activator
+export default class Activator
 {
     private static readonly _types = new Map<string, Function>();
-
+    
     /**
      * 私有构造方法，使类型成为静态类。
      * @private

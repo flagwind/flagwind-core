@@ -8,17 +8,17 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { RegexUtils } from "../common/regex_utils";
-import { ArgumentException } from "../exceptions/argument_exception";
-import { Set } from "../collections/set";
-import { BroadcastPriority } from "./broadcast_priority";
+import RegexUtils from "../common/regex_utils";
+import ArgumentException from "../exceptions/argument_exception";
+import Set from "../collections/set";
+import BroadcastPriority from "./broadcast_priority";
 
 /**
  * 表示一个广播契约。
  * @class
  * @version 1.0.0
  */
-export class BroadcastContract
+export default class BroadcastContract
 {
     private _scheme: string;                             // 协议方案
     private _priority: number;                           // 优先级

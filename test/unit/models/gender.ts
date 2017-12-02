@@ -8,13 +8,13 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { Type } from "../../../src/runtime/type";
+import Type from "../../../src/runtime/type";
 
 /**
  * 表示一个性别枚举。
  * @enum
  */
-export enum Gender
+enum Gender
 {
     /**
      * 先生。
@@ -47,3 +47,5 @@ Type.setMetadata(Gender,
         description: "女士"
     }
 });
+
+export default Gender;

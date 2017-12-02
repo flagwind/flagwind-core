@@ -9,8 +9,9 @@
  */
 
 import { assert } from "chai";
-import { EventProvider, EventArgs } from "../../../../src/events";
 import { Promise } from "es6-promise";
+import EventProvider from "src/events/event_provider";
+import EventArgs from "src/events/event_args";
 
 class Button extends EventProvider
 {

@@ -13,7 +13,7 @@
  * @class
  * @version 1.0.0
  */
-export class EnumEntry
+export default class EnumEntry
 {
     /**
      * 获取枚举项的名称。
