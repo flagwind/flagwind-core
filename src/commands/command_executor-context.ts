@@ -1,23 +1,23 @@
 /*!
- * @file This file is part of `commands` module. 
+ * This file is part of `commands` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions";
-import { ICommandExecutor } from "./command_executor";
-import { CommandExpression } from "./command_expression";
+import ICommandExecutor from "./command_executor`1";
+import ArgumentException from "../exceptions/argument_exception";
+import CommandExpression from "./command_expression";
 
 /**
  * 表示命令执行器在执行命令时产生的上下文。
  * @class
  * @version 1.0.0
  */
-export class CommandExecutorContext
+export default class CommandExecutorContext
 {
     private _executor: ICommandExecutor;
     private _expression: CommandExpression;

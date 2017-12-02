@@ -1,15 +1,15 @@
 /*!
- * @file This file is part of `reflection` module. 
+ * This file is part of `reflection` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { Type } from "../runtime";
-import { Map } from "../collections";
+import Type from "../runtime/type";
+import Map from "../collections/map";
 
 /**
  * 提供对象实例创建的方法。
@@ -17,10 +17,10 @@ import { Map } from "../collections";
  * @class
  * @version 1.0.0
  */
-export class Activator
+export default class Activator
 {
     private static readonly _types = new Map<string, Function>();
-
+    
     /**
      * 私有构造方法，使类型成为静态类。
      * @private

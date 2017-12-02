@@ -1,24 +1,24 @@
 /*!
- * @file This file is part of `broadcast` module. 
+ * This file is part of `broadcast` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions";
-import { Map } from "../collections";
-import { Broadcast } from "./broadcast";
-import { BroadcastManager } from "./broadcast_manager";
+import ArgumentException from "../exceptions/argument_exception";
+import Map from "../collections/map";
+import Broadcast from "./broadcast";
+import BroadcastManager from "./broadcast_manager";
 
 /**
  * 广播在传播过程中使用的上下文参数。
  * @class
  * @version 1.0.0
  */
-export class BroadcastContext
+export default class BroadcastContext
 {
     private _manager: BroadcastManager;             // 广播管理器
     private _uri: string;                           // 描述符

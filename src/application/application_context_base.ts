@@ -1,27 +1,31 @@
 /*!
- * @file This file is part of `application` module. 
+ * This file is part of `application` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ISet, Set, IMap, Map } from "../collections";
-import { ArgumentException, InvalidOperationException } from "../exceptions";
-import { IServiceProviderFactory, ServiceProviderFactory } from "../services";
-import { IPrincipal } from "../security";
-import { IEventProviderFactory, EventProviderFactoryBase } from "../events";
-import { IApplicationModule } from "./application_module";
-import { IWorkbench } from "./workbench";
+import ISet from "../collections/set`1";
+import IMap from "../collections/map`1";
+import IServiceProviderFactory from "../services/service_provider_factory`1";
+import IPrincipal from "../security/principal`1";
+import IApplicationModule from "./application_module`1";
+import IWorkbench from "./workbench`1";
+import ArgumentException from "../exceptions/argument_exception";
+import InvalidOperationException from "../exceptions/invalid_operation_exception";
+import Set from "../collections/set";
+import Map from "../collections/map";
+import ServiceProviderFactory from "../services/service_provider_factory";
 
 /**
  * 表示实现该抽象类的是一个应用程序上下文。
  * @class
  * @version 1.0.0
  */
-export abstract class ApplicationContextBase
+export default abstract class ApplicationContextBase
 {
     private _applicationId: string;                             // 应用程序唯一代号
     private _title: string;                                     // 应用程序标题
@@ -29,8 +33,7 @@ export abstract class ApplicationContextBase
     private _states: IMap<string, any>;                         // 当前应用的状态字典
     private _workbench: IWorkbench;                             // 工作台实例
     private _principal: IPrincipal;                             // 当前应用的安全主体
-    private _eventProviderFactory: IEventProviderFactory;      // 事件提供程序工厂
-
+    
     /**
      * 获取或设置当前应用程序唯一代号。
      * @summary 注意：本属性一旦被设置则不能被更改。
@@ -71,22 +74,7 @@ export abstract class ApplicationContextBase
     {
         this._title = value || "";
     }
-    
-    /**
-     * 获取当前应用程序的事件管理对象。
-     * @property
-     * @returns IEventProviderFactory
-     */
-    public get eventFactory(): IEventProviderFactory
-    {
-        if(!this._eventProviderFactory)
-        {
-            this._eventProviderFactory = this.serviceFactory.default.resolve<IEventProviderFactory>(EventProviderFactoryBase);
-        }
         
-        return this._eventProviderFactory;
-    }
-    
     /**
      * 获取当前应用程序的服务管理对象。
      * @property

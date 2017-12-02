@@ -1,16 +1,16 @@
 /*!
- * @file This file is part of `common` module. 
+ * This file is part of `common` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { Type } from "../runtime";
+import Type from "../runtime/type";
 
-export class CharUtils
+export default class CharUtils
 {
     public static isChar(char: string): boolean
     {
@@ -19,13 +19,11 @@ export class CharUtils
     
     public static isLatin(char: string): boolean
     {
-        // tslint:disable-next-line:no-magic-numbers
         return char.charCodeAt(0) <= 255;
     }
 
     public static isAscii(char: string): boolean
     {
-        // tslint:disable-next-line:no-magic-numbers
         return char.charCodeAt(0) <= 127;
     }
     
@@ -50,7 +48,6 @@ export class CharUtils
         
         let code = char.charCodeAt(0);
 
-        // tslint:disable-next-line:no-magic-numbers
         return code === 32 || code >= 9 && code <= 13 || code === 160 || code === 133;
     }
 }

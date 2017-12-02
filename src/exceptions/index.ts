@@ -1,11 +1,20 @@
 /*!
- * @file This file is part of `exceptions` module. 
+ * This file is part of `exceptions` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-export { Exception, ArgumentException, InvalidOperationException } from "./exceptions";
+import Exception from "./exception";
+import ArgumentException from "./argument_exception";
+import InvalidOperationException from "./invalid_operation_exception";
+
+export
+{
+    Exception,
+    ArgumentException,
+    InvalidOperationException
+};

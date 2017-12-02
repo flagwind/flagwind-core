@@ -1,23 +1,23 @@
 /*!
- * @file This file is part of `services` module. 
+ * This file is part of `services` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { Type } from "../runtime";
-import { Activator } from "../reflection";
-import { IServiceBuilder } from "./service_builder";
+import IServiceBuilder from "./service_builder`1";
+import Type from "../runtime/type";
+import Activator from "../reflection/activator";
 
 /**
  * 表示一个用于存取服务使用的服务项。
  * @class
  * @version 1.0.0
  */
-export class ServiceEntry
+export default class ServiceEntry
 {
     private _name: string = null;                                      // 服务名称
     private _service: any = null;                                      // 服务实例

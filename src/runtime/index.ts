@@ -1,12 +1,14 @@
 /*!
- * @file This file is part of `runtime` module. 
+ * This file is part of `runtime` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-export { Type } from "./type";
-export { IDisposable } from "./disposable";
+import Type from "./type";
+import IDisposable from "./disposable`1";
+
+export { Type, IDisposable };

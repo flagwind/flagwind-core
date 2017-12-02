@@ -1,11 +1,11 @@
 /*!
- * @file This file is part of `security` module. 
+ * This file is part of `security` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
 /**
@@ -13,7 +13,7 @@
  * @interface
  * @version 1.0.0
  */
-export interface ICredential
+export default interface ICredential
 {
     /**
      * 获取安全凭证编号。

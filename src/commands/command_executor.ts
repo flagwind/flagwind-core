@@ -1,43 +1,30 @@
 /*!
- * @file This file is part of `commands` module. 
+ * This file is part of `commands` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException, InvalidOperationException } from "../exceptions";
-import { ICommand } from "./command";
-import { CommandContext } from "./command_context";
-import { CommandCollection } from "./command_collection";
-import { CommandExpression } from "./command_expression";
-import { ICommandExpressionParser, CommandExpressionParser } from "./command_expression-parser";
-import { CommandExecutorContext } from "./command_executor-context";
-
-/**
- * 表示命令执行器的接口。
- * @interface
- * @version 1.0.0
- */
-export interface ICommandExecutor
-{
-    /**
-     * 执行命令。
-     * @param  {string} commandText 指定要执行的命令表达式文本。
-     * @param  {any} parameter? 指定的输入参数。
-     * @returns any 返回命令执行的结果。
-     */
-    execute(commandText: string, parameter?: any): any;
-}
+import ICommand from "./command`1";
+import ICommandExpressionParser from "./command_expression-parser`1";
+import ICommandExecutor from "./command_executor`1";
+import ArgumentException from "../exceptions/argument_exception";
+import InvalidOperationException from "../exceptions/invalid_operation_exception";
+import CommandContext from "./command_context";
+import CommandCollection from "./command_collection";
+import CommandExpression from "./command_expression";
+import CommandExpressionParser from "./command_expression-parser";
+import CommandExecutorContext from "./command_executor-context";
 
 /**
  * 提供命令注册与执行的实现。
  * @class
  * @version 1.0.0
  */
-export class CommandExecutor implements ICommandExecutor
+export default class CommandExecutor implements ICommandExecutor
 {
     private _commands: CommandCollection;                               // 命令存储容器
     private _parser: ICommandExpressionParser;                          // 命令解析器

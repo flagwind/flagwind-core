@@ -1,21 +1,21 @@
 /*!
- * @file This file is part of `events` module. 
+ * This file is part of `events` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { EventArgs } from "./event_args";
+import EventArgs from "./event_args";
 
 /**
  * 为可取消的事件提供数据。
  * @class
  * @version 1.0.0
  */
-export class CancelEventArgs extends EventArgs
+export default class CancelEventArgs extends EventArgs
 {
     private _cancel: boolean = false;
     

@@ -1,21 +1,21 @@
 /*!
- * @file This file is part of `events` module. 
+ * This file is part of `events` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions";
+import ArgumentException from "../exceptions/argument_exception";
 
 /**
  * EventArgs 类作为创建事件参数的基类，当发生事件时，EventArgs 实例将作为参数传递给事件侦听器。
  * @class
  * @version 1.0.0
  */
-export class EventArgs
+export default class EventArgs
 {
     private _type: string;                      // 事件类型
     private _source: any;                       // 事件源
@@ -32,13 +32,23 @@ export class EventArgs
     }
 
     /**
-     * 获取事件源。
+     * 获取或设置事件源对象。
      * @property
      * @returns any
      */
     public get source(): any
     {
         return this._source;
+    }
+
+    public set source(value: any)
+    {
+        if(!value)
+        {
+            throw new ArgumentException();
+        }
+
+        this._source = value;
     }
     
     /**
@@ -50,7 +60,7 @@ export class EventArgs
     {
         return this._data;
     }
-   
+    
     public set data(value: any)
     {
         this._data = value;
@@ -60,16 +70,16 @@ export class EventArgs
      * 初始化 EventArgs 类的新实例。
      * @constructor
      * @param  {string} type 事件类型。
-     * @param  {any} source 事件源。
+     * @param  {any?} data 可选数据。
      */
-    public constructor(type: string, source: any)
+    public constructor(type: string, data?: any)
     {
-        if(!type || !source)
+        if(!type)
         {
             throw new ArgumentException();
         }
-        
+
         this._type = type;
-        this._source = source;
+        this._data = data;
     }
 }

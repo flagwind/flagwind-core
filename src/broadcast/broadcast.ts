@@ -1,23 +1,23 @@
 /*!
- * @file This file is part of `broadcast` module. 
+ * This file is part of `broadcast` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions";
-import { Map } from "../collections";
-import { RegexUtils } from "../common";
+import ArgumentException from "../exceptions/argument_exception";
+import Map from "../collections/map";
+import RegexUtils from "../common/regex_utils";
 
 /**
  * 表示一条广播信息。
  * @class
  * @version 1.0.0
  */
-export class Broadcast
+export default class Broadcast
 {
     private _uri: string;                           // 描述符
     private _scheme: string;                        // 广播方案

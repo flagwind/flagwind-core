@@ -1,22 +1,22 @@
 /*!
- * @file This file is part of `broadcast` module. 
+ * This file is part of `broadcast` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { BroadcastContract } from "./broadcast_contract";
-import { IBroadcastReceiver } from "./broadcast_receiver";
+import IBroadcastReceiver from "./broadcast_receiver`1";
+import BroadcastContract from "./broadcast_contract";
 
 /**
  * 提供用于检索广播接收器广播项。
  * @class
  * @version 1.0.0
  */
-export class BroadcastReceiverEntry
+export default class BroadcastReceiverEntry
 {
     private _contract: BroadcastContract;
     private _receiver: IBroadcastReceiver;

@@ -1,18 +1,19 @@
 /*!
- * @file This file is part of `commands` module. 
+ * This file is part of `commands` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { InvalidOperationException } from "../exceptions";
-import { Type } from "../runtime";
-import { Activator } from "../reflection";
-import { ICommand, CommandBase } from "./command";
-import { CommandExecutor } from "./command_executor";
+import ICommand from "./command`1";
+import InvalidOperationException from "../exceptions/invalid_operation_exception";
+import Type from "../runtime/type";
+import Activator from "../reflection/activator";
+import CommandBase from "./command_base";
+import CommandExecutor from "./command_executor";
 
 /**
  * 标注当前类型是一个可通过命令执行器执行的命令。

@@ -1,40 +1,20 @@
 /*!
- * @file This file is part of `application` module. 
+ * This file is part of `application` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions";
-import { EventArgs, CancelEventArgs, IEventProvider, IEventProviderFactory, EventProviderFactoryBase } from "../events";
-import { ServiceProviderFactory } from "../services";
-import { ApplicationContextBase } from "./application_context";
-
-/**
- * 应用程序事件参数类。
- * @class
- * @version 1.0.0
- */
-export class ApplicationEventArgs extends EventArgs
-{
-    public readonly context: ApplicationContextBase;
-    
-    /**
-     * 初始化应用程序事件参数类的新实例。
-     * @param  {string} type 事件类型。
-     * @param  {any} source 事件源。
-     * @param  {ApplicationContextBase} context 应用程序上下文实例。
-     */
-    public constructor(type: string, source: any, context: ApplicationContextBase)
-    {
-        super(type, source);
-
-        this.context = context;
-    }
-}
+import IEventProvider from "../events/event_provider`1";
+import ArgumentException from "../exceptions/argument_exception";
+import EventArgs from "../events/event_args";
+import CancelEventArgs from "../events/cancel_event_args";
+import EventProvider from "../events/event_provider";
+import ApplicationEventArgs from "./application_event_args";
+import ApplicationContextBase from "./application_context_base";
 
 /**
  * 应用程序类，负责整个应用的启动和退出。
@@ -42,16 +22,15 @@ export class ApplicationEventArgs extends EventArgs
  * @class
  * @version 1.0.0
  */
-export class Application
+export default class Application
 {
     private static _isStarted: boolean = false;                         // 标识应用程序是否启动完成
     private static _context: ApplicationContextBase = null;             // 应用程序上下文实例
-    private static _eventProvider: IEventProvider;                         // 事件提供程序
+    private static _eventProvider: IEventProvider;                      // 事件提供程序
     
     /**
-     * 获取一个事件提供程序。
+     * 获取一个事件提供程序实例。
      * @private
-     * @static
      * @property
      * @returns IEventProvider
      */
@@ -59,15 +38,13 @@ export class Application
     {
         if(!this._eventProvider)
         {
-            let factory = ServiceProviderFactory.instance.default.resolve<IEventProviderFactory>(EventProviderFactoryBase);
-            
-            this._eventProvider = factory.getProvider(this);
+            this._eventProvider = new EventProvider(this);
         }
 
         return this._eventProvider;
     }
 
-    /**
+    /** 
      * 获取一个布尔值，表示当前应用是否启动完成。
      * @static
      * @property
@@ -93,19 +70,19 @@ export class Application
      * 当应用程序启动时产生的事件。
      * @event ApplicationEventArgs
      */
-    public static STARTING: "starting";
+    public static STARTING: string = "starting";
     
     /**
      * 当应用程序启动后产生的事件。
      * @event ApplicationEventArgs
      */
-    public static STARTED: "started";
+    public static STARTED: string = "started";
     
     /**
      * 当应用程序即将退出时产生的事件。
      * @event CancelEventArgs
      */
-    public static EXITING: "exiting";
+    public static EXITING: string = "exiting";
     
     /**
      * 启动应用程序。
@@ -125,9 +102,9 @@ export class Application
         {
             return;
         }
-
+        
         // 激发 "starting" 事件
-        this.dispatchEvent(new ApplicationEventArgs(this.STARTING, this, context));
+        this.dispatchEvent(new ApplicationEventArgs(this.STARTING, context));
         
         try
         {
@@ -153,7 +130,7 @@ export class Application
                     this._isStarted = true;
                     
                     // 激发 "started" 事件
-                    this.dispatchEvent(new ApplicationEventArgs(this.STARTED, this, context));
+                    this.dispatchEvent(new ApplicationEventArgs(this.STARTED, context));
                 });
 
                 // 挂载工作台关闭事件

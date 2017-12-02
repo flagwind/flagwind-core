@@ -1,22 +1,22 @@
 /*!
- * @file This file is part of `application` module. 
+ * This file is part of `application` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { IDisposable } from "../runtime";
-import { ApplicationContextBase } from "./application_context";
+import IDisposable from "../runtime/disposable`1";
+import ApplicationContextBase from "./application_context_base";
 
 /**
  * 向实现类提供应用扩展模块初始化和处置事件。
  * @interface
  * @version 1.0.0
  */
-export interface IApplicationModule extends IDisposable
+export default interface IApplicationModule extends IDisposable
 {
     /**
      * 获取应用扩展模块名称。
