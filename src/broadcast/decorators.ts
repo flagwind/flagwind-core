@@ -1,19 +1,19 @@
 /*!
- * @file This file is part of `broadcast` module. 
+ * This file is part of `broadcast` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { InvalidOperationException } from "../exceptions";
-import { Map } from "../collections";
-import { Activator } from "../reflection";
-import { BroadcastContract } from "./broadcast_contract";
-import { IBroadcastReceiver } from "./broadcast_receiver";
-import { BroadcastManager } from "./broadcast_manager";
+import IBroadcastReceiver from "./broadcast_receiver`1";
+import InvalidOperationException from "../exceptions/invalid_operation_exception";
+import Map from "../collections/map";
+import Activator from "../reflection/activator";
+import BroadcastContract from "./broadcast_contract";
+import BroadcastManager from "./broadcast_manager";
 
 const receivers = new Map<Function, IBroadcastReceiver>();
 

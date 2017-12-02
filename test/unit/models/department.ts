@@ -1,18 +1,18 @@
 /*!
- * @file This file is part of `test` module. 
+ * This file is part of `test` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
 /**
  * 表示一个部门实体类型。
  * @class
  */
-export class Department
+export default class Department
 {
     private _name: string;
     private _departmentId: string;

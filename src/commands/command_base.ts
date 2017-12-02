@@ -1,53 +1,18 @@
 /*!
- * @file This file is part of `commands` module. 
+ * This file is part of `commands` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { StringUtils } from "../common";
-import { Type } from "../runtime";
-import { ArgumentException } from "../exceptions";
-import { CommandContext } from "./command_context";
-
-/**
- * 扩展命令接口。
- * @interface
- * @version 1.0.0
- */
-export interface ICommand
-{
-    /**
-     * 获取命令的名称。
-     * @property
-     */
-    name: string;
-    
-    /**
-     * 获取或设置一个值，该值指示命令是否可以执行。
-     * @property
-     */
-    enabled: boolean;
-    
-    /**
-     * 判断当前命令能否依据给定的选项和参数执行。
-     * @param  {any} context 判断命令能否执行的上下文对象。
-     * @returns boolean 返回能否执行的结果。
-     */
-    canExecute(context: any): boolean;
-    
-    /**
-     * 执行命令。
-     * 对实现着的要求：应该在本方法的实现中首先调用 canExecute 方法，以确保阻止非法的调用。
-     * @async
-     * @param  {any} context 执行命令的上下文对象。
-     * @returns any 返回执行的返回结果。
-     */
-    execute(context: any): Promise<any>;
-}
+import ICommand from "./command`1";
+import ArgumentException from "../exceptions/argument_exception";
+import Type from "../runtime/type";
+import StringUtils from "../common/string_utils";
+import CommandContext from "./command_context";
 
 /**
  * 提供实现 ICommand 接口功能的基类。
@@ -56,7 +21,7 @@ export interface ICommand
  * @description 建议需要完成 ICommand 接口功能的实现者从此类继承。
  * @version 1.0.0
  */
-export abstract class CommandBase<TContext extends CommandContext> implements ICommand
+export default abstract class CommandBase<TContext extends CommandContext> implements ICommand
 {
     private _name: string;
     private _enabled: boolean;

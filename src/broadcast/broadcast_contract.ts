@@ -1,24 +1,24 @@
 /*!
- * @file This file is part of `broadcast` module. 
+ * This file is part of `broadcast` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { RegexUtils } from "../common";
-import { ArgumentException } from "../exceptions";
-import { Set } from "../collections";
-import { BroadcastPriority } from "./broadcast_priority";
+import RegexUtils from "../common/regex_utils";
+import ArgumentException from "../exceptions/argument_exception";
+import Set from "../collections/set";
+import BroadcastPriority from "./broadcast_priority";
 
 /**
  * 表示一个广播契约。
  * @class
  * @version 1.0.0
  */
-export class BroadcastContract
+export default class BroadcastContract
 {
     private _scheme: string;                             // 协议方案
     private _priority: number;                           // 优先级

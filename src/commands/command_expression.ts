@@ -1,26 +1,26 @@
 /*!
- * @file This file is part of `commands` module. 
+ * This file is part of `commands` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions";
-import { Map } from "../collections";
-import { PathAnchor } from "../io";
-import { StringUtils } from "../common";
-import { CommandOptionCollection } from "./command_option-collection";
-import { CommandExpressionParser } from "./command_expression-parser";
+import ArgumentException from "../exceptions/argument_exception";
+import Map from "../collections/map";
+import PathAnchor from "../io/path_anchor";
+import StringUtils from "../common/string_utils";
+import CommandOptionCollection from "./command_option-collection";
+import CommandExpressionParser from "./command_expression-parser";
 
 /**
  * 命令表达式类，提供命令的名称路径与参数选项等信息。
  * @class
  * @version 1.0.0
  */
-export class CommandExpression
+export default class CommandExpression
 {
     private _name: string;
     private _path: string;

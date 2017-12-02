@@ -1,175 +1,18 @@
 /*!
- * @file This file is part of `services` module. 
+ * This file is part of `services` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { InvalidOperationException } from "../exceptions";
-import { EventArgs } from "../events";
-
-/**
- * 关于工作器的状态信息。
- * @enum
- * @version 1.0.0
- */
-export const enum WorkerState
-{
-    /**
-     * 未运行/已停止。
-     * @member
-     */
-    stopped = 0,
-    
-    /**
-     * 正在启动中。
-     * @member
-     */
-    starting = 1,
-    
-    /**
-     * 运行中。
-     * @member
-     */
-    running = 2,
-
-    /**
-     * 正在暂停中。
-     * @member
-     */
-    pausing = 3,
-
-    /**
-     * 已暂停。
-     * @member
-     */
-    paused = 4,
-    
-    /**
-     * 正在恢复中。
-     * @member
-     */
-    resuming = 5,
-
-    /**
-     * 正在停止中。
-     * @member
-     */
-    stopping = 6
-}
-
-/**
- * 表示工作器状态改变后的事件参数。
- * @class
- * @version 1.0.0
- */
-export class WorkerStateChangedEventArgs extends EventArgs
-{
-    /**
-     * 操作名称。
-     * @readonly
-     * @member
-     */
-    public readonly actionName: string;
-
-    /**
-     * 发生改变的状态。
-     * @readonly
-     * @member
-     */
-    public readonly state: WorkerState;
-
-    /**
-     * 表示在发生状态改变时产生的异常。
-     * @readonly
-     * @member
-     */
-    public readonly error: Error;
-    
-    /**
-     * 初始化 WorkerStateChangedEventArgs 类的新实例。
-     * @param {string} type 事件类型。
-     * @param  {any} source 事件源。
-     * @param  {string} actionName 操作名称。
-     * @param  {WorkerState} state 发生改变的状态。
-     * @param  {Error} error? 发生状态改变时产生的异常。
-     */
-    public constructor(type: string, source: any, actionName: string, state: WorkerState, error?: Error)
-    {
-        super(type, source);
-        
-        this.actionName = actionName;
-        this.state = state;
-        this.error = error;
-    }
-}
-
-/**
- * 关于工作器的接口。
- * @interface
- * @version 1.0.0
- */
-export interface IWorker
-{
-    /**
-     * 表示当工作器状态改变后产生的事件。
-     * @event WorkerStateChangedEventArgs
-     */
-    readonly STATE_CHANGED: string;
-
-    /**
-     * 获取当前工作器的名称。
-     * @property
-     */
-    name: string;
-    
-    /**
-     * 获取当前工作器的状态。
-     * @property
-     */
-    state: WorkerState;
-    
-    /**
-     * 获取或设置是否禁用工作器。
-     * @property
-     */
-    disabled: boolean;
-
-    /**
-     * 获取工作器是否允许暂停和继续。
-     * @property
-     */
-    canPauseAndContinue: boolean;
-
-    /**
-     * 启动工作器。
-     * @param  {Array<string>} ...args 启动的参数。
-     * @returns void
-     */
-    start(...args: Array<string>): void;
-    
-    /**
-     * 停止工作器。
-     * @param  {Array<string>} ...args 停止的参数。
-     * @returns void
-     */
-    stop(...args: Array<string>): void;
-    
-    /**
-     * 暂停工作器。
-     * @returns void
-     */
-    pause(): void;
-    
-    /**
-     * 恢复工作器，继续运行。
-     * @returns void
-     */
-    resume(): void;
-}
+import IWorker from "./worker`1";
+import InvalidOperationException from "../exceptions/invalid_operation_exception";
+import EventProvider from "../events/event_provider";
+import WorkerState from "./worker_state";
+import WorkerStateChangedEventArgs from "./worker_state_changed_event_args";
 
 /**
  * 关于工作器的抽象类。
@@ -178,9 +21,9 @@ export interface IWorker
  * @abstract
  * @class
  * @version 1.0.0
- * @author jason
+ * jason
  */
-export abstract class WorkerBase implements IWorker
+export default abstract class WorkerBase extends EventProvider implements IWorker
 {
     private _name: string;                                          // 工作器名称
     private _state: WorkerState;                                    // 工作器状态
@@ -265,6 +108,8 @@ export abstract class WorkerBase implements IWorker
      */
     protected constructor(name: string)
     {
+        super();
+        
         this._name = name;
         this._disabled = false;
         this._canPauseAndContinue = false;
@@ -295,14 +140,14 @@ export abstract class WorkerBase implements IWorker
             this._state = WorkerState.running;
             
             // 激发“StateChanged”事件
-            this.onStateChanged(new WorkerStateChangedEventArgs(this.STATE_CHANGED, this, "start", WorkerState.running));
+            this.onStateChanged(new WorkerStateChangedEventArgs(this.STATE_CHANGED, "start", WorkerState.running));
         }
         catch(ex)
         {
             this._state = WorkerState.stopped;
 
             // 激发“StateChanged”事件
-            this.onStateChanged(new WorkerStateChangedEventArgs(this.STATE_CHANGED, this, "start", WorkerState.stopped, ex));
+            this.onStateChanged(new WorkerStateChangedEventArgs(this.STATE_CHANGED, "start", WorkerState.stopped, ex));
 
             throw ex;
         }
@@ -335,7 +180,7 @@ export abstract class WorkerBase implements IWorker
             this._state = WorkerState.stopped;
 
             // 激发“StateChanged”事件
-            this.onStateChanged(new WorkerStateChangedEventArgs(this.STATE_CHANGED, this, "stop", WorkerState.stopped));
+            this.onStateChanged(new WorkerStateChangedEventArgs(this.STATE_CHANGED, "stop", WorkerState.stopped));
         }
         catch(ex)
         {
@@ -343,7 +188,7 @@ export abstract class WorkerBase implements IWorker
             this._state = originalState;
 
             // 激发“StateChanged”事件
-            this.onStateChanged(new WorkerStateChangedEventArgs(this.STATE_CHANGED, this, "stop", originalState, ex));
+            this.onStateChanged(new WorkerStateChangedEventArgs(this.STATE_CHANGED, "stop", originalState, ex));
 
             throw ex;
         }
@@ -380,7 +225,7 @@ export abstract class WorkerBase implements IWorker
             this._state = WorkerState.paused;
 
             // 激发“StateChanged”事件
-            this.onStateChanged(new WorkerStateChangedEventArgs(this.STATE_CHANGED, this, "pause", WorkerState.paused));
+            this.onStateChanged(new WorkerStateChangedEventArgs(this.STATE_CHANGED, "pause", WorkerState.paused));
         }
         catch(ex)
         {
@@ -388,7 +233,7 @@ export abstract class WorkerBase implements IWorker
             this._state = originalState;
 
             // 激发“StateChanged”事件
-            this.onStateChanged(new WorkerStateChangedEventArgs(this.STATE_CHANGED, this, "pause", originalState, ex));
+            this.onStateChanged(new WorkerStateChangedEventArgs(this.STATE_CHANGED, "pause", originalState, ex));
 
             throw ex;
         }
@@ -425,7 +270,7 @@ export abstract class WorkerBase implements IWorker
             this._state = WorkerState.running;
             
             // 激发“StateChanged”事件
-            this.onStateChanged(new WorkerStateChangedEventArgs(this.STATE_CHANGED, this, "resume", WorkerState.running));
+            this.onStateChanged(new WorkerStateChangedEventArgs(this.STATE_CHANGED, "resume", WorkerState.running));
         }
         catch(e)
         {
@@ -433,7 +278,7 @@ export abstract class WorkerBase implements IWorker
             this._state = originalState;
 
             // 激发“StateChanged”事件
-            this.onStateChanged(new WorkerStateChangedEventArgs(this.STATE_CHANGED, this, "resume", originalState, e));
+            this.onStateChanged(new WorkerStateChangedEventArgs(this.STATE_CHANGED, "resume", originalState, e));
 
             throw e;
         }
@@ -478,9 +323,12 @@ export abstract class WorkerBase implements IWorker
     /**
      * 当工作器状态发生改变时调用。
      * @protected
-     * @abstract
+     * @virtual
      * @param  {WorkerStateChangedEventArgs} args 事件参数。
      * @returns void
      */
-    protected abstract onStateChanged(args: WorkerStateChangedEventArgs): void;
+    protected onStateChanged(args: WorkerStateChangedEventArgs): void
+    {
+        this.dispatchEvent(this.STATE_CHANGED, args);
+    }
 }

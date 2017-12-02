@@ -1,18 +1,18 @@
 /*!
- * @file This file is part of `runtime` module. 
+ * This file is part of `runtime` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { assert } from "chai";
-import { StringUtils } from "../../../../../src/common";
-import { command, CommandBase, CommandContext } from "../../../../../src/commands";
+import StringUtils from "src/common/string_utils";
+import CommandBase from "src/commands/command_base";
+import CommandContext from "src/commands/command_context";
 
-export class SendCommand extends CommandBase<CommandContext>
+export default class SendCommand extends CommandBase<CommandContext>
 {
     /**
      * 验证码短信模板(如：注册或找回密码)。

@@ -1,22 +1,22 @@
 /*!
- * @file This file is part of `io` module. 
+ * This file is part of `io` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions";
-import { IDisposable } from "../runtime";
+import ArgumentException from "../exceptions/argument_exception";
+import IDisposable from "../runtime/disposable`1";
 
 /**
  * 实现从字符串进行读取的读取器。
  * @class
  * @version 1.0.0
  */
-export class StringReader implements IDisposable
+export default class StringReader implements IDisposable
 {
     private _text: string;
     private _position: number;

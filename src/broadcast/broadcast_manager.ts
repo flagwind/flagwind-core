@@ -1,33 +1,34 @@
 /*!
- * @file This file is part of `broadcast` module. 
+ * This file is part of `broadcast` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions";
-import { IEventProvider, IEventProviderFactory, EventProviderFactoryBase } from "../events";
-import { ServiceProviderFactory } from "../services";
-import { Broadcast } from "./broadcast";
-import { BroadcastContract } from "./broadcast_contract";
-import { BroadcastContext } from "./broadcast_context";
-import { IBroadcastReceiver } from "./broadcast_receiver";
-import { IBroadcastReceiverProvider, BroadcastReceiverProvider } from "./broadcast_receiver-provider";
+import IEventProvider from "../events/event_provider`1";
+import IBroadcastReceiver from "./broadcast_receiver`1";
+import IBroadcastReceiverProvider from "./broadcast_receiver_provider`1";
+import ArgumentException from "../exceptions/argument_exception";
+import EventProvider from "../events/event_provider";
+import Broadcast from "./broadcast";
+import BroadcastContract from "./broadcast_contract";
+import BroadcastContext from "./broadcast_context";
+import BroadcastReceiverProvider from "./broadcast_receiver_provider";
 
 /**
  * 提供用于广播注册发布等功能。
  * @class
  * @version 1.0.0
  */
-export class BroadcastManager
+export default class BroadcastManager
 {
     private _eventProvider: IEventProvider;                         // 事件提供程序
     private _receiverProvider: IBroadcastReceiverProvider;          // 广播接收器提供程序
     private static _instance: BroadcastManager;                     // 静态单实例
-
+    
     /**
      * 获取一个事件提供程序。
      * @protected
@@ -36,13 +37,6 @@ export class BroadcastManager
      */
     protected get eventProvider(): IEventProvider
     {
-        if(!this._eventProvider)
-        {
-            let factory = ServiceProviderFactory.instance.default.resolve<IEventProviderFactory>(EventProviderFactoryBase);
-            
-            this._eventProvider = factory.getProvider(this);
-        }
-
         return this._eventProvider;
     }
     
@@ -78,6 +72,7 @@ export class BroadcastManager
      */
     protected constructor(receiverProvider?: IBroadcastReceiverProvider)
     {
+        this._eventProvider = new EventProvider(this);
         this._receiverProvider = receiverProvider || new BroadcastReceiverProvider();
     }
     
@@ -98,7 +93,7 @@ export class BroadcastManager
         // 将接收程序注册至服务提供程序中
         this.receiverProvider.register(contract, receiver);
     }
-
+    
     /**
      * 移除指定契约的广播接收器。
      * @param  {BroadcastContract} contract 广播契约。
@@ -120,7 +115,7 @@ export class BroadcastManager
         {
             throw new ArgumentException();
         }
-
+        
         this.eventProvider.dispatchEvent(broadcast.scheme, broadcast);
     }
     

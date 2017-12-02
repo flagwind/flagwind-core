@@ -1,19 +1,34 @@
 /*!
- * @file This file is part of `broadcast` module. 
+ * This file is part of `broadcast` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-export { receivable } from "./decorators";
-export { Broadcast } from "./broadcast";
-export { BroadcastPriority } from "./broadcast_priority";
-export { BroadcastContract } from "./broadcast_contract";
-export { BroadcastContext } from "./broadcast_context";
-export { IBroadcastReceiver } from "./broadcast_receiver";
-export { IBroadcastReceiverProvider, BroadcastReceiverProvider } from "./broadcast_receiver-provider";
-export { BroadcastReceiverEntry } from "./broadcast_receiver-entry";
-export { BroadcastManager } from "./broadcast_manager";
+import receivable from "./decorators";
+import Broadcast from "./broadcast";
+import BroadcastPriority from "./broadcast_priority";
+import BroadcastContract from "./broadcast_contract";
+import BroadcastContext from "./broadcast_context";
+import IBroadcastReceiver from "./broadcast_receiver`1";
+import IBroadcastReceiverProvider from "./broadcast_receiver_provider`1";
+import BroadcastReceiverProvider from "./broadcast_receiver_provider";
+import BroadcastReceiverEntry from "./broadcast_receiver_entry";
+import BroadcastManager from "./broadcast_manager";
+
+export
+{
+    receivable,
+    Broadcast,
+    BroadcastPriority,
+    BroadcastContract,
+    BroadcastContext,
+    IBroadcastReceiver,
+    IBroadcastReceiverProvider,
+    BroadcastReceiverProvider,
+    BroadcastReceiverEntry,
+    BroadcastManager
+};

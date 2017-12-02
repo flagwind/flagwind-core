@@ -1,13 +1,20 @@
 /*!
- * @file This file is part of `io` module. 
+ * This file is part of `io` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-export { PathAnchor } from "./path_anchor";
-export { StringReader } from "./string_reader";
-export { LocalStorage } from "./local_storage";
+import PathAnchor from "./path_anchor";
+import StringReader from "./string_reader";
+import LocalStorage from "./local_storage";
+
+export
+{
+    PathAnchor,
+    StringReader,
+    LocalStorage
+};

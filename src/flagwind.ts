@@ -1,9 +1,9 @@
 /**
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
 export * from "./runtime";
@@ -16,6 +16,5 @@ export * from "./events";
 export * from "./commands";
 export * from "./services";
 export * from "./broadcast";
-export * from "./components";
 export * from "./security";
 export * from "./application";

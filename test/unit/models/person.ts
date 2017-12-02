@@ -1,21 +1,21 @@
 /*!
- * @file This file is part of `test` module. 
+ * This file is part of `test` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { Gender } from "./gender";
-import { Address } from "./address";
+import Gender from "./gender";
+import Address from "./address";
 
 /**
  * 表示一个人员实体类型。
  * @class
  */
-export class Person
+export default class Person
 {
     private _name: string;
     private _age: number;

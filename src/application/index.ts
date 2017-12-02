@@ -1,15 +1,28 @@
 /*!
- * @file This file is part of `application` module. 
+ * This file is part of `application` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-export { IWorkspace } from "./workspace";
-export { IWorkbench } from "./workbench";
-export { ApplicationContextBase } from "./application_context";
-export { IApplicationModule } from "./application_module";
-export { Application, ApplicationEventArgs } from "./application";
+import WorkbenchStatus from "./workbench_status";
+import IWorkbench from "./workbench`1";
+import WorkbenchBase from "./workbench_base";
+import ApplicationContextBase from "./application_context_base";
+import IApplicationModule from "./application_module`1";
+import ApplicationEventArgs from "./application_event_args";
+import Application from "./application";
+
+export
+{
+    WorkbenchStatus,
+    IWorkbench,
+    WorkbenchBase,
+    ApplicationContextBase,
+    IApplicationModule,
+    ApplicationEventArgs,
+    Application
+};

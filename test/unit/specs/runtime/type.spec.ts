@@ -1,15 +1,15 @@
 /*!
- * @file This file is part of `runtime` module. 
+ * This file is part of `runtime` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
 import { assert } from "chai";
-import { Type } from "../../../../src/runtime/type";
+import Type from "src/runtime/type";
 import { Employee, Person, Gender } from "../../models";
 
 describe("TypeTest", () =>
@@ -45,7 +45,7 @@ describe("TypeTest", () =>
     /**
      * 测试 getClassType 方法。
      */
-    it("getClassTypeTest", () => 
+    it("getClassTypeTest", () =>
     {
         let type = Type.getClassType(nullValue);
         assert.isNull(type);
@@ -87,7 +87,7 @@ describe("TypeTest", () =>
     /**
      * 测试 getClassName 方法。
      */
-    it("getClassNameTest", () => 
+    it("getClassNameTest", () =>
     {
         // 获取类型名称
         const className = Type.getClassName(employee);
@@ -98,7 +98,7 @@ describe("TypeTest", () =>
     /**
      * 测试 getSuperclassName 方法。
      */
-    it("getSuperclassNameTest", () => 
+    it("getSuperclassNameTest", () =>
     {
         // 获取基类名称
         const superClassName = Type.getSuperclassName(employee);
@@ -109,7 +109,7 @@ describe("TypeTest", () =>
     /**
      * 测试 isAssignableFrom 方法。
      */
-    it("isAssignableFromTest", () => 
+    it("isAssignableFromTest", () =>
     {
         assert.isTrue(Type.isAssignableFrom(Person, Employee));
         assert.isTrue(Type.isAssignableFrom("Person", Employee));

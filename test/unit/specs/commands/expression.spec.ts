@@ -1,16 +1,16 @@
 /*!
- * @file This file is part of `commands` module. 
+ * This file is part of `commands` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
 import { assert } from "chai";
-import { PathAnchor } from "../../../../src/io";
-import { CommandExpression } from "../../../../src/commands";
+import PathAnchor from "src/io/path_anchor";
+import CommandExpression from "src/commands/command_expression";
 
 describe("CommandExpressionTest", () =>
 {

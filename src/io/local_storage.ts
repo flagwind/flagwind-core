@@ -1,15 +1,15 @@
 /*!
- * @file This file is part of `io` module. 
+ * This file is part of `io` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { ArgumentException } from "../exceptions";
-import { Type } from "../runtime";
+import ArgumentException from "../exceptions/argument_exception";
+import Type from "../runtime/type";
 
 /**
  * 表示全局本地缓存容器。
@@ -17,7 +17,7 @@ import { Type } from "../runtime";
  * @class
  * @version 1.0.0
  */
-export class LocalStorage
+export default class LocalStorage
 {
     private static _proxy = window.localStorage;
     

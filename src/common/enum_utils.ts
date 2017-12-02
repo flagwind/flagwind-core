@@ -1,17 +1,17 @@
 /*!
- * @file This file is part of `common` module. 
+ * This file is part of `common` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { Type } from "../runtime";
-import { Map } from "../collections/map";
-import { ArgumentException } from "../exceptions";
-import { EnumEntry } from "./enum_entry";
+import ArgumentException from "../exceptions/argument_exception";
+import Type from "../runtime/type";
+import Map from "../collections/map";
+import EnumEntry from "./enum_entry";
 
 /**
  * 关于的枚举辅助工具类。
@@ -19,7 +19,7 @@ import { EnumEntry } from "./enum_entry";
  * @class
  * @version 1.0.0
  */
-export class EnumUtils
+export default class EnumUtils
 {
     private static readonly _entryCache = new Map<any, Array<EnumEntry>>();
     

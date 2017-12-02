@@ -1,45 +1,29 @@
 /*!
- * @file This file is part of `services` module. 
+ * This file is part of `services` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { Type } from "../runtime";
-import { ArgumentException } from "../exceptions";
-import { IEnumerable, IEnumerator, KeyValuePair, Map } from "../collections";
-import { IServiceProvider, ServiceProvider } from "./service_provider";
-
-/**
- * 提供关于服务供应程序容器的功能。
- * @interface
- * @version 1.0.0
- */
-export interface IServiceProviderFactory
-{
-    /**
-     * 获取设置默认的服务供应程序。
-     * @property
-     */
-    default: IServiceProvider;
-    
-    /**
-     * 获取指定名称的服务供应程序。
-     * @param  {string} name 指定的服务供应程序名称。
-     * @returns IServiceProvider 返回指定名称的服务供应程序。
-     */
-    getProvider(name: string): IServiceProvider;
-}
+import IEnumerable from "../collections/enumerable`1";
+import IEnumerator from "../collections/enumerator`1";
+import IServiceProviderFactory from "./service_provider_factory`1";
+import IServiceProvider from "./service_provider`1";
+import ArgumentException from "../exceptions/argument_exception";
+import Type from "../runtime/type";
+import KeyValuePair from "../collections/key_value_pair";
+import Map from "../collections/map";
+import ServiceProvider from "./service_provider";
 
 /**
  * 提供关于服务供应程序容器的功能。
  * @class
  * @version 1.0.0
  */
-export class ServiceProviderFactory implements IServiceProviderFactory, IEnumerable<KeyValuePair<string, IServiceProvider>>
+export default class ServiceProviderFactory implements IServiceProviderFactory, IEnumerable<KeyValuePair<string, IServiceProvider>>
 {
     private _defaultName: string;                                   // 默认提供程序容器名称
     private _providers: Map<string, IServiceProvider>;              // 私有提供程序字典

@@ -1,40 +1,29 @@
 /*!
- * @file This file is part of `events` module. 
+ * This file is part of `events` module. 
  * 
  * Authors:
- *      @author jason <jasonsoop@gmail.com>
+ *      jason <jasonsoop@gmail.com>
  * 
- * @license Licensed under the MIT License.
- * @copyright Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
+ * Licensed under the MIT License.
+ * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import { IMap, Map } from "../collections";
-import { IEventProvider } from "./event_provider";
+import IMap from "../collections/map`1";
+import IEventProvider from "./event_provider`1";
+import IEventProviderFactory from "./event_provider_factory`1";
+import ArgumentException from "../exceptions/argument_exception";
+import Map from "../collections/map";
+import EventProvider from "./event_provider";
 
 /**
  * 提供关于事件提供程序的功能。
- * @interface
- * @version 1.0.0
- */
-export interface IEventProviderFactory
-{
-    /**
-     * 获取指定目标的事件提供程序。
-     * @param  {any} target IEventProvider 所抛出事件对象的 target 指向。
-     * @returns IEventProdiver 返回指定名称的事件提供程序。
-     */
-    getProvider(target: any): IEventProvider;
-}
-
-/**
- * 提供关于事件提供程序的功能。
- * @abstract
  * @class
  * @version 1.0.0
  */
-export abstract class EventProviderFactoryBase implements IEventProviderFactory
+export default class EventProviderFactory implements IEventProviderFactory
 {
     private _providers: Map<any, IEventProvider>;
+    private static _instance: EventProviderFactory;
     
     /**
      * 获取所有事件提供程序。
@@ -44,6 +33,22 @@ export abstract class EventProviderFactoryBase implements IEventProviderFactory
     protected get providers(): IMap<any, IEventProvider>
     {
         return this._providers;
+    }
+
+    /**
+     * 获取事件提供程序工厂的单实例。
+     * @static
+     * @property
+     * @returns EventProviderFactory
+     */
+    public static get instance(): EventProviderFactory
+    {
+        if(!this._instance)
+        {
+            this._instance = new EventProviderFactory();
+        }
+        
+        return this._instance;
     }
     
     /**
@@ -56,29 +61,37 @@ export abstract class EventProviderFactoryBase implements IEventProviderFactory
     }
     
     /**
-     * 获取指定目标的事件提供程序。
-     * @param  {any} target EventProvider 所抛出事件对象的目标指向。
+     * 获取指定事件源的事件提供程序。
+     * @param  {any} source IEventProvider 所抛出事件对象的源对象。
      * @returns IEventProdiver 返回指定名称的事件提供程序。
      */
-    public getProvider(target: any): IEventProvider
+    public getProvider(source: any): IEventProvider
     {
-        let provider = this._providers.get(target);
+        if(!source)
+        {
+            throw new ArgumentException();
+        }
+
+        let provider = this._providers.get(source);
 
         if(!provider)
         {
-            provider = this.createProvider(target);
+            provider = this.createProvider(source);
 
-            this._providers.set(target, provider);
+            this._providers.set(source, provider);
         }
 
         return provider;
     }
     
     /**
-     * 根据指定的目标创建一个事件提供程序。
-     * @abstract
-     * @param  {any} target EventProvider 所抛出事件对象的目标指向。
+     * 根据指定事件源创建一个事件提供程序。
+     * @virtual
+     * @param  {any} source IEventProvider 所抛出事件对象的源对象。
      * @returns IEventProvider 事件提供程序实例。
      */
-    protected abstract createProvider(target: any): IEventProvider;
+    protected createProvider(source: any): IEventProvider
+    {
+        return new EventProvider(source);
+    }
 }
