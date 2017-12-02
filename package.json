@@ -11,8 +11,8 @@
         "src",
         "dist"
     ],
-    "main": "dist/flagwind.js",
-    "typings": "dist/typings/flagwind.d.ts",
+    "main": "dist/flagwind-core.js",
+    "typings": "dist/typings/index.d.ts",
     "keywords": [
         "flagwind",
         "typescript"

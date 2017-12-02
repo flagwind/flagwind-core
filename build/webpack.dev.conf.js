@@ -7,14 +7,14 @@ module.exports = merge(baseConfig,
 {
     entry:
     {
-        main: "./src/flagwind.ts"
+        main: "./src/index.ts"
     },
     output:
     {
         path: path.resolve(__dirname, "../dist"),
         publicPath: "/dist/",
-        filename: "flagwind.js",
-        library: "flagwind",
+        filename: "flagwind-core.js",
+        library: "flagwind-core",
         libraryTarget: "umd",
         umdNamedDefine: true
     },
