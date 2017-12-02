@@ -19,13 +19,11 @@ export default class CharUtils
     
     public static isLatin(char: string): boolean
     {
-        // tslint:disable-next-line:no-magic-numbers
         return char.charCodeAt(0) <= 255;
     }
 
     public static isAscii(char: string): boolean
     {
-        // tslint:disable-next-line:no-magic-numbers
         return char.charCodeAt(0) <= 127;
     }
     
@@ -50,7 +48,6 @@ export default class CharUtils
         
         let code = char.charCodeAt(0);
 
-        // tslint:disable-next-line:no-magic-numbers
         return code === 32 || code >= 9 && code <= 13 || code === 160 || code === 133;
     }
 }
