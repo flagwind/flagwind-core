@@ -9,9 +9,10 @@
  */
 
 import { assert } from "chai";
-import EventArgs from "src/events/event_args";
-import EventProvider from "src/events/event_provider";
-import EventProviderFactory from "src/events/event_provider_factory";
+import flagwind from "dist/flagwind";
+import EventArgs = flagwind.EventArgs;
+import EventProvider = flagwind.EventProvider;
+import EventProviderFactory = flagwind.EventProviderFactory;
 
 class Button
 {

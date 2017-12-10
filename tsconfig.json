@@ -6,13 +6,14 @@
     "exclude": 
     [
         "node_modules",
-        "dist"
+        "dist",
+        "bin"
     ],
     "compilerOptions": 
     {
-        "module": "esnext",
         "target": "es5",
         "moduleResolution": "node",
+        "outFile": "bin/flagwind.js",
         "stripInternal": true,
         "pretty": true,
         "noImplicitAny": true,
@@ -25,8 +26,6 @@
         "emitDecoratorMetadata": true,
         "allowSyntheticDefaultImports": true,
         "declaration":true,
-        "noEmitHelpers": false,
-        "declarationDir":"./typings",
         "lib": 
         [
             "dom",

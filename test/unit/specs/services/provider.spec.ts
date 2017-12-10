@@ -9,12 +9,13 @@
  */
 
 import { assert } from "chai";
-import Type from "src/runtime/type";
-import Set from "src/collections/set";
-import ServiceProvider from "src/services/service_provider";
-import ServiceProviderFactory from "src/services/service_provider_factory";
-import IWorker from "src/services/worker`1";
-import WorkerBase from "src/services/worker_base";
+import flagwind from "dist/flagwind";
+import Type = flagwind.Type;
+import Set = flagwind.Set;
+import ServiceProvider = flagwind.ServiceProvider;
+import ServiceProviderFactory = flagwind.ServiceProviderFactory;
+import IWorker = flagwind.IWorker;
+import WorkerBase = flagwind.WorkerBase;
 import BroadcastWorker from "./workers/broadcast_worker";
 import HeartbeatWorker from "./workers/heartbeat_worker";
 import MessageWorker from "./workers/message_worker";

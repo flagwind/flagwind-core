@@ -9,10 +9,11 @@
  */
 
 import { assert } from "chai";
-import Type from "src/runtime/type";
-import IWorker from "src/services/worker`1";
-import WorkerBase from "src/services/worker_base";
-import WorkerStateChangedEventArgs from "src/services/worker_state_changed_event_args";
+import flagwind from "dist/flagwind";
+import Type = flagwind.Type;
+import IWorker = flagwind.IWorker;
+import WorkerBase = flagwind.WorkerBase;
+import WorkerStateChangedEventArgs = flagwind.WorkerStateChangedEventArgs;
 
 export default class HeartbeatWorker extends WorkerBase
 {

@@ -8,7 +8,7 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import Type from "../../../src/runtime/type";
+import fw from "dist/flagwind";
 
 /**
  * 表示一个性别枚举。
@@ -33,7 +33,7 @@ enum Gender
  * 定义枚举元数据。
  * @define
  */
-Type.setMetadata(Gender,
+fw.Type.setMetadata(Gender,
 // tslint:disable-next-line:align
 {
     male:

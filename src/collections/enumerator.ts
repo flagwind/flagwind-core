@@ -1,72 +1,62 @@
-/*!
- * This file is part of `collections` module. 
- * 
- * Authors:
- *      jason <jasonsoop@gmail.com>
- * 
- * Licensed under the MIT License.
- * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
- */
-
-import IEnumerator from "./enumerator`1";
-import ArgumentException from "../exceptions/argument_exception";
-
-/**
- * 表示一个默认的枚举器。
- * @class
- * @version 1.0.0
- */
-export default class Enumerator<T> implements IEnumerator<T>
+namespace flagwind
 {
-    private _items: Array<T>;
-    private _current: T;
-    private _index: number;
-    
     /**
-     * 获取当前遍历的值。
-     * @summary 如果已经遍历结束，则返回 undefined。
-     * @property
-     * @returns T
+     * 表示一个默认的枚举器。
+     * @class
+     * @version 1.0.0
      */
-    public get current(): T
+    export class Enumerator<T> implements IEnumerator<T>
     {
-        return this._current;
-    }
-    
-    /**
-     * 初始化 Enumerator<T> 类的新实例。
-     * @constructor
-     * @param  {Array<T>} items 要枚举的元素。
-     */
-    public constructor(items: Array<T>)
-    {
-        if(!items)
+        private _items: Array<T>;
+        private _current: T;
+        private _index: number;
+        
+        /**
+         * 获取当前遍历的值。
+         * @summary 如果已经遍历结束，则返回 undefined。
+         * @property
+         * @returns T
+         */
+        public get current(): T
         {
-            throw new ArgumentException("items");
+            return this._current;
         }
         
-        this._index = 0;
-        this._current = undefined;
-        this._items = items;
-    }
-    
-    /**
-     * 将枚举数推进到集合的下一个元素。
-     * @returns boolean 如果枚举数已成功地推进到下一个元素，则为 true；如果枚举数传递到集合的末尾，则为 false。
-     */
-    public next(): boolean
-    {
-        let items = this._items;
-        
-        if(this._index < items.length)
+        /**
+         * 初始化 Enumerator<T> 类的新实例。
+         * @constructor
+         * @param  {Array<T>} items 要枚举的元素。
+         */
+        public constructor(items: Array<T>)
         {
-            this._current = items[this._index++];
+            if(!items)
+            {
+                throw new ArgumentException("items");
+            }
             
-            return true;
+            this._index = 0;
+            this._current = undefined;
+            this._items = items;
         }
-        else
+        
+        /**
+         * 将枚举数推进到集合的下一个元素。
+         * @returns boolean 如果枚举数已成功地推进到下一个元素，则为 true；如果枚举数传递到集合的末尾，则为 false。
+         */
+        public next(): boolean
         {
-            return false;
+            let items = this._items;
+            
+            if(this._index < items.length)
+            {
+                this._current = items[this._index++];
+                
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

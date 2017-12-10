@@ -9,8 +9,9 @@
  */
 
 import { assert } from "chai";
-import PathAnchor from "src/io/path_anchor";
-import CommandExpression from "src/commands/command_expression";
+import flagwind from "dist/flagwind";
+import PathAnchor = flagwind.PathAnchor;
+import CommandExpression = flagwind.CommandExpression;
 
 describe("CommandExpressionTest", () =>
 {

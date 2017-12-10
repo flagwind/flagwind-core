@@ -10,9 +10,10 @@
 
 import { assert } from "chai";
 import { Promise, polyfill } from "es6-promise";
-import Type from "src/runtime/type";
+import flagwind from "dist/flagwind";
+import Type = flagwind.Type;
+import CommandExecutor = flagwind.CommandExecutor;
 import SendCommand from "./sms/send-command";
-import CommandExecutor from "src/commands/command_executor";
 
 polyfill();
 

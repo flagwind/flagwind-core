@@ -10,8 +10,9 @@
 
 import { assert } from "chai";
 import { Promise } from "es6-promise";
-import EventProvider from "src/events/event_provider";
-import EventArgs from "src/events/event_args";
+import flagwind from "dist/flagwind";
+import EventProvider = flagwind.EventProvider;
+import EventArgs = flagwind.EventArgs;
 
 class Button extends EventProvider
 {
@@ -89,7 +90,7 @@ describe("EventProviderTest", () =>
         provider1.addListener("something", listener, undefined, true);
 
         assert.isTrue(provider1.hasListener("something"));
-
+        
         provider1.dispatchEvent(new EventArgs("something", "data"));
 
         assert.isFalse(provider1.hasListener("something"));

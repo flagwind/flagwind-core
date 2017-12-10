@@ -8,9 +8,10 @@
  * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
  */
 
-import StringUtils from "src/common/string_utils";
-import CommandBase from "src/commands/command_base";
-import CommandContext from "src/commands/command_context";
+import flagwind from "dist/flagwind";
+import StringUtils = flagwind.StringUtils;
+import CommandBase = flagwind.CommandBase;
+import CommandContext = flagwind.CommandContext;
 
 export default class SendCommand extends CommandBase<CommandContext>
 {
