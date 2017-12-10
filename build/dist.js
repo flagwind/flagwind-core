@@ -145,7 +145,7 @@ const genConfig = function(opts)
         input:
         {
             input: resolve("bin/flagwind.js"),
-            context: "global",
+            context: "this",
             plugins: []
         },
         output: 
