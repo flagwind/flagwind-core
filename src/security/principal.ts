@@ -1,73 +1,61 @@
-/*!
- * This file is part of `security` module. 
- * 
- * Authors:
- *      jason <jasonsoop@gmail.com>
- * 
- * Licensed under the MIT License.
- * Copyright (C) 2010-2017 Flagwind Inc. All rights reserved. 
- */
-
-import ICredential from "./credential`1";
-import IPrincipal from "./principal`1";
-import ArgumentException from "../exceptions/argument_exception";
-import LocalStorage from "../io/local_storage";
-
-const CREDENTIAL_SYMBOL: string = "__principal__";
-
-/**
- * 定义用户对象的基本功能。
- * @class
- * @version 1.0.0
- */
-export default class Principal implements IPrincipal
+namespace flagwind
 {
-    private _credential: ICredential;                           // 安全凭证
+    const CREDENTIAL_SYMBOL: string = "__principal__";
     
     /**
-     * 初始化凭票的新实例。
-     * @constructor
-     * @param  {ICredential} credential
+     * 定义用户对象的基本功能。
+     * @class
+     * @version 1.0.0
      */
-    public constructor(credential: ICredential)
+    export class Principal implements IPrincipal
     {
-        if(!credential || !credential.credentialId || !credential.expires)
+        private _credential: ICredential;                           // 安全凭证
+        
+        /**
+         * 初始化凭票的新实例。
+         * @constructor
+         * @param  {ICredential} credential
+         */
+        public constructor(credential: ICredential)
         {
-            throw new ArgumentException();
+            if(!credential || !credential.credentialId || !credential.expires)
+            {
+                throw new ArgumentException();
+            }
+            
+            // 保存安全凭证
+            this._credential = credential;
+    
+            // 将安全凭证存入 LocalStorage 中
+            LocalStorage.set(CREDENTIAL_SYMBOL, credential);
         }
         
-        // 保存安全凭证
-        this._credential = credential;
-
-        // 将安全凭证存入 LocalStorage 中
-        LocalStorage.set(CREDENTIAL_SYMBOL, credential);
-    }
-    
-    /**
-     * 获取当前用户的凭证。
-     * @property
-     * @return string
-     */
-    public get credential(): ICredential
-    {
-        // 如果内存没有安全凭证，则从 LocalStorage 中获取
-        if(!this._credential)
+        /**
+         * 获取当前用户的凭证。
+         * @property
+         * @return string
+         */
+        public get credential(): ICredential
         {
-            this._credential = LocalStorage.get<ICredential>(CREDENTIAL_SYMBOL);
+            // 如果内存没有安全凭证，则从 LocalStorage 中获取
+            if(!this._credential)
+            {
+                this._credential = LocalStorage.get<ICredential>(CREDENTIAL_SYMBOL);
+            }
+            
+            return this._credential;
         }
         
-        return this._credential;
-    }
-    
-    /**
-     * 获取当前用户是否为有效。
-     * @property
-     * @return boolean
-     */
-    public get isAuthenticated(): boolean
-    {
-        let credential = this.credential;
-        
-        return credential && credential.expires && new Date() < credential.expires;
+        /**
+         * 获取当前用户是否为有效。
+         * @property
+         * @return boolean
+         */
+        public get isAuthenticated(): boolean
+        {
+            let credential = this.credential;
+            
+            return credential && credential.expires && new Date() < credential.expires;
+        }
     }
 }

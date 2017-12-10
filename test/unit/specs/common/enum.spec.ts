@@ -9,8 +9,9 @@
  */
 
 import { assert } from "chai";
-import EnumEntry from "src/common/enum_entry";
-import EnumUtils from "src/common/enum_utils";
+import flagwind from "dist/flagwind";
+import EnumEntry = flagwind.EnumEntry;
+import EnumUtils = flagwind.EnumUtils;
 import Gender from "../../models/gender";
 
 describe("EnumTest", () =>

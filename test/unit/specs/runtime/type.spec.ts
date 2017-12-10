@@ -9,7 +9,8 @@
  */
 
 import { assert } from "chai";
-import Type from "src/runtime/type";
+import flagwind from "dist/flagwind";
+import Type = flagwind.Type;
 import { Employee, Person, Gender } from "../../models";
 
 describe("TypeTest", () =>
@@ -32,7 +33,7 @@ describe("TypeTest", () =>
     {
         assert.isTrue(Type.isArray(dynamicArray));
         assert.isTrue(Type.isArray(typedArray));
-
+        
         assert.isFalse(Type.isArray(nullValue));
         assert.isFalse(Type.isArray(undefinedValue));
         assert.isFalse(Type.isArray(objectValue));

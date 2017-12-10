@@ -9,7 +9,7 @@
         "allowSyntheticDefaultImports": true,
         "baseUrl": ".",
         "paths": {
-            "src/*": ["../../src/*"]
+            "dist/*": ["../../dist/*"]
         },
         "lib": 
         [
