@@ -8,7 +8,26 @@ namespace flagwind
      */
     export class LocalStorage
     {
-        private static _proxy = window.localStorage;
+        private static _proxy: any;
+        
+        /**
+         * 获取或设置缓存代理。
+         * @returns any
+         */
+        public static get proxy(): any
+        {
+            if(!this._proxy && window && window.localStorage)
+            {
+                return window.localStorage;
+            }
+            
+            return this._proxy;
+        }
+
+        public static set proxy(value: any)
+        {
+            this._proxy = value;
+        }
         
         /**
          * 获取本地缓存容器的存储数量。
@@ -18,7 +37,7 @@ namespace flagwind
          */
         public static get size(): number
         {
-            return this._proxy.length;
+            return this.proxy.length;
         }
         
         /**
@@ -44,8 +63,8 @@ namespace flagwind
             }
     
             let serialized: string = this.serialize(value);
-    
-            this._proxy.setItem(key, serialized);
+            
+            this.proxy.setItem(key, serialized);
         }
     
         /**
@@ -56,7 +75,7 @@ namespace flagwind
          */
         public static get<T> (key: string): T
         {
-            return this.deserialize(this._proxy.getItem(key));
+            return this.deserialize(this.proxy.getItem(key));
         }
     
         /**
@@ -72,7 +91,7 @@ namespace flagwind
                 throw new ArgumentException(key);
             }
     
-            this._proxy.removeItem(key);
+            this.proxy.removeItem(key);
         }
     
         /**
@@ -82,7 +101,7 @@ namespace flagwind
          */
         public static clear(): void
         {
-            this._proxy.clear();
+            this.proxy.clear();
         }
     
         /**
