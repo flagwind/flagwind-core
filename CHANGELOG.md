@@ -1,5 +1,9 @@
 # 更新日志
 
+## 1.0.5 / 2017-12-227
+
+- 将 `IWorker` 接口的 start、stop、pause、resume 方法改为异步调用。
+
 ## 1.0.4 / 2017-12-22
 
 - 开放 LocalStorage 类的代理为可配置。

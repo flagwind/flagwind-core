@@ -39,28 +39,32 @@ namespace flagwind
 
         /**
          * 启动工作器。
+         * @async
          * @param  {Array<string>} ...args 启动的参数。
          * @returns void
          */
-        start(...args: Array<string>): void;
+        start(...args: Array<string>): Promise<void>;
         
         /**
          * 停止工作器。
+         * @async
          * @param  {Array<string>} ...args 停止的参数。
          * @returns void
          */
-        stop(...args: Array<string>): void;
+        stop(...args: Array<string>): Promise<void>;
         
         /**
          * 暂停工作器。
+         * @async
          * @returns void
          */
-        pause(): void;
+        pause(): Promise<void>;
         
         /**
          * 恢复工作器，继续运行。
+         * @async
          * @returns void
          */
-        resume(): void;
+        resume(): Promise<void>;
     }
 }

@@ -104,10 +104,11 @@ namespace flagwind
 
         /**
          * 启动工作器。
+         * @async
          * @param  {Array<string>} ...args 启动的参数。
          * @returns void
          */
-        public start(...args: Array<string>): void
+        public async start(...args: Array<string>): Promise<void>
         {
             if(this._disabled || this._state !== WorkerState.stopped)
             {
@@ -120,7 +121,7 @@ namespace flagwind
             try
             {
                 // 调用启动抽象方法，已执行实际的启动操作
-                this.onStart(...args);
+                await this.onStart(...args);
 
                 // 更新当前状态为“运行中”
                 this._state = WorkerState.running;
@@ -141,10 +142,11 @@ namespace flagwind
 
         /**
          * 停止工作器。
+         * @async
          * @param  {Array<string>} ...args 停止的参数。
          * @returns void
          */
-        public stop(...args: Array<string>): void
+        public async stop(...args: Array<string>): Promise<void>
         {
             // 保存原来的状态s
             let originalState = this._state;
@@ -160,8 +162,8 @@ namespace flagwind
             try
             {
                 // 调用停止抽象方法，以执行实际的停止操作
-                this.onStop(...args);
-
+                await this.onStop(...args);
+                
                 // 更新当前状态为"已停止"
                 this._state = WorkerState.stopped;
 
@@ -182,9 +184,10 @@ namespace flagwind
 
         /**
          * 暂停工作器。
+         * @async
          * @returns void
          */
-        public pause(): void
+        public async pause(): Promise<void>
         {
             // 保存原来的状态
             let originalState = this._state;
@@ -205,7 +208,7 @@ namespace flagwind
             try
             {
                 // 执行暂停操作
-                this.onPause();
+                await this.onPause();
 
                 // 更新当前状态为"已经暂停"
                 this._state = WorkerState.paused;
@@ -227,9 +230,10 @@ namespace flagwind
 
         /**
          * 恢复工作器，继续运行。
+         * @async
          * @returns void
          */
-        public resume(): void
+        public async resume(): Promise<void>
         {
             // 保存原来的状态
             let originalState = this._state;
@@ -250,7 +254,7 @@ namespace flagwind
             try
             {
                 // 执行恢复
-                this.onResume();
+                await this.onResume();
 
                 // 更新当前状态为"运行中"
                 this._state = WorkerState.running;
@@ -274,37 +278,41 @@ namespace flagwind
          * 当工作器启动时调用。
          * @protected
          * @abstract
+         * @async
          * @param  {Array<string>} ...args
          * @returns void
          */
-        protected abstract onStart(...args: Array<string>): void;
+        protected abstract async onStart(...args: Array<string>): Promise<void>;
         
         /**
          * 当工作器停止时调用。
          * @protected
          * @abstract
+         * @async
          * @param  {Array<string>} ...args
          * @returns void
          */
-        protected abstract onStop(...args: Array<string>): void;
+        protected abstract async onStop(...args: Array<string>): Promise<void>;
         
         /**
          * 当工作器暂停时调用。
          * @protected
          * @virtual
+         * @async
          * @returns void
          */
         // tslint:disable-next-line:no-empty
-        protected onPause(): void {}
-
+        protected async onPause(): Promise<void> {}
+        
         /**
          * 当工作器恢复时调用。
          * @protected
          * @virtual
+         * @async
          * @returns void
          */
         // tslint:disable-next-line:no-empty    
-        protected onResume(): void {}
+        protected async onResume(): Promise<void> {}
         
         /**
          * 当工作器状态发生改变时调用。
