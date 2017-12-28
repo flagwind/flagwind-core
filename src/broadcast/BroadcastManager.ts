@@ -67,7 +67,7 @@ namespace flagwind
         public register(contract: BroadcastContract, receiver: IBroadcastReceiver): void
         {
             // 将协议注册至事件提供程序中
-            if(this.eventProvider.hasListener(contract.scheme))
+            if(!this.eventProvider.hasListener(contract.scheme))
             {
                 this.eventProvider.addListener(contract.scheme, this.onReceive, this);
             }
