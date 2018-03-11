@@ -130,7 +130,7 @@ namespace flagwind
             catch(ex)
             {
                 // 应用无法启动，写入日志
-                console.error(ex);
+                Logger.error(this, ex);
                 
                 // 重抛异常
                 throw ex;
