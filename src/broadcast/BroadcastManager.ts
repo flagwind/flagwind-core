@@ -129,7 +129,7 @@ namespace flagwind
                 }
                 catch(ex)
                 {
-                    console.error(ex);
+                    Logger.error(this, ex);
                 }
             }
         }
