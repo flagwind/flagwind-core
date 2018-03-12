@@ -18,7 +18,7 @@ namespace flagwind
          */
         public constructor(credential: ICredential)
         {
-            if(!credential || !credential.credentialId || !credential.expires)
+            if(!credential || !credential.credentialId)
             {
                 throw new ArgumentException();
             }

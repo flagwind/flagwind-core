@@ -20,12 +20,12 @@ namespace flagwind
          * @returns string
          */
         userId: string;
-
+        
         /**
          * 获取安全凭证的过期时间。
          * @member
          * @returns Date
          */
-        expires: Date;
+        expires?: Date;
     }
 }
