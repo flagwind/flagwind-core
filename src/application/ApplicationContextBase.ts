@@ -1,5 +1,7 @@
 namespace flagwind
 {
+    const CREDENTIALL_SYMBOL: string = "__credential__";
+
     /**
      * 表示实现该抽象类的是一个应用程序上下文。
      * @class
@@ -12,7 +14,7 @@ namespace flagwind
         private _modules: ISet<IApplicationModule>;                 // 应用程序的模块集合
         private _states: IMap<string, any>;                         // 当前应用的状态字典
         private _workbench: IWorkbench;                             // 工作台实例
-        private _principal: IPrincipal;                             // 当前应用的安全主体
+        private _credential: ICredential;                           // 当前用户的安全凭证
         
         /**
          * 获取或设置当前应用程序唯一代号。
@@ -81,18 +83,27 @@ namespace flagwind
         }
         
         /**
-         * 获取或设置当前应用程序的安全主体。
+         * 获取或设置当前用户的安全凭证。
          * @property
-         * @returns IPrincipal
+         * @returns ICredential
          */
-        public get principal(): IPrincipal
+        public get credential(): ICredential
         {
-            return this._principal;
+             // 如果内存没有凭证，则从 LocalStorage 中获取
+            if(!this._credential)
+            {
+                this._credential = LocalStorage.get<ICredential>(CREDENTIALL_SYMBOL);
+            }
+            
+            return this._credential;
         }
         
-        public set principal(value: IPrincipal)
+        public set credential(value: ICredential)
         {
-            this._principal = value;
+            this._credential = value;
+            
+            // 将安全凭证存入 LocalStorage 中
+            LocalStorage.set(CREDENTIALL_SYMBOL, value);
         }
         
         /**
