@@ -20,6 +20,11 @@ describe("CommandExpressionTest", () =>
      */
     it("parseTest", () =>
     {
+        const x = CommandExpression.parse("/jimi/token/get");
+        const y = CommandExpression.parse("jimi.token.get");
+        console.log(x);
+        console.log(y);
+
         let expression = CommandExpression.parse("");
         assert.isNull(expression);
 
