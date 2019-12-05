@@ -29,9 +29,9 @@ export default class HeartbeatWorker extends WorkerBase
      * @param  {Array<string>} ...args
      * @returns void
      */
-    protected onStart(...args: Array<string>): void
+    protected onStart(...args: Array<string>): Promise<void>
     {
-        // todo
+        return null;
     }
     
     /**
@@ -41,9 +41,9 @@ export default class HeartbeatWorker extends WorkerBase
      * @param  {Array<string>} ...args
      * @returns void
      */
-    protected onStop(...args: Array<string>): void
+    protected onStop(...args: Array<string>): Promise<void>
     {
-        // todo
+        return null;
     }
 
     /**

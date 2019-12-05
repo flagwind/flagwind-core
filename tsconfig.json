@@ -18,6 +18,7 @@
         "pretty": true,
         "noImplicitAny": true,
         "noImplicitThis": true,
+        "preserveConstEnums": true,
         "noImplicitReturns": true,
         "noUnusedLocals": true,
         "strictNullChecks": false,

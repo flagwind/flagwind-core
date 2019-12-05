@@ -228,7 +228,7 @@ namespace flagwind
             
             if(parts && parts.size > 0)
             {
-                path = parts.values().join(".");
+                path = parts.values().join("/");
             }
             else if(!name)
             {
